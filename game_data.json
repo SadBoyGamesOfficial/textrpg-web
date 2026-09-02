@@ -66,7 +66,7 @@
       "unlockLevel": 1,
       "defenseShare": 0.15,
       "hitsToKill": 2,
-      "hitsYouSurvive": 20,
+      "hitsYouSurvive": 24,
       "image": "",
       "hideDescription": false
     },
@@ -78,8 +78,8 @@
       "tier": 2,
       "unlockLevel": 2,
       "defenseShare": 0.25,
-      "hitsToKill": 4,
-      "hitsYouSurvive": 22,
+      "hitsToKill": 3,
+      "hitsYouSurvive": 28,
       "image": "",
       "hideDescription": false
     },
@@ -91,8 +91,8 @@
       "tier": 3,
       "unlockLevel": 5,
       "defenseShare": 0.35,
-      "hitsToKill": 6,
-      "hitsYouSurvive": 30,
+      "hitsToKill": 5,
+      "hitsYouSurvive": 36,
       "image": "",
       "hideDescription": false
     },
@@ -104,8 +104,8 @@
       "tier": 4,
       "unlockLevel": 10,
       "defenseShare": 0.3,
-      "hitsToKill": 4,
-      "hitsYouSurvive": 14,
+      "hitsToKill": 3,
+      "hitsYouSurvive": 22,
       "image": "",
       "hideDescription": false
     },
@@ -117,8 +117,8 @@
       "tier": 5,
       "unlockLevel": 25,
       "defenseShare": 0.45,
-      "hitsToKill": 8,
-      "hitsYouSurvive": 32,
+      "hitsToKill": 6,
+      "hitsYouSurvive": 40,
       "image": "",
       "hideDescription": false
     }

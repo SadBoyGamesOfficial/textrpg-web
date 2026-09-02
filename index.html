@@ -687,7 +687,7 @@ const DEFAULT_GAME_DATA = {
       unlockLevel: 1,
       defenseShare: 0.15,
       hitsToKill: 2,
-      hitsYouSurvive: 20,
+      hitsYouSurvive: 24,
       image: "",
       hideDescription: false,
     },
@@ -699,8 +699,8 @@ const DEFAULT_GAME_DATA = {
       tier: 2,
       unlockLevel: 2,
       defenseShare: 0.25,
-      hitsToKill: 4,
-      hitsYouSurvive: 22,
+      hitsToKill: 3,
+      hitsYouSurvive: 28,
       image: "",
       hideDescription: false,
     },
@@ -712,8 +712,8 @@ const DEFAULT_GAME_DATA = {
       tier: 3,
       unlockLevel: 3,
       defenseShare: 0.35,
-      hitsToKill: 6,
-      hitsYouSurvive: 30,
+      hitsToKill: 5,
+      hitsYouSurvive: 36,
       image: "",
       hideDescription: false,
     },
@@ -725,8 +725,8 @@ const DEFAULT_GAME_DATA = {
       tier: 4,
       unlockLevel: 5,
       defenseShare: 0.3,
-      hitsToKill: 4,
-      hitsYouSurvive: 14,
+      hitsToKill: 3,
+      hitsYouSurvive: 22,
       image: "",
       hideDescription: false,
     },
@@ -738,8 +738,8 @@ const DEFAULT_GAME_DATA = {
       tier: 5,
       unlockLevel: 7,
       defenseShare: 0.45,
-      hitsToKill: 8,
-      hitsYouSurvive: 32,
+      hitsToKill: 6,
+      hitsYouSurvive: 40,
       image: "",
       hideDescription: false,
     },
@@ -1280,6 +1280,13 @@ function enterForest() {
   spawnEnemy();
 }
 
+function enemyRawDamage(kind, reference) {
+  const survive = Math.max(1, Number(kind.hitsYouSurvive) || 1);
+  const taken = Math.max(1, Math.round((Number(reference.attack) * 3) / survive));
+  const reduction = armorPercent(reference.defense) / 100;
+  return Math.max(1, Math.round(taken / Math.max(0.2, 1 - reduction)));
+}
+
 function referenceHero(level) {
   const steps = level - 1;
   return {
@@ -1297,14 +1304,14 @@ function pickEnemyLevel(heroLevel) {
   const roll = Math.random();
   const weakChance = Math.max(0.006, 0.12 / Math.max(4, heroLevel));
 
-  if (roll < 0.03) {
+  if (roll < 0.008) {
     return clampLevel(heroLevel + 6 + Math.floor(Math.random() * 5));
   }
-  if (roll < 0.03 + weakChance && heroLevel > 3) {
+  if (roll < 0.008 + weakChance && heroLevel > 3) {
     const ceiling = Math.max(1, Math.floor(heroLevel / 4));
     return clampLevel(1 + Math.floor(Math.random() * ceiling));
   }
-  if (roll < 0.22) {
+  if (roll < 0.08) {
     return clampLevel(heroLevel + 1 + Math.floor(Math.random() * 3));
   }
   return clampLevel(heroLevel - 2 + Math.floor(Math.random() * 4));
@@ -1334,7 +1341,6 @@ function makeEnemy(heroLevel) {
   const defense = clampArmor(Math.round(reference.attack * kind.defenseShare));
   const hit = mitigatedDamage(reference.attack, defense);
   const health = Math.max(1, Math.round(hit * kind.hitsToKill));
-  const bite = Math.max(1, Math.round(reference.maxHealth / kind.hitsYouSurvive));
 
   return {
     kindId: kind.id,
@@ -1348,7 +1354,7 @@ function makeEnemy(heroLevel) {
     level,
     health,
     maxHealth: health,
-    damage: Math.round(reference.defense) + bite,
+    damage: enemyRawDamage(kind, reference),
     defense,
     exp: Math.round((8 + 4 * kind.tier) * (1 + 0.5 * (level - 1))),
   };
