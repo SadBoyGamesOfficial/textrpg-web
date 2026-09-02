@@ -215,9 +215,62 @@ input[type="text"]:focus {
   margin: 0 0 10px;
   font-weight: 600;
 }
+
+.studio-bar {
+  display: none;
+  max-width: 640px;
+  margin: 0 auto 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+
+.studio-bar.is-on {
+  display: block;
+}
+
+.studio-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.studio-head span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.studio-bar button {
+  width: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.studio-log {
+  display: none;
+  margin: 10px 0 0;
+  max-height: 180px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.studio-log.is-on {
+  display: block;
+}
 </style>
 </head>
 <body>
+<div class="studio-bar" id="studioBar">
+  <div class="studio-head">
+    <span>Локальная студия — игроки эту панель не видят</span>
+    <button type="button" id="publishBtn" class="primary">Опубликовать в GitHub</button>
+  </div>
+  <pre class="studio-log" id="publishLog"></pre>
+</div>
 <main class="card">
   <div class="topbar">
     <strong>TextRPG</strong>
@@ -990,6 +1043,50 @@ function start() {
 }
 
 start();
+</script>
+<script>
+(function () {
+  const bar = document.getElementById("studioBar");
+  const button = document.getElementById("publishBtn");
+  const logBox = document.getElementById("publishLog");
+  if (!bar || !button || !logBox) return;
+
+  const local = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+  if (!local) return;
+
+  fetch("/studio")
+    .then((response) => (response.ok ? response.json() : Promise.reject()))
+    .then(() => {
+      bar.classList.add("is-on");
+      button.addEventListener("click", publishToGitHub);
+    })
+    .catch(() => {});
+
+  async function publishToGitHub() {
+    button.disabled = true;
+    button.textContent = "Публикую…";
+    logBox.classList.add("is-on");
+    logBox.textContent = "Обновляю общедоступный репозиторий GitHub…";
+    try {
+      const response = await fetch("/publish", { method: "POST" });
+      const data = await response.json();
+      logBox.textContent = data.log || "";
+      if (data.ok) {
+        button.textContent = "Опубликовано";
+        if (data.url) {
+          logBox.textContent += (logBox.textContent ? "\n\n" : "") + data.url;
+        }
+      } else {
+        button.textContent = "Ошибка — нажмите ещё раз";
+        button.disabled = false;
+      }
+    } catch (error) {
+      logBox.textContent = String(error);
+      button.textContent = "Ошибка — нажмите ещё раз";
+      button.disabled = false;
+    }
+  }
+})();
 </script>
 </body>
 </html>
