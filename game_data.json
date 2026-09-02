@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788376224650",
+  "assetRev": "1788379962013",
   "location": {
     "name": "Забытый лес",
     "icon": "🌲",
@@ -89,7 +89,7 @@
       "description": "Опасный противник, способный дать отпор в бою.",
       "female": false,
       "tier": 3,
-      "unlockLevel": 3,
+      "unlockLevel": 5,
       "defenseShare": 0.35,
       "hitsToKill": 6,
       "hitsYouSurvive": 30,
@@ -102,7 +102,7 @@
       "description": "Крепкий противник с тяжёлым оружием.",
       "female": false,
       "tier": 4,
-      "unlockLevel": 5,
+      "unlockLevel": 10,
       "defenseShare": 0.3,
       "hitsToKill": 4,
       "hitsYouSurvive": 14,
@@ -115,7 +115,7 @@
       "description": "Медленный, но очень живучий противник.",
       "female": false,
       "tier": 5,
-      "unlockLevel": 7,
+      "unlockLevel": 25,
       "defenseShare": 0.45,
       "hitsToKill": 8,
       "hitsYouSurvive": 32,
