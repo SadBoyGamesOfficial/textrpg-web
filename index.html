@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1115">
+<title>TextRPG — выбор версии</title>
+<style>
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1e2230;
+  --line: #2a2f3d;
+  --text: #e8eaf0;
+  --muted: #98a0b3;
+  --accent: #6ea8fe;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 50% -10%, #1b2030, var(--bg));
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+.card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.lead {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.option {
+  display: block;
+  margin-bottom: 12px;
+  padding: 16px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.option:active {
+  border-color: var(--accent);
+}
+
+.option-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.option-text {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <h1>TextRPG</h1>
+  <p class="lead">Забытый лес: выбери класс, бей врагов, качай уровень до 50.</p>
+
+  <a class="option" href="with-save/">
+    <span class="option-title">Играть с сохранением</span>
+    <span class="option-text">Прогресс хранится в браузере — можно закрыть страницу и вернуться позже.</span>
+  </a>
+
+  <a class="option" href="no-save/">
+    <span class="option-title">Играть без сохранения</span>
+    <span class="option-text">Каждое открытие страницы — новая игра с нуля.</span>
+  </a>
+
+  <p class="note">Работает на телефоне и на компьютере, ничего устанавливать не нужно.</p>
+</main>
+</body>
+</html>
