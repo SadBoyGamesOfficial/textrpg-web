@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0f1115">
-<title>TextRPG — выбор версии</title>
+<title>TextRPG — Забытый лес</title>
 <style>
 :root {
   --bg: #0f1115;
@@ -14,6 +14,9 @@
   --text: #e8eaf0;
   --muted: #98a0b3;
   --accent: #6ea8fe;
+  --hp: #f0f2f7;
+  --danger: #ff6b6b;
+  --good: #7bd88f;
 }
 
 * {
@@ -41,68 +44,951 @@ body {
   padding: 20px;
 }
 
-h1 {
-  margin: 0 0 8px;
-  font-size: 28px;
-  letter-spacing: 0.5px;
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-.lead {
-  margin: 0 0 20px;
+.mode-tag {
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+#log {
+  max-height: 52vh;
+  overflow-y: auto;
+  padding: 2px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.entry {
+  position: relative;
+  margin: 12px 0;
+  padding: 12px 14px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid #39405280;
+  border-radius: 12px;
+}
+
+.entry-good {
+  border-left-color: var(--good);
+}
+
+.entry-bad {
+  border-left-color: var(--danger);
+}
+
+.entry-info {
+  border-left-color: var(--accent);
+}
+
+.entry + .entry::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: -7px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+.entry-title {
+  font-weight: 600;
+}
+
+.entry-desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.stats {
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
   color: var(--muted);
 }
 
-.option {
+.stats b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.warning {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.hit {
+  font-weight: 600;
+}
+
+.hit-you {
+  color: var(--good);
+}
+
+.hit-enemy {
+  color: var(--danger);
+}
+
+.bar {
+  margin-top: 6px;
+  height: 12px;
+  background: #2b303c;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar span {
   display: block;
-  margin-bottom: 12px;
-  padding: 16px;
+  height: 100%;
+  background: var(--hp);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 12px;
-  color: var(--text);
-  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
 }
 
-.option:active {
+button:active {
   border-color: var(--accent);
 }
 
-.option-title {
-  display: block;
-  font-size: 18px;
+button.primary {
+  background: #24406e;
+  border-color: #315694;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--muted);
+}
+
+button.danger {
+  background: #4a1f24;
+  border-color: #7a2e36;
+  color: #ffd7d7;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.prompt {
+  margin: 0 0 10px;
   font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.option-text {
-  display: block;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.note {
-  margin: 20px 0 0;
-  color: var(--muted);
-  font-size: 14px;
 }
 </style>
 </head>
 <body>
 <main class="card">
-  <h1>TextRPG</h1>
-  <p class="lead">Забытый лес: выбери класс, бей врагов, качай уровень до 50.</p>
-
-  <a class="option" href="with-save/">
-    <span class="option-title">Играть с сохранением</span>
-    <span class="option-text">Прогресс хранится в браузере — можно закрыть страницу и вернуться позже.</span>
-  </a>
-
-  <a class="option" href="no-save/">
-    <span class="option-title">Играть без сохранения</span>
-    <span class="option-text">Каждое открытие страницы — новая игра с нуля.</span>
-  </a>
-
-  <p class="note">Работает на телефоне и на компьютере, ничего устанавливать не нужно.</p>
+  <div class="topbar">
+    <strong>TextRPG</strong>
+    <span class="mode-tag">Забытый лес</span>
+  </div>
+  <div id="log"></div>
+  <div class="actions" id="actions"></div>
 </main>
+<script>
+const STORAGE_KEY = "textrpg-save";
+const MAX_LEVEL = 50;
+
+const CLASS_INFO = {
+  "Воин": {
+    description: "Крепкий боец ближнего боя с хорошей защитой.",
+    maxHealth: 10,
+    attack: 2,
+    defense: 4,
+  },
+  "Лучник": {
+    description: "Боец дальнего боя с высоким уроном.",
+    maxHealth: 7,
+    attack: 3,
+    defense: 2,
+  },
+  "Маг": {
+    description: "Наносит разрушительный урон заклинаниями, но практически беззащитен.",
+    maxHealth: 5,
+    attack: 4,
+    defense: 1,
+  },
+};
+
+const ENEMY_KINDS = [
+  {
+    name: "Лесная крыса",
+    description: "Мелкий и слабый, но довольно быстрый зверь.",
+    female: true,
+    tier: 1,
+    unlockLevel: 1,
+    defenseShare: 0.15,
+    hitsToKill: 2,
+    hitsYouSurvive: 20,
+  },
+  {
+    name: "Дикий волк",
+    description: "Атакует стаей и быстро сокращает дистанцию.",
+    female: false,
+    tier: 2,
+    unlockLevel: 2,
+    defenseShare: 0.25,
+    hitsToKill: 4,
+    hitsYouSurvive: 22,
+  },
+  {
+    name: "Лесной разбойник",
+    description: "Опасный противник, способный дать отпор в бою.",
+    female: false,
+    tier: 3,
+    unlockLevel: 3,
+    defenseShare: 0.35,
+    hitsToKill: 6,
+    hitsYouSurvive: 30,
+  },
+  {
+    name: "Бандит",
+    description: "Крепкий противник с тяжёлым оружием.",
+    female: false,
+    tier: 4,
+    unlockLevel: 5,
+    defenseShare: 0.3,
+    hitsToKill: 4,
+    hitsYouSurvive: 14,
+  },
+  {
+    name: "Лесной громила",
+    description: "Медленный, но очень живучий противник.",
+    female: false,
+    tier: 5,
+    unlockLevel: 7,
+    defenseShare: 0.45,
+    hitsToKill: 8,
+    hitsYouSurvive: 32,
+  },
+];
+
+const logBox = document.getElementById("log");
+const actionsBox = document.getElementById("actions");
+
+let save = null;
+let hero = null;
+let heroClass = null;
+let enemy = null;
+let lastHit = null;
+let afterSkillPointTarget = null;
+
+function expNeeded(level) {
+  return Math.round(30 * Math.pow(level, 1.5));
+}
+
+function defaultClassData(className) {
+  const base = CLASS_INFO[className];
+  return {
+    level: 1,
+    experience: 0,
+    skillPoints: 0,
+    health: base.maxHealth,
+    maxHealth: base.maxHealth,
+    attack: base.attack,
+    defense: base.defense,
+    wins: 0,
+  };
+}
+
+function newSave(playerName) {
+  const classes = {};
+  for (const className of Object.keys(CLASS_INFO)) {
+    classes[className] = defaultClassData(className);
+  }
+  return { name: playerName, currentClass: null, classes };
+}
+
+function storeSave() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(save));
+  } catch (error) {
+    // приватный режим браузера может запрещать запись — играем без сохранения
+  }
+}
+
+function loadSave() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function wipeStorageKeys(storage) {
+  const keys = [];
+  for (let index = 0; index < storage.length; index += 1) {
+    const key = storage.key(index);
+    if (key && key.toLowerCase().indexOf("textrpg") !== -1) {
+      keys.push(key);
+    }
+  }
+  keys.forEach((key) => storage.removeItem(key));
+}
+
+function wipeSave() {
+  try {
+    wipeStorageKeys(localStorage);
+  } catch (error) {
+    // если хранилище недоступно, удалять уже нечего
+  }
+  try {
+    wipeStorageKeys(sessionStorage);
+  } catch (error) {
+    // то же для сессии вкладки
+  }
+  save = null;
+  hero = null;
+  heroClass = null;
+  enemy = null;
+  lastHit = null;
+  afterSkillPointTarget = null;
+}
+
+function write(html, tone) {
+  const entry = document.createElement("div");
+  entry.className = tone ? "entry " + tone : "entry";
+  entry.innerHTML = html;
+  logBox.appendChild(entry);
+  logBox.scrollTop = logBox.scrollHeight;
+}
+
+function clearLog() {
+  logBox.innerHTML = "";
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"]/g, (char) => {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char];
+  });
+}
+
+function bar(current, maximum) {
+  const percent = maximum > 0 ? Math.max(0, (current / maximum) * 100) : 0;
+  return `<div class="bar"><span style="width:${percent}%"></span></div>`;
+}
+
+function ask(prompt, options) {
+  actionsBox.innerHTML = "";
+  if (prompt) {
+    const title = document.createElement("p");
+    title.className = "prompt";
+    title.textContent = prompt;
+    actionsBox.appendChild(title);
+  }
+  options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.textContent = `${index + 1}. ${option.label}`;
+    if (option.style) button.classList.add(option.style);
+    button.onclick = option.action;
+    actionsBox.appendChild(button);
+  });
+}
+
+function askName() {
+  actionsBox.innerHTML = "";
+  const title = document.createElement("p");
+  title.className = "prompt";
+  title.textContent = "Как тебя зовут?";
+  const field = document.createElement("input");
+  field.type = "text";
+  field.maxLength = 20;
+  field.placeholder = "Имя героя";
+  const button = document.createElement("button");
+  button.className = "primary";
+  button.textContent = "Продолжить";
+
+  function submit() {
+    const value = field.value.trim() || "Герой";
+    save = newSave(value);
+    storeSave();
+    write(`Привет, ${escapeHtml(value)}!`);
+    mainMenu();
+  }
+
+  button.onclick = submit;
+  field.onkeydown = (event) => {
+    if (event.key === "Enter") submit();
+  };
+
+  actionsBox.appendChild(title);
+  actionsBox.appendChild(field);
+  actionsBox.appendChild(button);
+  field.focus();
+}
+
+function mainMenu() {
+  enemy = null;
+  lastHit = null;
+  const options = [];
+
+  if (save.currentClass) {
+    options.push({
+      label: `Продолжить игру (${save.currentClass}, уровень ${save.classes[save.currentClass].level})`,
+      style: "primary",
+      action: () => {
+        heroClass = save.currentClass;
+        hero = save.classes[heroClass];
+        heroHub();
+      },
+    });
+  }
+
+  options.push({
+    label: "Выбрать класс",
+    style: save.currentClass ? null : "primary",
+    action: chooseClass,
+  });
+
+  options.push({ label: "Настройки", style: "ghost", action: settingsMenu });
+
+  ask("Главное меню", options);
+}
+
+function settingsMenu() {
+  write(
+    '<div class="entry-title">Настройки</div>' +
+      '<div class="entry-desc">Прогресс хранится в памяти этого браузера. ' +
+      "Очистка удаляет имя, уровни и характеристики всех трёх классов без возможности вернуть.</div>",
+    "entry-info"
+  );
+  ask("Выбери действие:", [
+    { label: "Очистить прогресс", style: "danger", action: confirmWipe },
+    { label: "Назад", style: "ghost", action: mainMenu },
+  ]);
+}
+
+function confirmWipe() {
+  write(
+    '<div class="entry-title">Вы уверены, что хотите удалить всё безвозвратно?</div>' +
+      '<div class="entry-desc">Будут удалены сохранение в браузере, имя героя и прогресс всех классов.</div>',
+    "entry-bad"
+  );
+  ask("Вы уверены, что хотите удалить всё безвозвратно?", [
+    {
+      label: "Да",
+      style: "danger",
+      action: () => {
+        wipeSave();
+        clearLog();
+        write(
+          '<div class="entry-title">Прогресс удалён.</div>' +
+            '<div class="entry-desc">Сохранение полностью стёрто из браузера. Начинаем с чистого листа.</div>',
+          "entry-info"
+        );
+        askName();
+      },
+    },
+    { label: "Нет", style: "ghost", action: settingsMenu },
+  ]);
+}
+
+function chooseClass() {
+  const options = Object.keys(CLASS_INFO).map((className) => {
+    const data = save.classes[className];
+    const suffix = data.wins > 0 || data.level > 1 ? ` (уровень ${data.level})` : "";
+    return {
+      label: className + suffix,
+      action: () => showClassSheet(className),
+    };
+  });
+  options.push({ label: "Назад в главное меню", style: "ghost", action: mainMenu });
+  ask("Выбери класс персонажа:", options);
+}
+
+function statsBlock(data) {
+  const levelText =
+    data.level >= MAX_LEVEL
+      ? `Уровень: <b>${data.level}</b> (максимум)`
+      : `Уровень: <b>${data.level}</b> · Опыт: <b>${data.experience}</b> / ${expNeeded(data.level)}`;
+  return (
+    `<div class="stats">${levelText}<br>` +
+    `Здоровье: <b>${data.health}</b> / ${data.maxHealth} · ` +
+    `Атака: <b>${data.attack}</b> · Защита: <b>${data.defense}</b><br>` +
+    `Побед: <b>${data.wins}</b></div>` +
+    bar(data.health, data.maxHealth)
+  );
+}
+
+function showClassSheet(className) {
+  const data = save.classes[className];
+  write(
+    `<div class="entry-title">${className}</div>` +
+      `<div class="entry-desc">${CLASS_INFO[className].description}</div>` +
+      statsBlock(data),
+    "entry-info"
+  );
+  ask("Выбери действие:", [
+    {
+      label: "Подтвердить",
+      style: "primary",
+      action: () => {
+        save.currentClass = className;
+        heroClass = className;
+        hero = data;
+        storeSave();
+        write(`${escapeHtml(save.name)}, ты выбрал класс: ${className}.`);
+        enterForest();
+      },
+    },
+    { label: "Назад к выбору класса", style: "ghost", action: chooseClass },
+    { label: "Назад в главное меню", style: "ghost", action: mainMenu },
+  ]);
+}
+
+function heroHub() {
+  if (hero.skillPoints > 0) {
+    afterSkillPointTarget = heroHub;
+    spendSkillPoint();
+    return;
+  }
+  enemy = null;
+  storeSave();
+  write(
+    `<div class="entry-title">${heroClass}</div>` +
+      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
+      statsBlock(hero),
+    "entry-info"
+  );
+  ask("Выбери действие:", [
+    { label: "Вернуться в локацию", style: "primary", action: enterForest },
+    { label: "Сменить класс", action: chooseClass },
+    {
+      label: "Главное меню",
+      style: "ghost",
+      action: () => {
+        storeSave();
+        mainMenu();
+      },
+    },
+  ]);
+}
+
+function spendSkillPoint() {
+  write('<div class="entry-title">Вы повысили уровень.</div>', "entry-info");
+  ask("Какую характеристику вы желаете прокачать?", [
+    {
+      label: "Здоровье",
+      action: () => {
+        hero.maxHealth += 1;
+        hero.health += 1;
+        hero.skillPoints -= 1;
+        write("Здоровье увеличено на 1.");
+        afterSkillPoint();
+      },
+    },
+    {
+      label: "Атака",
+      action: () => {
+        hero.attack += 1;
+        hero.skillPoints -= 1;
+        write("Атака увеличена на 1.");
+        afterSkillPoint();
+      },
+    },
+    {
+      label: "Защита",
+      action: () => {
+        hero.defense += 1;
+        hero.skillPoints -= 1;
+        write("Защита увеличена на 1.");
+        afterSkillPoint();
+      },
+    },
+  ]);
+}
+
+function afterSkillPoint() {
+  storeSave();
+  if (hero.skillPoints > 0) {
+    spendSkillPoint();
+    return;
+  }
+  afterSkillPointTarget();
+}
+
+function enterForest() {
+  write(
+    '<div class="entry-title">Локация 1 — Забытый лес</div>' +
+      '<div class="entry-desc">Тёмный лес, в котором обитают первые опасные противники.</div>'
+  );
+  spawnEnemy();
+}
+
+function referenceHero(level) {
+  const steps = level - 1;
+  return {
+    attack: 3 + steps,
+    defense: 2 + steps,
+    maxHealth: 7 + 3.2 * steps,
+  };
+}
+
+function clampLevel(level) {
+  return Math.min(MAX_LEVEL, Math.max(1, level));
+}
+
+function pickEnemyLevel(heroLevel) {
+  const roll = Math.random();
+  const weakChance = Math.max(0.006, 0.12 / Math.max(4, heroLevel));
+
+  if (roll < 0.03) {
+    return clampLevel(heroLevel + 6 + Math.floor(Math.random() * 5));
+  }
+  if (roll < 0.03 + weakChance && heroLevel > 3) {
+    const ceiling = Math.max(1, Math.floor(heroLevel / 4));
+    return clampLevel(1 + Math.floor(Math.random() * ceiling));
+  }
+  if (roll < 0.22) {
+    return clampLevel(heroLevel + 1 + Math.floor(Math.random() * 3));
+  }
+  return clampLevel(heroLevel - 2 + Math.floor(Math.random() * 4));
+}
+
+function pickEnemyKind(heroLevel) {
+  const kinds = ENEMY_KINDS.filter((kind) => kind.unlockLevel <= heroLevel);
+  const weights = kinds.map((kind) => {
+    const behind = Math.max(0, heroLevel - kind.unlockLevel);
+    return Math.pow(0.55, behind / 2) * (0.25 + kind.tier);
+  });
+  const total = weights.reduce((sum, value) => sum + value, 0);
+  let roll = Math.random() * total;
+
+  for (let index = 0; index < kinds.length; index += 1) {
+    roll -= weights[index];
+    if (roll <= 0) return kinds[index];
+  }
+  return kinds[kinds.length - 1];
+}
+
+function makeEnemy(heroLevel) {
+  const kind = pickEnemyKind(heroLevel);
+  const level = pickEnemyLevel(heroLevel);
+  const reference = referenceHero(level);
+
+  const defense = Math.round(reference.attack * kind.defenseShare);
+  const hit = Math.max(1, reference.attack - defense);
+  const health = Math.max(1, Math.round(hit * kind.hitsToKill));
+  const bite = Math.max(1, Math.round(reference.maxHealth / kind.hitsYouSurvive));
+
+  return {
+    name: kind.name,
+    description: kind.description,
+    female: kind.female,
+    level,
+    health,
+    maxHealth: health,
+    damage: Math.round(reference.defense) + bite,
+    defense,
+    exp: Math.round((8 + 4 * kind.tier) * (1 + 0.5 * (level - 1))),
+  };
+}
+
+function enemyBlock() {
+  return (
+    `<div class="entry-title">${enemy.name}, уровень ${enemy.level}</div>` +
+    `<div class="entry-desc">${enemy.description}</div>` +
+    `<div class="stats">Здоровье: <b>${enemy.health}</b> / ${enemy.maxHealth} · ` +
+    `Урон: <b>${enemy.damage}</b> · Защита: <b>${enemy.defense}</b> · ` +
+    `Опыт за победу: <b>${enemy.exp}</b></div>` +
+    bar(enemy.health, enemy.maxHealth)
+  );
+}
+
+function spawnEnemy() {
+  enemy = makeEnemy(hero.level);
+  lastHit = null;
+
+  let tone = "";
+  let warning = "";
+  if (enemy.level >= hero.level + 5) {
+    tone = "entry-bad";
+    warning = '<div class="warning">Он выглядит намного опаснее вас. Лучше сбежать.</div>';
+  } else if (enemy.level <= hero.level - 4) {
+    tone = "entry-good";
+    warning = '<div class="entry-desc">Слабая добыча: опыта с неё почти не будет.</div>';
+  }
+
+  write(enemyBlock() + warning, tone);
+  combatMenu();
+}
+
+function combatMenu() {
+  const options = [
+    { label: "Атаковать", style: "primary", action: attack },
+    { label: "Информация о персонаже", action: heroInfo },
+    { label: "Сбежать из боя", action: flee },
+  ];
+  if (lastHit) {
+    options.push({
+      label: "Информация об уроне",
+      style: "ghost",
+      action: () => showDamageInfo(combatMenu),
+    });
+  }
+  ask("Выбери действие:", options);
+}
+
+function heroInfo() {
+  write(
+    `<div class="entry-title">${escapeHtml(save.name)} — ${heroClass}</div>` +
+      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
+      statsBlock(hero) +
+      '<div class="entry-desc" style="margin-top:10px">Бой на паузе. Ваш противник:</div>' +
+      enemyBlock(),
+    "entry-info"
+  );
+  ask("Бой на паузе.", [
+    { label: "Вернуться в бой", style: "primary", action: combatMenu },
+    { label: "Сбежать из боя", action: flee },
+  ]);
+}
+
+function flee() {
+  write(
+    `<div class="entry-title">Вы сбежали.</div>` +
+      `<div class="entry-desc">${enemy.name}, уровень ${enemy.level}, остаётся позади. ` +
+      "Здоровье не восстановилось, а в лесу вас ждут новые противники.</div>"
+  );
+  enemy = null;
+  lastHit = null;
+  afterSkillPointTarget = heroHub;
+  heroHub();
+}
+
+function showDamageInfo(back) {
+  const blockVerb = lastHit.female ? "заблокировала" : "заблокировал";
+  const hitVerb = lastHit.female ? "нанесла" : "нанес";
+  write(
+    '<div class="entry-title">Информация об уроне</div>' +
+      `<div class="entry-desc">Вы нанесли ${lastHit.heroAttack} урона, но ${lastHit.enemyName} ` +
+      `${blockVerb} ${lastHit.enemyDefense} урона. Нанесено: ${lastHit.dealt}.<br>` +
+      `${lastHit.enemyName} ${hitVerb} вам ${lastHit.enemyDamage} урона, но вы заблокировали ` +
+      `${lastHit.heroDefense} урона. Получено: ${lastHit.received}.</div>`,
+    "entry-info"
+  );
+  back();
+}
+
+function attack() {
+  const dealt = Math.max(1, hero.attack - enemy.defense);
+  enemy.health = Math.max(0, enemy.health - dealt);
+
+  lastHit = {
+    enemyName: enemy.name,
+    female: enemy.female,
+    heroAttack: hero.attack,
+    enemyDefense: enemy.defense,
+    dealt,
+    enemyDamage: enemy.damage,
+    heroDefense: hero.defense,
+    received: 0,
+  };
+
+  write(
+    `<div class="hit hit-you">Вы нанесли ${dealt} урона.</div>` +
+      `<div class="entry-desc">${enemy.name}, уровень ${enemy.level}</div>` +
+      bar(enemy.health, enemy.maxHealth),
+    "entry-good"
+  );
+
+  if (enemy.health === 0) {
+    victory();
+    return;
+  }
+
+  const received = Math.max(1, enemy.damage - hero.defense);
+  hero.health = Math.max(0, hero.health - received);
+  lastHit.received = received;
+
+  write(
+    `<div class="hit hit-enemy">Вам нанесли ${received} урона.</div>` +
+      `<div class="entry-desc">${escapeHtml(save.name)}</div>` +
+      bar(hero.health, hero.maxHealth),
+    "entry-bad"
+  );
+  storeSave();
+
+  if (hero.health === 0) {
+    death();
+    return;
+  }
+
+  combatMenu();
+}
+
+function victory() {
+  hero.wins += 1;
+  hero.experience += enemy.exp;
+  write(
+    '<div class="entry-title">Победа</div>' +
+      `<div class="entry-desc">Получено опыта: ${enemy.exp}</div>`,
+    "entry-good"
+  );
+
+  let gained = 0;
+  let needed = expNeeded(hero.level);
+  while (hero.level < MAX_LEVEL && hero.experience >= needed) {
+    hero.experience -= needed;
+    hero.level += 1;
+    hero.skillPoints += 1;
+    hero.maxHealth += 3;
+    hero.health += 3;
+    hero.attack += 1;
+    hero.defense += 1;
+    gained += 1;
+    needed = expNeeded(hero.level);
+  }
+
+  if (hero.level >= MAX_LEVEL) {
+    hero.experience = 0;
+  }
+
+  if (gained > 0) {
+    write(
+      `<div class="entry-desc">Рост за уровни: здоровье +${gained * 3}, ` +
+        `атака +${gained}, защита +${gained}</div>` +
+        statsBlock(hero),
+      "entry-info"
+    );
+  }
+  storeSave();
+
+  afterSkillPointTarget = victoryMenu;
+  if (hero.skillPoints > 0) {
+    spendSkillPoint();
+    return;
+  }
+  victoryMenu();
+}
+
+function victoryMenu() {
+  const options = [
+    { label: "Идти дальше", style: "primary", action: spawnEnemy },
+    { label: "Информация о персонаже", action: victoryHeroInfo },
+    {
+      label: "Вернуться в лагерь",
+      action: () => {
+        enemy = null;
+        afterSkillPointTarget = heroHub;
+        heroHub();
+      },
+    },
+  ];
+  if (lastHit) {
+    options.push({
+      label: "Информация об уроне",
+      style: "ghost",
+      action: () => showDamageInfo(victoryMenu),
+    });
+  }
+  ask("Выбери действие:", options);
+}
+
+function victoryHeroInfo() {
+  write(
+    `<div class="entry-title">${escapeHtml(save.name)} — ${heroClass}</div>` +
+      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
+      statsBlock(hero),
+    "entry-info"
+  );
+  ask("Выбери действие:", [
+    { label: "Назад", style: "primary", action: victoryMenu },
+  ]);
+}
+
+function death() {
+  write('<div class="entry-title">Вы умерли</div>', "entry-bad");
+  enemy = null;
+  storeSave();
+  afterSkillPointTarget = deathMenu;
+  if (hero.skillPoints > 0) {
+    spendSkillPoint();
+    return;
+  }
+  deathMenu();
+}
+
+function deathMenu() {
+  const options = [
+    {
+      label: "Возродиться",
+      style: "primary",
+      action: () => {
+        hero.health = hero.maxHealth;
+        storeSave();
+        write("Ты снова на ногах: здоровье полностью восстановлено.", "entry-good");
+        spawnEnemy();
+      },
+    },
+    { label: "Вернуться в меню выбора класса", action: chooseClass },
+    { label: "Главное меню", style: "ghost", action: mainMenu },
+  ];
+  if (lastHit) {
+    options.push({
+      label: "Информация об уроне",
+      style: "ghost",
+      action: () => showDamageInfo(deathMenu),
+    });
+  }
+  ask("Выбери действие:", options);
+}
+
+function start() {
+  const loaded = loadSave();
+  if (loaded && loaded.name) {
+    save = loaded;
+    write(`С возвращением, ${escapeHtml(save.name)}!`);
+    mainMenu();
+    return;
+  }
+  write("Добро пожаловать в текстовую игру!");
+  askName();
+}
+
+start();
+</script>
 </body>
 </html>
