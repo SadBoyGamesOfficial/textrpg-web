@@ -1,0 +1,126 @@
+{
+  "assetRev": "1788376224650",
+  "location": {
+    "name": "Забытый лес",
+    "icon": "🌲",
+    "description": "Тёмный лес, в котором обитают первые опасные противники."
+  },
+  "strings": {
+    "welcomeTitle": "Добро пожаловать в текстовую игру!",
+    "askName": "Как тебя зовут?",
+    "namePlaceholder": "Имя героя",
+    "continue": "▶️ Продолжить",
+    "mainMenuTitle": "🏠 Главное меню",
+    "mainMenuHello": "Привет, {name}. Выбери, что делать дальше.",
+    "chooseClassTitle": "🎭 Класс персонажа",
+    "chooseClassDesc": "Воин держит удар, лучник бьёт сильнее, маг бьёт ещё сильнее, но почти без защиты.",
+    "overpoweredWarning": "⚠️ Он выглядит намного опаснее вас. Лучше сбежать.",
+    "weakPrey": "✨ Слабая добыча: опыта с неё почти не будет."
+  },
+  "classes": [
+    {
+      "id": "warrior",
+      "key": "Воин",
+      "name": "Воин",
+      "icon": "🗡️",
+      "description": "Крепкий боец ближнего боя с хорошей защитой",
+      "maxHealth": 10,
+      "attack": 2,
+      "defense": 4,
+      "image": "asset/character/warrior.png",
+      "hideDescription": true,
+      "imageRev": "1788376223485"
+    },
+    {
+      "id": "archer",
+      "key": "Лучник",
+      "name": "Лучник",
+      "icon": "🏹",
+      "description": "Боец дальнего боя с высоким уроном.",
+      "maxHealth": 7,
+      "attack": 3,
+      "defense": 2,
+      "image": "asset/character/archer.png",
+      "hideDescription": true
+    },
+    {
+      "id": "mage",
+      "key": "Маг",
+      "name": "Маг",
+      "icon": "🔮",
+      "description": "Наносит разрушительный урон заклинаниями, но практически беззащитен.",
+      "maxHealth": 5,
+      "attack": 4,
+      "defense": 1,
+      "image": "asset/character/mage.png",
+      "hideDescription": true
+    }
+  ],
+  "enemies": [
+    {
+      "id": "forest_rat",
+      "name": "Лесная крыса",
+      "description": "Мелкий и слабый, но довольно быстрый зверь.",
+      "female": true,
+      "tier": 1,
+      "unlockLevel": 1,
+      "defenseShare": 0.15,
+      "hitsToKill": 2,
+      "hitsYouSurvive": 20,
+      "image": "",
+      "hideDescription": false
+    },
+    {
+      "id": "wild_wolf",
+      "name": "Дикий волк",
+      "description": "Атакует стаей и быстро сокращает дистанцию.",
+      "female": false,
+      "tier": 2,
+      "unlockLevel": 2,
+      "defenseShare": 0.25,
+      "hitsToKill": 4,
+      "hitsYouSurvive": 22,
+      "image": "",
+      "hideDescription": false
+    },
+    {
+      "id": "forest_robber",
+      "name": "Лесной разбойник",
+      "description": "Опасный противник, способный дать отпор в бою.",
+      "female": false,
+      "tier": 3,
+      "unlockLevel": 3,
+      "defenseShare": 0.35,
+      "hitsToKill": 6,
+      "hitsYouSurvive": 30,
+      "image": "",
+      "hideDescription": false
+    },
+    {
+      "id": "bandit",
+      "name": "Бандит",
+      "description": "Крепкий противник с тяжёлым оружием.",
+      "female": false,
+      "tier": 4,
+      "unlockLevel": 5,
+      "defenseShare": 0.3,
+      "hitsToKill": 4,
+      "hitsYouSurvive": 14,
+      "image": "",
+      "hideDescription": false
+    },
+    {
+      "id": "forest_thug",
+      "name": "Лесной громила",
+      "description": "Медленный, но очень живучий противник.",
+      "female": false,
+      "tier": 5,
+      "unlockLevel": 7,
+      "defenseShare": 0.45,
+      "hitsToKill": 8,
+      "hitsYouSurvive": 32,
+      "image": "",
+      "hideDescription": false
+    }
+  ]
+}

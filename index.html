@@ -72,12 +72,17 @@ body {
   flex: 1;
   min-height: 280px;
   padding: 4px 0 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .entry {
   margin: 0;
   padding: 16px 14px;
-  min-height: 240px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-left: 3px solid #39405280;
@@ -97,18 +102,19 @@ body {
 }
 
 .entry-title {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .entry-desc {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .stats {
-  margin-top: 8px;
+  margin-top: 10px;
   font-variant-numeric: tabular-nums;
-  font-size: 14px;
+  font-size: 17px;
   color: var(--muted);
 }
 
@@ -120,28 +126,28 @@ body {
 .stat-line {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 14px;
-  margin-top: 6px;
+  gap: 10px 16px;
+  margin-top: 8px;
 }
 
 .stat {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .ico {
   font-style: normal;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1;
 }
 
 .bar-wrap {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .bar {
-  height: 14px;
+  height: 20px;
   background: var(--hp-empty);
   border-radius: 999px;
   overflow: hidden;
@@ -262,6 +268,7 @@ input[type="text"]:focus {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .studio-head span {
@@ -273,6 +280,25 @@ input[type="text"]:focus {
   width: auto;
   padding: 8px 12px;
   font-size: 14px;
+}
+
+.studio-bot {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.studio-bot:hover {
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 .studio-log {
@@ -288,105 +314,547 @@ input[type="text"]:focus {
 .studio-log.is-on {
   display: block;
 }
+
+.studio-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dev-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dev-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.dev-slider {
+  width: 40px;
+  height: 22px;
+  background: #2a2f3d;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.dev-slider::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 2px;
+  background: #c5c9d6;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+.dev-switch input:checked + .dev-slider {
+  background: #24406e;
+  border-color: #315694;
+}
+
+.dev-switch input:checked + .dev-slider::after {
+  transform: translateX(18px);
+  background: #fff;
+}
+
+.dev-panel {
+  display: none;
+  max-width: 640px;
+  margin: 12px auto 80px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.dev-panel.is-on {
+  display: block;
+}
+
+.dev-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.dev-tabs button {
+  width: auto;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.dev-tabs button.is-on {
+  background: #24406e;
+  border-color: #315694;
+}
+
+.dev-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.dev-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.dev-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.dev-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dev-field {
+  display: grid;
+  gap: 4px;
+}
+
+.dev-field span,
+.dev-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.dev-field input,
+.dev-field textarea,
+.dev-field select {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.dev-field textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.dev-preview {
+  display: block;
+  max-width: 180px;
+  max-height: 120px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.dev-field input[type="checkbox"] {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+.dev-apply {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dev-apply.is-on {
+  display: flex;
+}
+
+.dev-apply span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.dev-apply button {
+  width: auto;
+  min-width: 180px;
+  text-align: center;
+}
+
+.portrait {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: min(58vh, calc(100dvh - 280px));
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.stage-head {
+  flex: 0 0 auto;
+}
+
+.stage-sub {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.stage-art {
+  flex: 0 1 auto;
+  min-height: 0;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.stage-art.compact .portrait {
+  max-height: min(28vh, 220px);
+}
+
+.stage-foot {
+  flex: 0 0 auto;
+}
+
+body.dev-on {
+  padding-bottom: 72px;
+}
+
+@media (max-width: 560px) {
+  .dev-row {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
 <div class="studio-bar" id="studioBar">
   <div class="studio-head">
     <span>Local studio — players never see this bar</span>
-    <button type="button" id="publishBtn" class="primary">Publish to GitHub</button>
+    <div class="studio-actions">
+      <a class="studio-bot" id="botLabLink" href="bot.html">Bot lab</a>
+      <label class="dev-switch" for="devModeToggle">
+        <input type="checkbox" id="devModeToggle">
+        <span class="dev-slider"></span>
+        Developer mode
+      </label>
+      <button type="button" id="publishBtn" class="primary">Publish to GitHub</button>
+    </div>
   </div>
   <pre class="studio-log" id="publishLog"></pre>
 </div>
 <main class="card">
   <div class="topbar">
     <strong>TextRPG</strong>
-    <span class="mode-tag">🌲 Забытый лес</span>
+    <span class="mode-tag" id="locationTag">🌲 Забытый лес</span>
   </div>
   <div id="log"></div>
   <div class="actions" id="actions"></div>
 </main>
+<section class="dev-panel" id="devPanel">
+  <div class="dev-tabs" id="devTabs">
+    <button type="button" data-tab="enemies" class="is-on">Enemies</button>
+    <button type="button" data-tab="characters">Characters</button>
+    <button type="button" data-tab="texts">Texts</button>
+  </div>
+  <div id="devPanelBody"></div>
+</section>
+<div class="dev-apply" id="devApplyBar">
+  <span id="devApplyStatus">Edits stay in this page until you apply them.</span>
+  <button type="button" id="devApplyBtn" class="primary">Apply changes</button>
+</div>
 <script>
 // Do not change this key: player saves on the public site are tied to it.
 const STORAGE_KEY = "textrpg-save";
 const MAX_LEVEL = 50;
+const ARMOR_PERCENT_PER_POINT = 0.5;
+const MAX_ARMOR_PERCENT = 65;
+const MAX_ARMOR = Math.round(MAX_ARMOR_PERCENT / ARMOR_PERCENT_PER_POINT);
 
-const CLASS_INFO = {
-  "Воин": {
-    icon: "🗡️",
-    description: "Крепкий боец ближнего боя с хорошей защитой.",
-    maxHealth: 10,
-    attack: 2,
-    defense: 4,
+function clampArmor(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return 0;
+  return Math.max(0, Math.min(MAX_ARMOR, Math.round(number)));
+}
+
+function armorPercent(value) {
+  return Math.min(MAX_ARMOR_PERCENT, clampArmor(value) * ARMOR_PERCENT_PER_POINT);
+}
+
+function formatArmorPercent(value) {
+  return String(armorPercent(value));
+}
+
+function mitigatedDamage(raw, armor) {
+  const reduction = armorPercent(armor) / 100;
+  return Math.max(1, Math.round(Number(raw) * (1 - reduction)));
+}
+
+function armorText(value) {
+  const armor = clampArmor(value);
+  return `${armor} (${formatArmorPercent(armor)}%)`;
+}
+
+const DEFAULT_GAME_DATA = {
+  location: {
+    name: "Забытый лес",
+    icon: "🌲",
+    description: "Тёмный лес, в котором обитают первые опасные противники.",
   },
-  "Лучник": {
-    icon: "🏹",
-    description: "Боец дальнего боя с высоким уроном.",
-    maxHealth: 7,
-    attack: 3,
-    defense: 2,
+  strings: {
+    welcomeTitle: "Добро пожаловать в текстовую игру!",
+    askName: "Как тебя зовут?",
+    namePlaceholder: "Имя героя",
+    continue: "▶️ Продолжить",
+    mainMenuTitle: "🏠 Главное меню",
+    mainMenuHello: "Привет, {name}. Выбери, что делать дальше.",
+    chooseClassTitle: "🎭 Класс персонажа",
+    chooseClassDesc: "Воин держит удар, лучник бьёт сильнее, маг бьёт ещё сильнее, но почти без защиты.",
+    overpoweredWarning: "⚠️ Он выглядит намного опаснее вас. Лучше сбежать.",
+    weakPrey: "✨ Слабая добыча: опыта с неё почти не будет.",
   },
-  "Маг": {
-    icon: "🔮",
-    description: "Наносит разрушительный урон заклинаниями, но практически беззащитен.",
-    maxHealth: 5,
-    attack: 4,
-    defense: 1,
-  },
+  classes: [
+    {
+      id: "warrior",
+      key: "Воин",
+      name: "Воин",
+      icon: "🗡️",
+      description: "Крепкий боец ближнего боя с хорошей защитой.",
+      maxHealth: 10,
+      attack: 2,
+      defense: 4,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "archer",
+      key: "Лучник",
+      name: "Лучник",
+      icon: "🏹",
+      description: "Боец дальнего боя с высоким уроном.",
+      maxHealth: 7,
+      attack: 3,
+      defense: 2,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "mage",
+      key: "Маг",
+      name: "Маг",
+      icon: "🔮",
+      description: "Наносит разрушительный урон заклинаниями, но практически беззащитен.",
+      maxHealth: 5,
+      attack: 4,
+      defense: 1,
+      image: "",
+      hideDescription: false,
+    },
+  ],
+  enemies: [
+    {
+      id: "forest_rat",
+      name: "Лесная крыса",
+      description: "Мелкий и слабый, но довольно быстрый зверь.",
+      female: true,
+      tier: 1,
+      unlockLevel: 1,
+      defenseShare: 0.15,
+      hitsToKill: 2,
+      hitsYouSurvive: 20,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "wild_wolf",
+      name: "Дикий волк",
+      description: "Атакует стаей и быстро сокращает дистанцию.",
+      female: false,
+      tier: 2,
+      unlockLevel: 2,
+      defenseShare: 0.25,
+      hitsToKill: 4,
+      hitsYouSurvive: 22,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "forest_robber",
+      name: "Лесной разбойник",
+      description: "Опасный противник, способный дать отпор в бою.",
+      female: false,
+      tier: 3,
+      unlockLevel: 3,
+      defenseShare: 0.35,
+      hitsToKill: 6,
+      hitsYouSurvive: 30,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "bandit",
+      name: "Бандит",
+      description: "Крепкий противник с тяжёлым оружием.",
+      female: false,
+      tier: 4,
+      unlockLevel: 5,
+      defenseShare: 0.3,
+      hitsToKill: 4,
+      hitsYouSurvive: 14,
+      image: "",
+      hideDescription: false,
+    },
+    {
+      id: "forest_thug",
+      name: "Лесной громила",
+      description: "Медленный, но очень живучий противник.",
+      female: false,
+      tier: 5,
+      unlockLevel: 7,
+      defenseShare: 0.45,
+      hitsToKill: 8,
+      hitsYouSurvive: 32,
+      image: "",
+      hideDescription: false,
+    },
+  ],
 };
 
-const ENEMY_KINDS = [
-  {
-    name: "Лесная крыса",
-    description: "Мелкий и слабый, но довольно быстрый зверь.",
-    female: true,
-    tier: 1,
-    unlockLevel: 1,
-    defenseShare: 0.15,
-    hitsToKill: 2,
-    hitsYouSurvive: 20,
-  },
-  {
-    name: "Дикий волк",
-    description: "Атакует стаей и быстро сокращает дистанцию.",
-    female: false,
-    tier: 2,
-    unlockLevel: 2,
-    defenseShare: 0.25,
-    hitsToKill: 4,
-    hitsYouSurvive: 22,
-  },
-  {
-    name: "Лесной разбойник",
-    description: "Опасный противник, способный дать отпор в бою.",
-    female: false,
-    tier: 3,
-    unlockLevel: 3,
-    defenseShare: 0.35,
-    hitsToKill: 6,
-    hitsYouSurvive: 30,
-  },
-  {
-    name: "Бандит",
-    description: "Крепкий противник с тяжёлым оружием.",
-    female: false,
-    tier: 4,
-    unlockLevel: 5,
-    defenseShare: 0.3,
-    hitsToKill: 4,
-    hitsYouSurvive: 14,
-  },
-  {
-    name: "Лесной громила",
-    description: "Медленный, но очень живучий противник.",
-    female: false,
-    tier: 5,
-    unlockLevel: 7,
-    defenseShare: 0.45,
-    hitsToKill: 8,
-    hitsYouSurvive: 32,
-  },
-];
+let GAME_DATA = null;
+let CLASS_INFO = {};
+let ENEMY_KINDS = [];
+let viewRefresh = null;
+
+function cloneData(data) {
+  return JSON.parse(JSON.stringify(data));
+}
+
+function applyGameData(data) {
+  GAME_DATA = cloneData(data);
+  CLASS_INFO = {};
+  (GAME_DATA.classes || []).forEach((cls) => {
+    cls.defense = clampArmor(cls.defense);
+    CLASS_INFO[cls.key] = cls;
+  });
+  ENEMY_KINDS = GAME_DATA.enemies || [];
+  const tag = document.getElementById("locationTag");
+  if (tag && GAME_DATA.location) {
+    tag.textContent = `${GAME_DATA.location.icon || ""} ${GAME_DATA.location.name || ""}`.trim();
+  }
+  if (enemy && enemy.kindId) {
+    const kind = ENEMY_KINDS.find((item) => item.id === enemy.kindId);
+    if (kind) {
+      enemy.name = kind.name;
+      enemy.description = kind.description;
+      enemy.female = kind.female;
+      enemy.hideDescription = !!kind.hideDescription;
+      enemy.image = kind.image || "";
+      enemy.imageRev = kind.imageRev;
+      enemy._preview = kind._preview;
+    }
+  }
+}
+
+async function loadGameData() {
+  try {
+    const response = await fetch("game_data.json", { cache: "no-store" });
+    if (!response.ok) return;
+    const data = await response.json();
+    if (data && Array.isArray(data.enemies) && Array.isArray(data.classes)) {
+      applyGameData(data);
+      document.dispatchEvent(new Event("gamedata-loaded"));
+    }
+  } catch (error) {
+    // public file open or missing json — keep built-in defaults
+  }
+}
+
+function textOf(key, fallback) {
+  if (GAME_DATA && GAME_DATA.strings && GAME_DATA.strings[key]) {
+    return GAME_DATA.strings[key];
+  }
+  return fallback;
+}
+
+function classLabel(key) {
+  const info = CLASS_INFO[key];
+  return (info && info.name) || key;
+}
+
+function classIcon(key) {
+  const info = CLASS_INFO[key];
+  return (info && info.icon) || "";
+}
+
+function portraitHtml(src, compact) {
+  if (!src) return "";
+  const cls = compact ? "stage-art compact" : "stage-art";
+  return `<div class="${cls}"><img class="portrait" src="${escapeHtml(src)}" alt=""></div>`;
+}
+
+function entityImage(entity) {
+  if (!entity) return "";
+  if (entity._preview) return entity._preview;
+  const src = String(entity.image || "");
+  if (!src) return "";
+  if (src.indexOf("data:") === 0) return src;
+  const clean = src.split("?")[0];
+  const rev = entity.imageRev || (GAME_DATA && GAME_DATA.assetRev) || "";
+  if (!rev) return clean;
+  return clean + "?v=" + encodeURIComponent(rev);
+}
+
+function descHtml(entity) {
+  if (!entity || entity.hideDescription) return "";
+  const text = String(entity.description || "").trim();
+  if (!text) return "";
+  return `<div class="entry-desc">${escapeHtml(text)}</div>`;
+}
+
+function characterStage(className, data, titlePrefix) {
+  const info = CLASS_INFO[className] || {};
+  const prefix = titlePrefix ? `${escapeHtml(titlePrefix)} — ` : "";
+  const src = entityImage(info);
+  const levelLabel =
+    data.level >= MAX_LEVEL
+      ? `уровень ${data.level} (максимум)`
+      : `уровень ${data.level}`;
+  return (
+    `<div class="stage-head"><div class="entry-title">${prefix}${escapeHtml(info.icon || "")} ${escapeHtml(classLabel(className))}</div>` +
+    `<div class="stage-sub">${levelLabel}</div></div>` +
+    portraitHtml(src) +
+    `<div class="stage-foot">` +
+    descHtml(info) +
+    statsBlock(data, { skipLevel: true }) +
+    `</div>`
+  );
+}
 
 const logBox = document.getElementById("log");
 const actionsBox = document.getElementById("actions");
@@ -399,6 +867,8 @@ let lastHit = null;
 let encounterNote = "";
 let lastVictoryExtra = "";
 let afterSkillPointTarget = null;
+
+applyGameData(DEFAULT_GAME_DATA);
 
 function expNeeded(level) {
   return Math.round(30 * Math.pow(level, 1.5));
@@ -413,9 +883,20 @@ function defaultClassData(className) {
     health: base.maxHealth,
     maxHealth: base.maxHealth,
     attack: base.attack,
-    defense: base.defense,
+    defense: clampArmor(base.defense),
     wins: 0,
   };
+}
+
+function syncSaveClasses() {
+  if (!save || !save.classes) return;
+  for (const className of Object.keys(CLASS_INFO)) {
+    if (!save.classes[className]) {
+      save.classes[className] = defaultClassData(className);
+    } else {
+      save.classes[className].defense = clampArmor(save.classes[className].defense);
+    }
+  }
 }
 
 function newSave(playerName) {
@@ -437,7 +918,13 @@ function storeSave() {
 function loadSave() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && parsed.classes) {
+      Object.keys(parsed.classes).forEach((key) => {
+        parsed.classes[key].defense = clampArmor(parsed.classes[key].defense);
+      });
+    }
+    return parsed;
   } catch (error) {
     return null;
   }
@@ -478,6 +965,7 @@ function write(html, tone) {
   logBox.innerHTML = "";
   const entry = document.createElement("div");
   entry.className = tone ? "entry " + tone : "entry";
+  if (html.indexOf("stage-art") !== -1) entry.classList.add("has-art");
   entry.innerHTML = html;
   logBox.appendChild(entry);
 }
@@ -516,17 +1004,18 @@ function ask(prompt, options) {
 }
 
 function askName() {
+  viewRefresh = askName;
   actionsBox.innerHTML = "";
   const title = document.createElement("p");
   title.className = "prompt";
-  title.textContent = "Как тебя зовут?";
+  title.textContent = textOf("askName", "Как тебя зовут?");
   const field = document.createElement("input");
   field.type = "text";
   field.maxLength = 20;
-  field.placeholder = "Имя героя";
+  field.placeholder = textOf("namePlaceholder", "Имя героя");
   const button = document.createElement("button");
   button.className = "primary";
-  button.textContent = "▶️ Продолжить";
+  button.textContent = textOf("continue", "▶️ Продолжить");
 
   function submit() {
     const value = field.value.trim() || "Герой";
@@ -553,8 +1042,10 @@ function mainMenu() {
   const options = [];
 
   if (save.currentClass) {
+    const data = save.classes[save.currentClass];
+    const labelName = classLabel(save.currentClass);
     options.push({
-      label: `▶️ Продолжить игру (${save.currentClass}, уровень ${save.classes[save.currentClass].level})`,
+      label: `▶️ Продолжить игру (${labelName}, уровень ${data.level})`,
       style: "primary",
       action: () => {
         heroClass = save.currentClass;
@@ -573,10 +1064,11 @@ function mainMenu() {
   options.push({ label: "⚙️ Настройки", style: "ghost", action: settingsMenu });
 
   write(
-    `<div class="entry-title">🏠 Главное меню</div>` +
-      `<div class="entry-desc">Привет, ${escapeHtml(save.name)}. Выбери, что делать дальше.</div>`
+    `<div class="entry-title">${escapeHtml(textOf("mainMenuTitle", "🏠 Главное меню"))}</div>` +
+      `<div class="entry-desc">${escapeHtml(textOf("mainMenuHello", "Привет, {name}. Выбери, что делать дальше.")).replace("{name}", escapeHtml(save.name))}</div>`
   );
   ask("Главное меню", options);
+  viewRefresh = mainMenu;
 }
 
 function settingsMenu() {
@@ -590,6 +1082,7 @@ function settingsMenu() {
     { label: "🗑️ Очистить прогресс", style: "danger", action: confirmWipe },
     { label: "↩️ Назад", style: "ghost", action: mainMenu },
   ]);
+  viewRefresh = settingsMenu;
 }
 
 function confirmWipe() {
@@ -615,6 +1108,7 @@ function confirmWipe() {
     },
     { label: "❌ Нет", style: "ghost", action: settingsMenu },
   ]);
+  viewRefresh = confirmWipe;
 }
 
 function chooseClass() {
@@ -622,19 +1116,21 @@ function chooseClass() {
     const data = save.classes[className];
     const suffix = data.wins > 0 || data.level > 1 ? ` (уровень ${data.level})` : "";
     return {
-      label: `${CLASS_INFO[className].icon} ${className}${suffix}`,
+      label: `${CLASS_INFO[className].icon} ${classLabel(className)}${suffix}`,
       action: () => showClassSheet(className),
     };
   });
   options.push({ label: "↩️ Назад в главное меню", style: "ghost", action: mainMenu });
   write(
-    '<div class="entry-title">🎭 Класс персонажа</div>' +
-      '<div class="entry-desc">Воин держит удар, лучник бьёт сильнее, маг бьёт ещё сильнее, но почти без защиты.</div>'
+    `<div class="entry-title">${escapeHtml(textOf("chooseClassTitle", "🎭 Класс персонажа"))}</div>` +
+      `<div class="entry-desc">${escapeHtml(textOf("chooseClassDesc", "Воин держит удар, лучник бьёт сильнее, маг бьёт ещё сильнее, но почти без защиты."))}</div>`
   );
   ask("Выбери класс персонажа:", options);
+  viewRefresh = chooseClass;
 }
 
-function statsBlock(data) {
+function statsBlock(data, options) {
+  const skipLevel = options && options.skipLevel;
   const needed = expNeeded(data.level);
   const levelText =
     data.level >= MAX_LEVEL
@@ -642,12 +1138,13 @@ function statsBlock(data) {
       : `<span class="stat"><span class="ico">⭐</span>Уровень: <b>${data.level}</b></span>`;
   return (
     `<div class="stats">` +
-    `<div class="stat-line">${levelText}` +
+    `<div class="stat-line">` +
+    (skipLevel ? "" : levelText) +
     `<span class="stat"><span class="ico">🏆</span>Побед: <b>${data.wins}</b></span></div>` +
     `<div class="stat-line">` +
     `<span class="stat"><span class="ico">❤️</span>Здоровье: <b>${data.health}</b> / ${data.maxHealth}</span>` +
     `<span class="stat"><span class="ico">⚔️</span>Атака: <b>${data.attack}</b></span>` +
-    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${data.defense}</b></span>` +
+    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(data.defense)}</b></span>` +
     (data.level >= MAX_LEVEL
       ? ""
       : `<span class="stat"><span class="ico">✨</span>Опыт: <b>${data.experience}</b> / ${needed}</span>`) +
@@ -659,12 +1156,7 @@ function statsBlock(data) {
 
 function showClassSheet(className) {
   const data = save.classes[className];
-  write(
-    `<div class="entry-title">${CLASS_INFO[className].icon} ${className}</div>` +
-      `<div class="entry-desc">${CLASS_INFO[className].description}</div>` +
-      statsBlock(data),
-    "entry-info"
-  );
+  write(characterStage(className, data), "entry-info");
   ask("Выбери действие:", [
     {
       label: "✅ Подтвердить",
@@ -680,6 +1172,7 @@ function showClassSheet(className) {
     { label: "↩️ Назад к выбору класса", style: "ghost", action: chooseClass },
     { label: "↩️ Назад в главное меню", style: "ghost", action: mainMenu },
   ]);
+  viewRefresh = () => showClassSheet(className);
 }
 
 function heroHub() {
@@ -690,12 +1183,7 @@ function heroHub() {
   }
   enemy = null;
   storeSave();
-  write(
-    `<div class="entry-title">${CLASS_INFO[heroClass].icon} ${heroClass}</div>` +
-      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
-      statsBlock(hero),
-    "entry-info"
-  );
+  write(characterStage(heroClass, hero), "entry-info");
   ask("Выбери действие:", [
     { label: "🌲 Вернуться в локацию", style: "primary", action: enterForest },
     { label: "🎭 Сменить класс", action: chooseClass },
@@ -708,11 +1196,18 @@ function heroHub() {
       },
     },
   ]);
+  viewRefresh = heroHub;
 }
 
 function spendSkillPoint() {
-    write('<div class="entry-title">⭐ Вы повысили уровень.</div>', "entry-info");
-  ask("Какую характеристику вы желаете прокачать?", [
+  const note = hero.skillNote || "";
+  hero.skillNote = "";
+  write(
+    '<div class="entry-title">⭐ Вы повысили уровень.</div>' +
+      (note ? `<div class="entry-desc">${note}</div>` : ""),
+    "entry-info"
+  );
+  const options = [
     {
       label: "❤️ Здоровье",
       action: () => {
@@ -732,22 +1227,50 @@ function spendSkillPoint() {
         afterSkillPoint();
       },
     },
-    {
+  ];
+  if (clampArmor(hero.defense) < MAX_ARMOR || !hero.armorCapSeen) {
+    options.push({
       label: "🛡️ Защита",
       action: () => {
-        hero.defense += 1;
+        if (clampArmor(hero.defense) >= MAX_ARMOR) {
+          hero.armorCapSeen = true;
+          hero.skillNote =
+            "🛡️ Вы достигли максимального значения защиты (65%). Эту характеристику больше нельзя прокачать.";
+          storeSave();
+          spendSkillPoint();
+          return;
+        }
+        hero.defense = clampArmor(hero.defense + 1);
         hero.skillPoints -= 1;
-        write("🛡️ Защита увеличена на 1.");
+        if (hero.defense >= MAX_ARMOR) {
+          hero.armorCapSeen = true;
+          hero.skillNote =
+            "🛡️ Защита увеличена на 1. Достигнут максимум — 65%. Дальше можно качать только другие характеристики.";
+        } else {
+          write("🛡️ Защита увеличена на 1.");
+        }
         afterSkillPoint();
       },
-    },
-  ]);
+    });
+  }
+  ask("Какую характеристику вы желаете прокачать?", options);
+  viewRefresh = spendSkillPoint;
 }
 
 function afterSkillPoint() {
   storeSave();
   if (hero.skillPoints > 0) {
     spendSkillPoint();
+    return;
+  }
+  if (hero.skillNote) {
+    const note = hero.skillNote;
+    hero.skillNote = "";
+    write(`<div class="entry-title">${note}</div>`, "entry-info");
+    ask("Выбери действие:", [
+      { label: "▶️ Продолжить", style: "primary", action: afterSkillPointTarget },
+    ]);
+    viewRefresh = () => afterSkillPointTarget();
     return;
   }
   afterSkillPointTarget();
@@ -808,15 +1331,20 @@ function makeEnemy(heroLevel) {
   const level = pickEnemyLevel(heroLevel);
   const reference = referenceHero(level);
 
-  const defense = Math.round(reference.attack * kind.defenseShare);
-  const hit = Math.max(1, reference.attack - defense);
+  const defense = clampArmor(Math.round(reference.attack * kind.defenseShare));
+  const hit = mitigatedDamage(reference.attack, defense);
   const health = Math.max(1, Math.round(hit * kind.hitsToKill));
   const bite = Math.max(1, Math.round(reference.maxHealth / kind.hitsYouSurvive));
 
   return {
+    kindId: kind.id,
     name: kind.name,
     description: kind.description,
     female: kind.female,
+    hideDescription: !!kind.hideDescription,
+    image: kind.image || "",
+    imageRev: kind.imageRev,
+    _preview: kind._preview,
     level,
     health,
     maxHealth: health,
@@ -826,17 +1354,23 @@ function makeEnemy(heroLevel) {
   };
 }
 
-function enemyBlock() {
+function enemyBlock(compact) {
+  const kind = ENEMY_KINDS.find((item) => item.id === enemy.kindId) || enemy;
   return (
-    `<div class="entry-title">👾 ${enemy.name}, уровень ${enemy.level}</div>` +
-    `<div class="entry-desc">${enemy.description}</div>` +
+    `<div class="stage-head">` +
+    `<div class="entry-title">👾 ${escapeHtml(enemy.name)}</div>` +
+    `<div class="stage-sub">уровень ${enemy.level} · ✨ опыт ${enemy.exp}</div>` +
+    `</div>` +
+    portraitHtml(entityImage(enemy), compact) +
+    `<div class="stage-foot">` +
+    descHtml(kind) +
     `<div class="stats"><div class="stat-line">` +
     `<span class="stat"><span class="ico">❤️</span>Здоровье: <b>${enemy.health}</b> / ${enemy.maxHealth}</span>` +
     `<span class="stat"><span class="ico">⚔️</span>Урон: <b>${enemy.damage}</b></span>` +
-    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${enemy.defense}</b></span>` +
-    `<span class="stat"><span class="ico">✨</span>Опыт: <b>${enemy.exp}</b></span>` +
+    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(enemy.defense)}</b></span>` +
     `</div></div>` +
-    bar(enemy.health, enemy.maxHealth, "hp")
+    bar(enemy.health, enemy.maxHealth, "hp") +
+    `</div>`
   );
 }
 
@@ -848,16 +1382,13 @@ function fightTone() {
 }
 
 function fightScreen() {
-  let html =
-    '<div class="entry-title">🌲 Забытый лес</div>' +
-    '<div class="entry-desc">Тёмный лес, в котором обитают первые опасные противники.</div>' +
-    enemyBlock();
+  let html = enemyBlock();
   if (encounterNote) html += encounterNote;
   html +=
     `<div class="stats" style="margin-top:16px"><div class="stat-line">` +
     `<span class="stat"><span class="ico">❤️</span>${escapeHtml(save.name)}: <b>${hero.health}</b> / ${hero.maxHealth}</span>` +
     `<span class="stat"><span class="ico">⚔️</span>Атака: <b>${hero.attack}</b></span>` +
-    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${hero.defense}</b></span>` +
+    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(hero.defense)}</b></span>` +
     `</div></div>` +
     bar(hero.health, hero.maxHealth, "hp");
   if (lastHit) {
@@ -875,9 +1406,9 @@ function spawnEnemy() {
   lastHit = null;
   encounterNote = "";
   if (enemy.level >= hero.level + 5) {
-    encounterNote = '<div class="warning">⚠️ Он выглядит намного опаснее вас. Лучше сбежать.</div>';
+    encounterNote = `<div class="warning">${escapeHtml(textOf("overpoweredWarning", "⚠️ Он выглядит намного опаснее вас. Лучше сбежать."))}</div>`;
   } else if (enemy.level <= hero.level - 4) {
-    encounterNote = '<div class="entry-desc">✨ Слабая добыча: опыта с неё почти не будет.</div>';
+    encounterNote = `<div class="entry-desc">${escapeHtml(textOf("weakPrey", "✨ Слабая добыча: опыта с неё почти не будет."))}</div>`;
   }
   combatMenu();
 }
@@ -897,21 +1428,7 @@ function combatMenu() {
     });
   }
   ask("Выбери действие:", options);
-}
-
-function heroInfo() {
-  write(
-    `<div class="entry-title">👤 ${escapeHtml(save.name)} — ${CLASS_INFO[heroClass].icon} ${heroClass}</div>` +
-      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
-      statsBlock(hero) +
-      '<div class="entry-desc" style="margin-top:10px">⏸️ Бой на паузе. Ваш противник:</div>' +
-      enemyBlock(),
-    "entry-info"
-  );
-  ask("Бой на паузе.", [
-    { label: "▶️ Вернуться в бой", style: "primary", action: combatMenu },
-    { label: "🏃 Сбежать из боя", action: flee },
-  ]);
+  viewRefresh = combatMenu;
 }
 
 function flee() {
@@ -923,23 +1440,22 @@ function flee() {
 }
 
 function showDamageInfo(back) {
-  const blockVerb = lastHit.female ? "заблокировала" : "заблокировал";
-  const hitVerb = lastHit.female ? "нанесла" : "нанес";
   write(
     '<div class="entry-title">📋 Информация об уроне</div>' +
-      `<div class="entry-desc">⚔️ Вы нанесли ${lastHit.heroAttack} урона, но ${lastHit.enemyName} ` +
-      `${blockVerb} 🛡️ ${lastHit.enemyDefense} урона. Нанесено: <b>${lastHit.dealt}</b>.<br>` +
-      `⚔️ ${lastHit.enemyName} ${hitVerb} вам ${lastHit.enemyDamage} урона, но вы заблокировали ` +
-      `🛡️ ${lastHit.heroDefense} урона. Получено: <b>${lastHit.received}</b>.</div>`,
+      `<div class="entry-desc">⚔️ Ваш удар: ${lastHit.heroAttack}. Защита ${lastHit.enemyName} ` +
+      `🛡️ ${lastHit.enemyDefense} поглотила ${formatArmorPercent(lastHit.enemyDefense)}% урона. Нанесено: <b>${lastHit.dealt}</b>.<br>` +
+      `⚔️ Удар противника: ${lastHit.enemyDamage}. Ваша защита 🛡️ ${lastHit.heroDefense} ` +
+      `поглотила ${formatArmorPercent(lastHit.heroDefense)}% урона. Получено: <b>${lastHit.received}</b>.</div>`,
     "entry-info"
   );
   ask("Выбери действие:", [
     { label: "↩️ Назад", style: "primary", action: back },
   ]);
+  viewRefresh = () => showDamageInfo(back);
 }
 
 function attack() {
-  const dealt = Math.max(1, hero.attack - enemy.defense);
+  const dealt = mitigatedDamage(hero.attack, enemy.defense);
   enemy.health = Math.max(0, enemy.health - dealt);
 
   lastHit = {
@@ -958,7 +1474,7 @@ function attack() {
     return;
   }
 
-  const received = Math.max(1, enemy.damage - hero.defense);
+  const received = mitigatedDamage(enemy.damage, hero.defense);
   hero.health = Math.max(0, hero.health - received);
   lastHit.received = received;
   storeSave();
@@ -977,6 +1493,7 @@ function victory() {
   hero.experience += gainedExp;
 
   let gained = 0;
+  let armorGained = 0;
   let needed = expNeeded(hero.level);
   while (hero.level < MAX_LEVEL && hero.experience >= needed) {
     hero.experience -= needed;
@@ -985,7 +1502,10 @@ function victory() {
     hero.maxHealth += 3;
     hero.health += 3;
     hero.attack += 1;
-    hero.defense += 1;
+    if (clampArmor(hero.defense) < MAX_ARMOR) {
+      hero.defense = clampArmor(hero.defense + 1);
+      armorGained += 1;
+    }
     gained += 1;
     needed = expNeeded(hero.level);
   }
@@ -998,7 +1518,7 @@ function victory() {
   if (gained > 0) {
     extra +=
       `<div class="entry-desc">Рост за уровни: ❤️ здоровье +${gained * 3}, ` +
-      `⚔️ атака +${gained}, 🛡️ защита +${gained}</div>`;
+      `⚔️ атака +${gained}, 🛡️ защита +${armorGained}</div>`;
   }
 
   storeSave();
@@ -1036,6 +1556,7 @@ function showVictory(extra) {
     });
   }
   ask("Выбери действие:", options);
+  viewRefresh = () => showVictory();
 }
 
 function victoryMenu() {
@@ -1043,15 +1564,25 @@ function victoryMenu() {
 }
 
 function victoryHeroInfo() {
-  write(
-    `<div class="entry-title">👤 ${escapeHtml(save.name)} — ${CLASS_INFO[heroClass].icon} ${heroClass}</div>` +
-      `<div class="entry-desc">${CLASS_INFO[heroClass].description}</div>` +
-      statsBlock(hero),
-    "entry-info"
-  );
+  write(characterStage(heroClass, hero, "👤 " + save.name), "entry-info");
   ask("Выбери действие:", [
     { label: "↩️ Назад", style: "primary", action: victoryMenu },
   ]);
+  viewRefresh = victoryHeroInfo;
+}
+
+function heroInfo() {
+  write(
+    characterStage(heroClass, hero, "👤 " + save.name) +
+      '<div class="entry-desc" style="margin-top:10px">⏸️ Бой на паузе. Ваш противник:</div>' +
+      enemyBlock(true),
+    "entry-info"
+  );
+  ask("Бой на паузе.", [
+    { label: "▶️ Вернуться в бой", style: "primary", action: combatMenu },
+    { label: "🏃 Сбежать из боя", action: flee },
+  ]);
+  viewRefresh = heroInfo;
 }
 
 function death() {
@@ -1093,16 +1624,19 @@ function deathMenu() {
     });
   }
   ask("Выбери действие:", options);
+  viewRefresh = deathMenu;
 }
 
-function start() {
+async function start() {
+  await loadGameData();
   const loaded = loadSave();
   if (loaded && loaded.name) {
     save = loaded;
+    syncSaveClasses();
     mainMenu();
     return;
   }
-  write('<div class="entry-title">Добро пожаловать в текстовую игру!</div>');
+  write(`<div class="entry-title">${escapeHtml(textOf("welcomeTitle", "Добро пожаловать в текстовую игру!"))}</div>`);
   askName();
 }
 
@@ -1113,24 +1647,308 @@ start();
   const bar = document.getElementById("studioBar");
   const button = document.getElementById("publishBtn");
   const logBox = document.getElementById("publishLog");
-  if (!bar || !button || !logBox) return;
+  const toggle = document.getElementById("devModeToggle");
+  const panel = document.getElementById("devPanel");
+  const panelBody = document.getElementById("devPanelBody");
+  const tabs = document.getElementById("devTabs");
+  const applyBar = document.getElementById("devApplyBar");
+  const applyBtn = document.getElementById("devApplyBtn");
+  const applyStatus = document.getElementById("devApplyStatus");
+  if (!bar || !button || !logBox || !toggle || !panel || !panelBody || !tabs || !applyBar || !applyBtn || !applyStatus) return;
 
   const local = location.hostname === "127.0.0.1" || location.hostname === "localhost";
   if (!local) return;
 
+  let studioOn = false;
+  let currentTab = "enemies";
+  const pendingUploads = {};
+
   fetch("/studio")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then(() => {
+      studioOn = true;
       bar.classList.add("is-on");
       button.addEventListener("click", publishToGitHub);
+      toggle.addEventListener("change", syncDeveloperMode);
+      applyBtn.addEventListener("click", applyChanges);
+      tabs.addEventListener("click", (event) => {
+        const next = event.target.closest("button[data-tab]");
+        if (!next) return;
+        currentTab = next.getAttribute("data-tab");
+        Array.from(tabs.querySelectorAll("button[data-tab]")).forEach((item) => {
+          item.classList.toggle("is-on", item === next);
+        });
+        renderDevPanel();
+      });
+      panel.addEventListener("input", (event) => {
+        if (event.target && event.target.type === "file") return;
+        onDevField(event);
+      });
+      panel.addEventListener("change", onDevField);
+      document.addEventListener("gamedata-loaded", () => {
+        if (toggle.checked) renderDevPanel();
+      });
+      if (sessionStorage.getItem("textrpg-dev-mode") === "1") {
+        toggle.checked = true;
+      }
+      syncDeveloperMode();
     })
     .catch(() => {});
+
+  function syncDeveloperMode() {
+    const on = studioOn && toggle.checked;
+    document.body.classList.toggle("dev-on", on);
+    panel.classList.toggle("is-on", on);
+    applyBar.classList.toggle("is-on", on);
+    sessionStorage.setItem("textrpg-dev-mode", on ? "1" : "0");
+    if (on) renderDevPanel();
+  }
+
+  function gamePayload() {
+    const data = cloneData(GAME_DATA);
+    (data.classes || []).forEach((item) => {
+      delete item._preview;
+      if (item.image) item.image = String(item.image).split("?")[0];
+    });
+    (data.enemies || []).forEach((item) => {
+      delete item._preview;
+      if (item.image) item.image = String(item.image).split("?")[0];
+    });
+    return data;
+  }
+
+  function estimatedHealth(kind) {
+    const reference = referenceHero(1);
+    const defense = clampArmor(Math.round(reference.attack * Number(kind.defenseShare || 0)));
+    const hit = mitigatedDamage(reference.attack, defense);
+    return Math.max(1, Math.round(hit * Number(kind.hitsToKill || 1)));
+  }
+
+  function fieldHtml(label, name, value, type, extra) {
+    const safe = value == null ? "" : String(value);
+    if (type === "textarea") {
+      return `<label class="dev-field"><span>${label}</span><textarea data-name="${name}" ${extra || ""}>${escapeHtml(safe)}</textarea></label>`;
+    }
+    if (type === "checkbox") {
+      return `<label class="dev-field"><span>${label}</span><input type="checkbox" data-name="${name}" ${value ? "checked" : ""}></label>`;
+    }
+    return `<label class="dev-field"><span>${label}</span><input type="${type || "text"}" data-name="${name}" value="${escapeHtml(safe)}" ${extra || ""}></label>`;
+  }
+
+  function previewHtml(src) {
+    if (!src) return "";
+    return `<img class="dev-preview" src="${escapeHtml(src)}" alt="">`;
+  }
+
+  function renderDevPanel() {
+    if (currentTab === "characters") {
+      panelBody.innerHTML = (GAME_DATA.classes || []).map((cls) => {
+        return (
+          `<article class="dev-card" data-kind="class" data-id="${escapeHtml(cls.id)}">` +
+          `<h3>${escapeHtml(cls.icon || "")} ${escapeHtml(cls.key)}</h3>` +
+          `<div class="dev-grid">` +
+          fieldHtml("Display name", "name", cls.name, "text") +
+          fieldHtml("Icon", "icon", cls.icon, "text") +
+          fieldHtml("Description", "description", cls.description, "textarea") +
+          fieldHtml("No description", "hideDescription", cls.hideDescription, "checkbox") +
+          `<div class="dev-row">` +
+          fieldHtml("Base health", "maxHealth", cls.maxHealth, "number", 'min="1" step="1"') +
+          fieldHtml("Base attack", "attack", cls.attack, "number", 'min="1" step="1"') +
+          `</div>` +
+          fieldHtml("Base defense", "defense", cls.defense, "number", 'min="0" max="130" step="1"') +
+          `<label class="dev-field"><span>Picture</span><input type="file" accept="image/*" data-upload="class">` +
+          previewHtml(entityImage(cls)) +
+          `</label>` +
+          `</div></article>`
+        );
+      }).join("");
+      return;
+    }
+
+    if (currentTab === "texts") {
+      const loc = GAME_DATA.location || {};
+      const strings = GAME_DATA.strings || {};
+      panelBody.innerHTML =
+        `<article class="dev-card" data-kind="location">` +
+        `<h3>Location</h3>` +
+        `<div class="dev-grid">` +
+        `<div class="dev-row">` +
+        fieldHtml("Icon", "icon", loc.icon, "text") +
+        fieldHtml("Name", "name", loc.name, "text") +
+        `</div>` +
+        fieldHtml("Description", "description", loc.description, "textarea") +
+        `</div></article>` +
+        `<article class="dev-card" data-kind="strings">` +
+        `<h3>Screen texts</h3>` +
+        `<div class="dev-grid">` +
+        fieldHtml("Welcome title", "welcomeTitle", strings.welcomeTitle, "text") +
+        fieldHtml("Name prompt", "askName", strings.askName, "text") +
+        fieldHtml("Main menu title", "mainMenuTitle", strings.mainMenuTitle, "text") +
+        fieldHtml("Main menu hello ({name})", "mainMenuHello", strings.mainMenuHello, "text") +
+        fieldHtml("Class screen title", "chooseClassTitle", strings.chooseClassTitle, "text") +
+        fieldHtml("Class screen text", "chooseClassDesc", strings.chooseClassDesc, "textarea") +
+        fieldHtml("Overpowered warning", "overpoweredWarning", strings.overpoweredWarning, "text") +
+        fieldHtml("Weak prey note", "weakPrey", strings.weakPrey, "text") +
+        `</div></article>`;
+      return;
+    }
+
+    panelBody.innerHTML = (GAME_DATA.enemies || []).map((kind) => {
+      return (
+        `<article class="dev-card" data-kind="enemy" data-id="${escapeHtml(kind.id)}">` +
+        `<h3>${escapeHtml(kind.name)}</h3>` +
+        `<p class="dev-hint">Level 1 health ≈ ${estimatedHealth(kind)}. This is the base value, not a live fight.</p>` +
+        `<div class="dev-grid">` +
+        fieldHtml("Name", "name", kind.name, "text") +
+        fieldHtml("Description", "description", kind.description, "textarea") +
+        fieldHtml("No description", "hideDescription", kind.hideDescription, "checkbox") +
+        `<div class="dev-row">` +
+        fieldHtml("Base health (hits to kill)", "hitsToKill", kind.hitsToKill, "number", 'min="1" step="1"') +
+        fieldHtml("Hits you survive", "hitsYouSurvive", kind.hitsYouSurvive, "number", 'min="1" step="1"') +
+        `</div>` +
+        `<div class="dev-row">` +
+        fieldHtml("Defense share", "defenseShare", kind.defenseShare, "number", 'min="0" max="0.95" step="0.01"') +
+        fieldHtml("Unlock level", "unlockLevel", kind.unlockLevel, "number", 'min="1" step="1"') +
+        `</div>` +
+        fieldHtml("Female name", "female", kind.female, "checkbox") +
+        `<label class="dev-field"><span>Picture</span><input type="file" accept="image/*" data-upload="enemy">` +
+        previewHtml(entityImage(kind)) +
+        `</label>` +
+        `</div></article>`
+      );
+    }).join("");
+  }
+
+  function findClass(id) {
+    return (GAME_DATA.classes || []).find((item) => item.id === id);
+  }
+
+  function findEnemy(id) {
+    return (GAME_DATA.enemies || []).find((item) => item.id === id);
+  }
+
+  function parseField(input) {
+    if (input.type === "checkbox") return input.checked;
+    if (input.type === "number") {
+      const number = Number(input.value);
+      return Number.isFinite(number) ? number : 0;
+    }
+    return input.value;
+  }
+
+  function refreshGame() {
+    applyGameData(GAME_DATA);
+    if (typeof viewRefresh === "function") viewRefresh();
+  }
+
+  function onDevField(event) {
+    const input = event.target;
+    const card = input.closest(".dev-card");
+    if (!card) return;
+
+    if (input.matches("input[type='file']")) {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const kind = input.getAttribute("data-upload");
+      const id = card.getAttribute("data-id");
+      const folder = kind === "class" ? "character" : "enemies";
+      const ext = (file.name.split(".").pop() || "png").toLowerCase();
+      const filename = `${id}.${ext}`;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const content = String(reader.result || "");
+        pendingUploads[`${folder}/${id}`] = { folder, filename, content };
+        const path = `asset/${folder}/${filename}`;
+        const rev = String(Date.now());
+        if (kind === "class") {
+          const cls = findClass(id);
+          if (cls) {
+            cls.image = path;
+            cls.imageRev = rev;
+            cls._preview = content;
+          }
+        } else {
+          const enemyKind = findEnemy(id);
+          if (enemyKind) {
+            enemyKind.image = path;
+            enemyKind.imageRev = rev;
+            enemyKind._preview = content;
+          }
+        }
+        applyStatus.textContent = "Picture added. Click Apply changes to write it into the project.";
+        refreshGame();
+        renderDevPanel();
+      };
+      reader.readAsDataURL(file);
+      input.value = "";
+      return;
+    }
+
+    const name = input.getAttribute("data-name");
+    if (!name) return;
+    const kind = card.getAttribute("data-kind");
+    const value = parseField(input);
+
+    if (kind === "location") {
+      GAME_DATA.location[name] = value;
+    } else if (kind === "strings") {
+      GAME_DATA.strings[name] = value;
+    } else if (kind === "class") {
+      const cls = findClass(card.getAttribute("data-id"));
+      if (cls) cls[name] = name === "defense" ? clampArmor(value) : value;
+    } else if (kind === "enemy") {
+      const enemyKind = findEnemy(card.getAttribute("data-id"));
+      if (enemyKind) enemyKind[name] = value;
+    }
+
+    if (event.type === "change") {
+      refreshGame();
+      if (kind === "enemy" && (name === "hitsToKill" || name === "defenseShare")) {
+        renderDevPanel();
+      }
+    }
+  }
+
+  async function applyChanges() {
+    applyBtn.disabled = true;
+    applyStatus.textContent = "Saving into the project...";
+    try {
+      const uploads = Object.values(pendingUploads);
+      for (const item of uploads) {
+        const response = await fetch("/dev/upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(item),
+        });
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.log || "Upload failed");
+      }
+      GAME_DATA.assetRev = String(Date.now());
+      const response = await fetch("/dev/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(gamePayload()),
+      });
+      const data = await response.json();
+      if (!data.ok) throw new Error(data.log || "Save failed");
+      Object.keys(pendingUploads).forEach((key) => delete pendingUploads[key]);
+      (GAME_DATA.classes || []).forEach((item) => delete item._preview);
+      (GAME_DATA.enemies || []).forEach((item) => delete item._preview);
+      applyStatus.textContent = "Saved. These values will load the next time you open this version.";
+      refreshGame();
+      renderDevPanel();
+    } catch (error) {
+      applyStatus.textContent = String(error);
+    } finally {
+      applyBtn.disabled = false;
+    }
+  }
 
   async function publishToGitHub() {
     button.disabled = true;
     button.textContent = "Publishing...";
     logBox.classList.add("is-on");
-    logBox.textContent = "Updating the public GitHub repo...";
+    logBox.textContent = "Saving this version privately, then updating the public site. Large pictures upload one by one...";
     try {
       const response = await fetch("/publish", { method: "POST" });
       const data = await response.json();
