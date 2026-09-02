@@ -1954,7 +1954,10 @@ start();
       const data = await response.json();
       logBox.textContent = data.log || "";
       if (data.ok) {
-        button.textContent = "Published";
+        const log = data.log || "";
+        const published = /Public GitHub updated just now/.test(log);
+        button.textContent = published ? "Published" : "Error — click to retry";
+        if (!published) button.disabled = false;
         if (data.url) {
           logBox.textContent += (logBox.textContent ? "\n\n" : "") + data.url;
         }
