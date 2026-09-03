@@ -1,13 +1,13 @@
 {
-  "assetRev": "1788435697221",
+  "assetRev": "1788468903937",
   "economy": {
     "startingGold": 5,
     "craftFailMs": 5000,
     "craftRevealMs": 5000,
     "craftSuccessMs": 5000,
     "goldPerEnemyLevel": 0.07,
-    "lootChancePerLevel": 0.4,
-    "lootChanceCap": 48,
+    "lootChancePerLevel": 0.2,
+    "lootChanceCap": 24,
     "gearChancePerLevel": 0.02,
     "gearChanceCap": 2.5,
     "encounterNearPct": 50,
@@ -22,7 +22,7 @@
       "icon": "🦷",
       "slot": "trophy",
       "description": "Мелкий трофей. Чуть добавляет к удару.",
-      "attack": 1,
+      "attack": 3,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 3,
@@ -39,10 +39,10 @@
       "slot": "chest",
       "description": "Грубая шкура, немного держит удар.",
       "attack": 0,
-      "defense": 2,
+      "defense": 6,
       "maxHealth": 0,
       "sellPrice": 8,
-      "buyPrice": 70,
+      "buyPrice": 432,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -54,11 +54,11 @@
       "icon": "🔪",
       "slot": "weapon",
       "description": "Короткий нож, удобнее голых рук.",
-      "attack": 2,
+      "attack": 6,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 10,
-      "buyPrice": 64,
+      "buyPrice": 384,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -118,11 +118,11 @@
       "icon": "🏒",
       "slot": "weapon",
       "description": "Грубое оружие из веток. Лучше, чем кулаки.",
-      "attack": 1,
+      "attack": 3,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 4,
-      "buyPrice": 28,
+      "buyPrice": 192,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -135,10 +135,10 @@
       "slot": "head",
       "description": "Простая шапка. Чуть держит удар по голове.",
       "attack": 0,
-      "defense": 1,
+      "defense": 3,
       "maxHealth": 0,
       "sellPrice": 4,
-      "buyPrice": 72,
+      "buyPrice": 144,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -151,10 +151,10 @@
       "slot": "chest",
       "description": "Лёгкая куртка для лесных троп.",
       "attack": 0,
-      "defense": 1,
-      "maxHealth": 1,
+      "defense": 3,
+      "maxHealth": 3,
       "sellPrice": 5,
-      "buyPrice": 90,
+      "buyPrice": 180,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -167,10 +167,10 @@
       "slot": "legs",
       "description": "Плотные штаны, не рвутся о кусты.",
       "attack": 0,
-      "defense": 1,
+      "defense": 3,
       "maxHealth": 0,
       "sellPrice": 4,
-      "buyPrice": 72,
+      "buyPrice": 144,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -183,10 +183,10 @@
       "slot": "feet",
       "description": "Ходят по сырой земле без жалоб.",
       "attack": 0,
-      "defense": 1,
+      "defense": 3,
       "maxHealth": 0,
       "sellPrice": 4,
-      "buyPrice": 72,
+      "buyPrice": 144,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -198,11 +198,11 @@
       "icon": "🔪",
       "slot": "weapon",
       "description": "Короткий нож для дороги и мелкой дичи.",
-      "attack": 1,
+      "attack": 3,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 6,
-      "buyPrice": 96,
+      "buyPrice": 192,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -215,10 +215,10 @@
       "slot": "head",
       "description": "Тяжёлый шлем. Хорошо держит удар.",
       "attack": 0,
-      "defense": 2,
+      "defense": 6,
       "maxHealth": 0,
       "sellPrice": 10,
-      "buyPrice": 180,
+      "buyPrice": 360,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -231,10 +231,10 @@
       "slot": "chest",
       "description": "Пластины на корпусе. Заметно крепче ткани.",
       "attack": 0,
-      "defense": 3,
-      "maxHealth": 2,
+      "defense": 9,
+      "maxHealth": 6,
       "sellPrice": 14,
-      "buyPrice": 240,
+      "buyPrice": 480,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -247,10 +247,10 @@
       "slot": "legs",
       "description": "Металл на ногах. Тяжело, но надёжно.",
       "attack": 0,
-      "defense": 2,
+      "defense": 6,
       "maxHealth": 0,
       "sellPrice": 11,
-      "buyPrice": 190,
+      "buyPrice": 380,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -263,10 +263,10 @@
       "slot": "feet",
       "description": "Тяжёлая обувь для долгого боя.",
       "attack": 0,
-      "defense": 2,
+      "defense": 6,
       "maxHealth": 0,
       "sellPrice": 11,
-      "buyPrice": 190,
+      "buyPrice": 380,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -278,11 +278,11 @@
       "icon": "⚔️",
       "slot": "weapon",
       "description": "Честный меч. Бьёт сильнее ножа.",
-      "attack": 3,
+      "attack": 9,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 16,
-      "buyPrice": 280,
+      "buyPrice": 560,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -390,7 +390,7 @@
       "icon": "🐾",
       "slot": "trophy",
       "description": "Острый коготь. Трофей охотника.",
-      "attack": 1,
+      "attack": 3,
       "defense": 0,
       "maxHealth": 0,
       "sellPrice": 4,
@@ -408,7 +408,7 @@
       "description": "Жалкий трофей, но всё же добыча.",
       "attack": 0,
       "defense": 0,
-      "maxHealth": 1,
+      "maxHealth": 3,
       "sellPrice": 2,
       "buyPrice": 8,
       "image": "",
@@ -423,7 +423,7 @@
       "slot": "trophy",
       "description": "Жетон шайки. Напоминает, с кем вы дрались.",
       "attack": 0,
-      "defense": 1,
+      "defense": 3,
       "maxHealth": 0,
       "sellPrice": 5,
       "buyPrice": 18,
@@ -777,7 +777,7 @@
     {
       "id": "shop_traveler_head",
       "itemId": "traveler_head",
-      "price": 240,
+      "price": 480,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -787,7 +787,7 @@
     {
       "id": "shop_traveler_chest",
       "itemId": "traveler_chest",
-      "price": 300,
+      "price": 600,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -797,7 +797,7 @@
     {
       "id": "shop_traveler_legs",
       "itemId": "traveler_legs",
-      "price": 240,
+      "price": 480,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -807,7 +807,7 @@
     {
       "id": "shop_traveler_feet",
       "itemId": "traveler_feet",
-      "price": 240,
+      "price": 480,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -817,7 +817,7 @@
     {
       "id": "shop_traveler_weapon",
       "itemId": "traveler_weapon",
-      "price": 320,
+      "price": 640,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -827,7 +827,7 @@
     {
       "id": "shop_iron_head",
       "itemId": "iron_head",
-      "price": 720,
+      "price": 1440,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -837,7 +837,7 @@
     {
       "id": "shop_iron_chest",
       "itemId": "iron_chest",
-      "price": 960,
+      "price": 1920,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -847,7 +847,7 @@
     {
       "id": "shop_iron_legs",
       "itemId": "iron_legs",
-      "price": 760,
+      "price": 1520,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -857,7 +857,7 @@
     {
       "id": "shop_iron_feet",
       "itemId": "iron_feet",
-      "price": 760,
+      "price": 1520,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -867,7 +867,7 @@
     {
       "id": "shop_iron_weapon",
       "itemId": "iron_weapon",
-      "price": 1100,
+      "price": 2200,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -967,7 +967,7 @@
     {
       "id": "shop_pelt",
       "itemId": "wolf_pelt",
-      "price": 220,
+      "price": 1440,
       "enabled": true,
       "tab": "loot",
       "locationId": "forgotten_forest",
@@ -977,7 +977,7 @@
     {
       "id": "shop_knife",
       "itemId": "robber_knife",
-      "price": 240,
+      "price": 1280,
       "enabled": true,
       "tab": "loot",
       "locationId": "forgotten_forest",
@@ -987,7 +987,7 @@
     {
       "id": "shop_club",
       "itemId": "stick_club",
-      "price": 90,
+      "price": 640,
       "enabled": true,
       "tab": "loot",
       "locationId": "forgotten_forest",
@@ -2149,14 +2149,14 @@
       "locationId": "forgotten_forest",
       "name": "Старый тайник",
       "icon": "📦",
-      "chance": 12,
+      "chance": 10,
       "text": "Под корнями вы замечаете заброшенный тайник.",
       "enabled": true,
       "effects": [
         {
           "type": "gold",
           "min": 2,
-          "max": 5
+          "max": 10
         }
       ]
     }
@@ -2232,12 +2232,30 @@
       "goldMin": 1,
       "goldMax": 2,
       "loot": [
-        { "itemId": "rusty_fang", "chance": 18 },
-        { "itemId": "rat_tail", "chance": 16 },
-        { "itemId": "forest_berry", "chance": 22 },
-        { "itemId": "forest_mushroom", "chance": 14 },
-        { "itemId": "forest_stick", "chance": 24 },
-        { "itemId": "stick_club", "chance": 0.35 }
+        {
+          "itemId": "rusty_fang",
+          "chance": 9
+        },
+        {
+          "itemId": "rat_tail",
+          "chance": 8
+        },
+        {
+          "itemId": "forest_berry",
+          "chance": 11
+        },
+        {
+          "itemId": "forest_mushroom",
+          "chance": 7
+        },
+        {
+          "itemId": "forest_stick",
+          "chance": 12
+        },
+        {
+          "itemId": "stick_club",
+          "chance": 0.35
+        }
       ],
       "image": "",
       "hideDescription": false,
@@ -2257,13 +2275,34 @@
       "goldMin": 2,
       "goldMax": 4,
       "loot": [
-        { "itemId": "wolf_claw", "chance": 18 },
-        { "itemId": "forest_herb", "chance": 20 },
-        { "itemId": "tree_sap", "chance": 16 },
-        { "itemId": "forest_root", "chance": 14 },
-        { "itemId": "forest_stick", "chance": 8 },
-        { "itemId": "wolf_pelt", "chance": 0.7 },
-        { "itemId": "traveler_head", "chance": 0.18 }
+        {
+          "itemId": "wolf_claw",
+          "chance": 9
+        },
+        {
+          "itemId": "forest_herb",
+          "chance": 10
+        },
+        {
+          "itemId": "tree_sap",
+          "chance": 8
+        },
+        {
+          "itemId": "forest_root",
+          "chance": 7
+        },
+        {
+          "itemId": "forest_stick",
+          "chance": 4
+        },
+        {
+          "itemId": "wolf_pelt",
+          "chance": 0.7
+        },
+        {
+          "itemId": "traveler_head",
+          "chance": 0.18
+        }
       ],
       "image": "",
       "hideDescription": false,
@@ -2283,14 +2322,38 @@
       "goldMin": 4,
       "goldMax": 7,
       "loot": [
-        { "itemId": "cloth_strip", "chance": 22 },
-        { "itemId": "robber_sign", "chance": 16 },
-        { "itemId": "charcoal", "chance": 12 },
-        { "itemId": "forest_root", "chance": 10 },
-        { "itemId": "iron_scrap", "chance": 8 },
-        { "itemId": "robber_knife", "chance": 0.55 },
-        { "itemId": "traveler_chest", "chance": 0.16 },
-        { "itemId": "traveler_weapon", "chance": 0.14 }
+        {
+          "itemId": "cloth_strip",
+          "chance": 11
+        },
+        {
+          "itemId": "robber_sign",
+          "chance": 8
+        },
+        {
+          "itemId": "charcoal",
+          "chance": 6
+        },
+        {
+          "itemId": "forest_root",
+          "chance": 5
+        },
+        {
+          "itemId": "iron_scrap",
+          "chance": 4
+        },
+        {
+          "itemId": "robber_knife",
+          "chance": 0.55
+        },
+        {
+          "itemId": "traveler_chest",
+          "chance": 0.16
+        },
+        {
+          "itemId": "traveler_weapon",
+          "chance": 0.14
+        }
       ],
       "image": "",
       "hideDescription": false,
@@ -2310,14 +2373,38 @@
       "goldMin": 5,
       "goldMax": 9,
       "loot": [
-        { "itemId": "iron_scrap", "chance": 20 },
-        { "itemId": "charcoal", "chance": 18 },
-        { "itemId": "cloth_strip", "chance": 10 },
-        { "itemId": "robber_sign", "chance": 8 },
-        { "itemId": "robber_knife", "chance": 0.4 },
-        { "itemId": "traveler_legs", "chance": 0.18 },
-        { "itemId": "traveler_feet", "chance": 0.18 },
-        { "itemId": "iron_weapon", "chance": 0.08 }
+        {
+          "itemId": "iron_scrap",
+          "chance": 10
+        },
+        {
+          "itemId": "charcoal",
+          "chance": 9
+        },
+        {
+          "itemId": "cloth_strip",
+          "chance": 5
+        },
+        {
+          "itemId": "robber_sign",
+          "chance": 4
+        },
+        {
+          "itemId": "robber_knife",
+          "chance": 0.4
+        },
+        {
+          "itemId": "traveler_legs",
+          "chance": 0.18
+        },
+        {
+          "itemId": "traveler_feet",
+          "chance": 0.18
+        },
+        {
+          "itemId": "iron_weapon",
+          "chance": 0.08
+        }
       ],
       "image": "",
       "hideDescription": false,
@@ -2337,15 +2424,42 @@
       "goldMin": 8,
       "goldMax": 13,
       "loot": [
-        { "itemId": "iron_scrap", "chance": 24 },
-        { "itemId": "charcoal", "chance": 18 },
-        { "itemId": "forest_root", "chance": 10 },
-        { "itemId": "forest_mushroom", "chance": 8 },
-        { "itemId": "iron_head", "chance": 0.12 },
-        { "itemId": "iron_chest", "chance": 0.1 },
-        { "itemId": "iron_legs", "chance": 0.1 },
-        { "itemId": "iron_feet", "chance": 0.1 },
-        { "itemId": "iron_weapon", "chance": 0.12 }
+        {
+          "itemId": "iron_scrap",
+          "chance": 12
+        },
+        {
+          "itemId": "charcoal",
+          "chance": 9
+        },
+        {
+          "itemId": "forest_root",
+          "chance": 5
+        },
+        {
+          "itemId": "forest_mushroom",
+          "chance": 4
+        },
+        {
+          "itemId": "iron_head",
+          "chance": 0.12
+        },
+        {
+          "itemId": "iron_chest",
+          "chance": 0.1
+        },
+        {
+          "itemId": "iron_legs",
+          "chance": 0.1
+        },
+        {
+          "itemId": "iron_feet",
+          "chance": 0.1
+        },
+        {
+          "itemId": "iron_weapon",
+          "chance": 0.12
+        }
       ],
       "image": "",
       "hideDescription": false,
