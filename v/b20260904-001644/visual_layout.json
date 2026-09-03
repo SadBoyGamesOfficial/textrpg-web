@@ -1,0 +1,119 @@
+{
+  "items": {
+    "contactTelegram": {
+      "text": "✈️ Telegram"
+    },
+    "contactVk": {
+      "text": "🔵 Vk"
+    },
+    "act:Продолжить_игру": {
+      "x": 40,
+      "y": 290,
+      "w": 558,
+      "h": 78,
+      "fontSize": 25,
+      "baseW": 598,
+      "baseH": 61,
+      "rot": 0
+    },
+    "act:Выбрать_класс": {
+      "x": 40,
+      "y": 560,
+      "w": 558,
+      "h": 78,
+      "fontSize": 25,
+      "baseW": 598,
+      "baseH": 61,
+      "rot": 0
+    },
+    "act:Достижения": {
+      "x": 40,
+      "y": 829,
+      "w": 558,
+      "h": 78,
+      "fontSize": 25,
+      "baseW": 598,
+      "baseH": 61,
+      "rot": 0
+    },
+    "hero-slot-0": {
+      "w": 360,
+      "h": 111,
+      "fontSize": 16,
+      "baseW": 360,
+      "baseH": 111,
+      "rot": 0
+    },
+    "hero-slot-1": {
+      "w": 360,
+      "h": 111,
+      "fontSize": 16,
+      "baseW": 360,
+      "baseH": 111,
+      "rot": 0
+    },
+    "hero-slot-2": {
+      "w": 360,
+      "h": 111,
+      "fontSize": 16,
+      "baseW": 360,
+      "baseH": 111,
+      "rot": 0
+    },
+    "enemyLootBtn": {
+      "x": 523,
+      "y": 12,
+      "w": 49,
+      "h": 43,
+      "fontSize": 27,
+      "baseW": 45,
+      "baseH": 34,
+      "rot": 0
+    },
+    "hero-stats-btn": {
+      "x": 517,
+      "y": 14,
+      "w": 60,
+      "h": 46,
+      "fontSize": 27,
+      "baseW": 44,
+      "baseH": 34,
+      "rot": 0
+    },
+    "card-bg": {
+      "x": 0,
+      "y": 0,
+      "w": 638,
+      "h": 1274,
+      "fontSize": 16,
+      "baseW": 638,
+      "baseH": 1274,
+      "rot": 0
+    },
+    "craft-lead": {
+      "x": 164,
+      "y": 81,
+      "w": 283,
+      "h": 20,
+      "fontSize": 15,
+      "baseW": 412,
+      "baseH": 20,
+      "rot": 0
+    },
+    "craft-bench": {
+      "x": 16,
+      "y": 208,
+      "w": 567,
+      "h": 354,
+      "fontSize": 16,
+      "baseW": 567,
+      "baseH": 354,
+      "rot": 0
+    }
+  },
+  "gaps": {},
+  "layers": [],
+  "card": {
+    "bg": "asset/ui/vx-1788449424478.png?v=1788449424536"
+  }
+}
