@@ -42,7 +42,7 @@
     },
     "hero-stats-btn": {
       "x": 496,
-      "y": 21,
+      "y": -8,
       "w": 76,
       "h": 58,
       "fontSize": 34,
@@ -61,24 +61,11 @@
       "rot": 0
     },
     "craft-lead": {
-      "x": 164,
-      "y": 81,
-      "w": 283,
-      "h": 20,
-      "fontSize": 15,
-      "baseW": 412,
-      "baseH": 20,
-      "rot": 0
+      "flow": true,
+      "fontSize": 15
     },
     "craft-bench": {
-      "x": 16,
-      "y": 208,
-      "w": 567,
-      "h": 354,
-      "fontSize": 16,
-      "baseW": 567,
-      "baseH": 354,
-      "rot": 0
+      "flow": true
     },
     "act:Достижения": {
       "x": 27,
@@ -110,10 +97,377 @@
       "baseH": 61,
       "rot": 0
     },
-    "Главное меню/#actions/button:primary:0/span:0": {}
+    "Главное меню/#actions/button:primary:0/span:0": {},
+    "detailOverlayCard": {
+      "x": 780,
+      "y": 368,
+      "w": 560,
+      "h": 464,
+      "fontSize": 16,
+      "baseW": 560,
+      "baseH": 464,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:0/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:0": {
+      "x": 234,
+      "y": 108,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:0": {
+      "x": 234,
+      "y": 141,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:0": {
+      "x": 234,
+      "y": 175,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:3/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:0": {
+      "x": 234,
+      "y": 209,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:4/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:0": {
+      "x": 234,
+      "y": 243,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:0/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:1": {
+      "x": 192,
+      "y": 109,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:1": {
+      "x": 192,
+      "y": 143,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:1": {
+      "x": 192,
+      "y": 178,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:3/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:1": {
+      "x": 192,
+      "y": 210,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:4/div:stats-main:0/div:stat-plus-row:0/button:stat-plus:1": {
+      "x": 192,
+      "y": 244,
+      "w": 32,
+      "h": 28,
+      "fontSize": 18,
+      "baseW": 32,
+      "baseH": 28,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1/div:stats-gear:0": {
+      "x": 322,
+      "y": 150,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:6/div:stats-main:0/span:0": {
+      "x": 51,
+      "y": 314,
+      "w": 106,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 94,
+      "baseH": 23,
+      "rot": 0
+    },
+    "screen-bg:play": {
+      "x": 20,
+      "y": 159,
+      "w": 598,
+      "h": 851,
+      "fontSize": 16,
+      "baseW": 598,
+      "baseH": 851,
+      "rot": 0
+    },
+    "content-panel": {
+      "x": 20,
+      "y": 159,
+      "w": 598,
+      "h": 851,
+      "fontSize": 16,
+      "baseW": 598,
+      "baseH": 851,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:0/div:stats-main:0/span:0": {
+      "x": 51,
+      "y": 111,
+      "w": 118,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 106,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1/div:stats-main:0/span:0": {
+      "x": 50,
+      "y": 144,
+      "w": 63,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 55,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0/span:0": {
+      "x": 51,
+      "y": 177,
+      "w": 88,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 103,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:3/div:stats-main:0/span:0": {
+      "x": 51,
+      "y": 210,
+      "w": 115,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 103,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:4/div:stats-main:0/span:0": {
+      "x": 49,
+      "y": 243,
+      "w": 129,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 112,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:5/div:stats-main:0/span:0": {
+      "x": 51,
+      "y": 277,
+      "w": 86,
+      "h": 23,
+      "fontSize": 16,
+      "baseW": 74,
+      "baseH": 23,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:6/div:stats-gear:0": {
+      "x": 322,
+      "y": 319,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/button:primary:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:5/div:stats-gear:0": {
+      "x": 322,
+      "y": 284,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-gear:0": {
+      "x": 322,
+      "y": 182,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:3/div:stats-gear:0": {
+      "x": 322,
+      "y": 214,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:4/div:stats-gear:0": {
+      "x": 322,
+      "y": 252,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:0/div:stats-gear:0": {
+      "x": 322,
+      "y": 121,
+      "w": 219,
+      "h": 16,
+      "fontSize": 13,
+      "baseW": 219,
+      "baseH": 16,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:3/div:stats-main:0/span:ico:0": {
+      "x": 657,
+      "y": 185,
+      "w": 85,
+      "h": 89,
+      "fontSize": 19,
+      "baseW": 25,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:5/div:stats-main:0/span:ico:0": {
+      "x": 13,
+      "y": 272,
+      "w": 46,
+      "h": 40,
+      "fontSize": 19,
+      "baseW": 25,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:6/div:stats-main:0/span:ico:0": {
+      "x": 15,
+      "y": 311,
+      "w": 34,
+      "h": 27,
+      "fontSize": 19,
+      "baseW": 25,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:5/div:stats-main:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:4/div:stats-main:0/span:ico:0": {
+      "x": 14,
+      "y": 240,
+      "w": 51,
+      "h": 40,
+      "fontSize": 18,
+      "baseW": 24,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0/span:0/b:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0/span:ico:0": {
+      "x": 16,
+      "y": 172,
+      "w": 58,
+      "h": 40,
+      "fontSize": 18,
+      "baseW": 20,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:entry-title:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:2/div:stats-main:0": {},
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:1/div:stats-main:0/span:ico:0": {
+      "x": 13,
+      "y": 136,
+      "w": 58,
+      "h": 40,
+      "fontSize": 18,
+      "baseW": 25,
+      "baseH": 18,
+      "rot": 0
+    },
+    "play/#detailOverlayCard/div:overlay-body:0/div:stats-overlay:0/div:stats-grid:0/div:stats-row:0/div:stats-main:0/span:ico:0": {
+      "x": 15,
+      "y": 106,
+      "w": 52,
+      "h": 40,
+      "fontSize": 18,
+      "baseW": 25,
+      "baseH": 18,
+      "rot": 0
+    }
   },
   "gaps": {},
-  "layers": [],
+  "layers": [
+    {
+      "id": "lmtos772npcsl",
+      "kind": "text",
+      "x": 48,
+      "y": 96,
+      "interactive": false,
+      "src": "",
+      "screen": "play",
+      "text": "Новая надпись",
+      "w": 160,
+      "h": 48,
+      "z": 2,
+      "fontSize": 16,
+      "baseW": 160,
+      "baseH": 48,
+      "rot": 0
+    }
+  ],
   "card": {
     "bg": "asset/ui/vx-1788449424478.png?v=1788449424536"
   }

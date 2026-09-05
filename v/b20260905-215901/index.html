@@ -119,20 +119,9 @@ body {
   z-index: 8;
 }
 
-.more-menu-btn {
-  display: none;
-  width: 44px;
-  min-width: 44px;
-  padding: 0;
-  font-size: 22px;
-  line-height: 1;
-}
-
+.more-menu-btn,
 .more-menu-pop {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  display: none;
 }
 
 .topbar-end {
@@ -201,6 +190,9 @@ body {
 
 #log {
   flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
   min-height: 280px;
   padding: 4px 0 12px;
   display: flex;
@@ -233,12 +225,16 @@ body.vx-on.vx-edit .vx-panel-bg {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
   min-height: 0;
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-left: 3px solid #39405280;
   border-radius: 12px;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 body.vx-on.vx-edit #log {
@@ -286,14 +282,86 @@ body.vx-on.vx-edit #log > .entry > * {
 }
 
 .victory-loot {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 26px;
-  line-height: 1.5;
+  font-size: 22px;
+  line-height: 1.4;
   color: var(--text);
+  gap: 2px;
+}
+
+.victory-drops {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.victory-drops-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.victory-drop {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.victory-drop-name {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+html.bp-mobile .victory-loot,
+body.bp-mobile .victory-loot {
+  font-size: 18px;
+}
+
+html.bp-mobile .victory-loot b,
+body.bp-mobile .victory-loot b {
+  font-size: 20px;
+}
+
+html.bp-mobile .victory-drop-name,
+body.bp-mobile .victory-drop-name {
+  display: none;
+}
+
+.victory-stat-grid .stat-line {
+  justify-content: center;
+}
+
+.victory-stat-grid .stat-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 6px 10px;
+}
+
+.victory-stat-grid .stat-center {
+  justify-content: center;
+}
+
+html.bp-mobile .victory-stats,
+body.bp-mobile .victory-stats {
+  padding-top: 8px;
+}
+
+html.bp-mobile .victory-screen .stats,
+body.bp-mobile .victory-screen .stats {
+  font-size: 15px;
+  margin-top: 6px;
 }
 
 .victory-loot b {
@@ -378,6 +446,10 @@ body.vx-on.vx-edit #log > .entry > * {
   flex-wrap: wrap;
   gap: 10px 16px;
   margin-top: 8px;
+}
+
+.stat-line-mobile {
+  display: none;
 }
 
 .stat {
@@ -529,9 +601,9 @@ a.icon-btn {
   min-width: 0;
   min-height: 0;
   width: auto;
-  max-width: 150px;
-  padding: 6px 8px;
-  white-space: normal;
+  max-width: none;
+  padding: 6px 10px;
+  white-space: nowrap;
   text-align: center;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -907,9 +979,10 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .game-overlay .achieve-popup.is-book {
-  width: min(460px, calc(100% - 24px));
+  width: min(460px, calc(100% - 16px));
   max-height: min(96dvh, 920px);
-  min-height: min(88dvh, 800px);
+  min-height: 0;
+  padding: 16px 12px 12px;
 }
 
 .game-overlay .achieve-popup.is-book .overlay-body {
@@ -941,8 +1014,8 @@ body:has(.craft-screen) .actions.menu-foot {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 8px;
-  margin-top: 10px;
+  gap: clamp(4px, 1.2vh, 8px);
+  margin-top: 8px;
   overflow: hidden;
   flex: 1;
   min-height: 0;
@@ -953,15 +1026,16 @@ body:has(.craft-screen) .actions.menu-foot {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: clamp(2px, 1vw, 6px);
   padding: 0;
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .recipe-cell {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
+  width: clamp(28px, 8vw, 44px);
+  height: clamp(28px, 8vw, 44px);
+  min-width: 0;
   padding: 0;
   display: flex;
   align-items: center;
@@ -969,8 +1043,9 @@ body:has(.craft-screen) .actions.menu-foot {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 8px;
-  font-size: clamp(18px, 4.4vw, 26px);
+  font-size: clamp(14px, 3.6vw, 26px);
   line-height: 1;
+  flex: 0 0 auto;
 }
 
 .recipe-cell.is-unknown {
@@ -991,10 +1066,10 @@ body:has(.craft-screen) .actions.menu-foot {
 .recipe-plus, .recipe-eq {
   color: var(--muted);
   font-weight: 700;
-  font-size: 16px;
+  font-size: clamp(12px, 3vw, 16px);
   padding: 0;
   flex: 0 0 auto;
-  width: 14px;
+  width: clamp(8px, 2.4vw, 14px);
   text-align: center;
 }
 
@@ -1037,28 +1112,34 @@ body:has(.craft-screen) .actions.menu-foot {
 
 .stats-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 8px;
+  grid-template-columns: 28px minmax(0, 1fr) 72px minmax(64px, 0.75fr);
+  gap: 6px;
   align-items: center;
-  min-height: 0;
+  min-height: 36px;
 }
 
 .stats-main {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
+  display: contents;
   font-size: 15px;
 }
 
-.stats-main b {
+.stats-label {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stats-main b,
+.stats-label b {
   color: var(--text);
 }
 
 .stat-plus-row {
   display: flex;
   gap: 4px;
-  margin-left: auto;
+  margin: 0;
+  justify-content: flex-end;
 }
 
 .stat-plus {
@@ -1780,12 +1861,12 @@ body:has(.craft-screen) .actions.menu-foot {
   aspect-ratio: 1;
   min-width: 0;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 6px;
+  justify-items: center;
+  gap: 4px;
+  padding: 8px 5px 6px;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -1801,28 +1882,40 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .death-card b {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .death-card-ico {
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1;
   font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", sans-serif;
 }
 
 .death-card small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.2;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .craft-screen {
   display: flex;
   flex-direction: column;
   gap: 0;
+  min-width: 0;
+  max-width: 100%;
   min-height: 0;
   flex: 1;
 }
@@ -1876,23 +1969,30 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .craft-bench {
+  --craft-cell: 164px;
+  --craft-result: 180px;
+  --craft-gap: 12px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex: 0 0 354px;
-  height: 354px;
-  min-height: 354px;
-  max-height: 354px;
-  margin: 28px 0 0;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 16px 0 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .craft-grid {
   display: grid;
-  grid-template-columns: repeat(2, 164px);
-  grid-template-rows: repeat(2, 171px);
-  gap: 12px;
+  grid-template-columns: repeat(2, var(--craft-cell));
+  grid-template-rows: repeat(2, var(--craft-cell));
+  gap: var(--craft-gap);
   flex: 0 0 auto;
   width: auto;
   min-width: 0;
@@ -1900,7 +2000,7 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .craft-screen > .craft-panel {
-  margin-top: auto;
+  margin-top: 8px;
 }
 
 .craft-hint,
@@ -2010,10 +2110,11 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .craft-slot {
-  width: 164px;
-  height: 171px;
-  min-width: 164px;
-  min-height: 171px;
+  width: var(--craft-cell);
+  height: var(--craft-cell);
+  min-width: 0;
+  min-height: 0;
+  max-width: var(--craft-cell);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2066,13 +2167,13 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .craft-result {
-  flex: 0 0 180px;
-  width: 180px;
-  height: 176px;
-  min-width: 180px;
-  min-height: 176px;
-  max-width: 180px;
-  max-height: 176px;
+  flex: 0 0 var(--craft-result);
+  width: var(--craft-result);
+  height: calc(var(--craft-cell) * 2 + var(--craft-gap));
+  min-width: 0;
+  min-height: 0;
+  max-width: var(--craft-result);
+  max-height: none;
   align-self: center;
   border-color: #315694;
   background: #1b2a48;
@@ -2762,11 +2863,18 @@ body.bp-tablet .card {
   max-width: 720px;
 }
 
+html.bp-mobile body,
+body.bp-mobile {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 body.bp-mobile .card {
   max-width: 100%;
   border-radius: 12px;
-  padding: 14px 12px;
+  padding: 12px 8px;
   min-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  overflow-x: hidden;
 }
 
 body.bp-mobile .topbar {
@@ -2801,10 +2909,6 @@ body.bp-tablet #log {
   overflow-wrap: anywhere;
 }
 
-.more-menu-btn {
-  display: none;
-}
-
 .entry.vx-panel-off,
 .stage-art.vx-panel-off {
   background: transparent !important;
@@ -2826,44 +2930,38 @@ body.bp-tablet #log {
   display: flex;
 }
 
-html.bp-mobile .more-menu-btn,
-body.bp-mobile .more-menu-btn {
-  display: inline-flex;
+html.bp-mobile .topbar-start,
+body.bp-mobile .topbar-start {
+  max-width: 92px;
+  gap: 4px;
+  align-self: start;
+  justify-self: start;
+}
+
+html.bp-mobile .topbar-start .support-btn,
+html.bp-mobile .topbar-start .contact-btn,
+body.bp-mobile .topbar-start .support-btn,
+body.bp-mobile .topbar-start .contact-btn {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-html.bp-mobile .more-menu-pop,
-body.bp-mobile .more-menu-pop {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: calc(100% + 6px);
-  min-width: 220px;
-  padding: 8px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: 0 10px 24px #00000066;
-}
-
-html.bp-mobile .more-menu-pop.is-open,
-body.bp-mobile .more-menu-pop.is-open {
-  display: flex;
-}
-
-html.bp-mobile .more-menu-pop .support-btn,
-html.bp-mobile .more-menu-pop .contact-btn,
-body.bp-mobile .more-menu-pop .support-btn,
-body.bp-mobile .more-menu-pop .contact-btn {
-  width: 100%;
-  justify-content: flex-start;
-  font-size: 14px;
+  width: 86px;
+  min-width: 86px;
+  max-width: 86px;
+  min-height: 52px;
+  padding: 4px 3px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: center;
+  gap: 2px;
 }
 
 html.bp-mobile #locationTag,
 body.bp-mobile #locationTag {
-  max-width: min(42vw, 160px);
+  max-width: min(46vw, 170px);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2922,12 +3020,126 @@ body.bp-mobile .fight-screen .stage-sub {
   font-size: 14px;
 }
 
-html.bp-mobile .fight-screen .stat-extra,
-html.bp-mobile .fight-screen .fight-secondary,
-html.bp-mobile .fight-screen .entry-desc,
-body.bp-mobile .fight-screen .stat-extra,
-body.bp-mobile .fight-screen .fight-secondary,
-body.bp-mobile .fight-screen .entry-desc {
+html.bp-mobile .fight-screen .stat-line-full,
+html.bp-mobile .stat-line-full,
+body.bp-mobile .fight-screen .stat-line-full,
+body.bp-mobile .stat-line-full {
+  display: none !important;
+}
+
+html.bp-mobile .stat-line-mobile,
+body.bp-mobile .stat-line-mobile {
+  display: flex !important;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+html.bp-mobile .stat-line-mobile .stat,
+body.bp-mobile .stat-line-mobile .stat {
+  gap: 2px;
+  white-space: nowrap;
+}
+
+html.bp-mobile .entry,
+body.bp-mobile .entry {
+  padding: 12px 8px;
+}
+
+html.bp-mobile .hero-view,
+html.bp-mobile .fight-screen,
+html.bp-mobile .save-board,
+html.bp-mobile .class-board,
+body.bp-mobile .hero-view,
+body.bp-mobile .fight-screen,
+body.bp-mobile .save-board,
+body.bp-mobile .class-board {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+html.bp-mobile .stage-art,
+html.bp-mobile .portrait,
+html.bp-mobile .ga-frame,
+html.bp-mobile .ga-img,
+body.bp-mobile .stage-art,
+body.bp-mobile .portrait,
+body.bp-mobile .ga-frame,
+body.bp-mobile .ga-img {
+  max-width: 100% !important;
+}
+
+html.bp-mobile .equip-row,
+body.bp-mobile .equip-row {
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+}
+
+html.bp-mobile .save-board,
+body.bp-mobile .save-board {
+  align-items: stretch;
+  gap: 16px;
+}
+
+html.bp-mobile .save-slot,
+html.bp-mobile .actions button,
+body.bp-mobile .save-slot,
+body.bp-mobile .actions button {
+  width: 100% !important;
+  max-width: 100% !important;
+  left: auto !important;
+  position: relative !important;
+  box-sizing: border-box;
+}
+
+html.bp-mobile .entry-title,
+html.bp-mobile .craft-lead,
+html.bp-mobile .craft-hint,
+html.bp-mobile .craft-hint-title,
+html.bp-mobile .stage-sub,
+html.bp-mobile .entry-desc,
+body.bp-mobile .entry-title,
+body.bp-mobile .craft-lead,
+body.bp-mobile .craft-hint,
+body.bp-mobile .craft-hint-title,
+body.bp-mobile .stage-sub,
+body.bp-mobile .entry-desc {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+html.bp-mobile .fight-screen .fight-note,
+html.bp-mobile .fight-screen .fight-note .entry-desc,
+body.bp-mobile .fight-screen .fight-note,
+body.bp-mobile .fight-screen .fight-note .entry-desc {
+  display: none;
+}
+
+.fight-log-short {
+  display: none;
+}
+
+html.bp-mobile .fight-screen .fight-log-full,
+body.bp-mobile .fight-screen .fight-log-full {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+html.bp-mobile .fight-screen .fight-log-short,
+body.bp-mobile .fight-screen .fight-log-short {
   display: none;
 }
 
@@ -2968,31 +3180,39 @@ body.bp-tablet .card:has(.hero-view) .actions {
 
 html.bp-mobile .craft-bench,
 body.bp-mobile .craft-bench {
-  --craft-cell: min(96px, 22vw);
-  --craft-gap: 6px;
+  --craft-gap: 8px;
+  display: grid !important;
+  grid-template-columns: minmax(0, 2fr) auto minmax(0, 1fr);
+  align-items: stretch;
   flex: 0 0 auto;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  width: 100%;
-  margin: 10px 0 0;
-  gap: var(--craft-gap);
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 12px 0;
+  gap: 8px;
+  justify-content: center;
+  overflow: visible;
 }
 
 html.bp-mobile .craft-grid,
 body.bp-mobile .craft-grid {
-  grid-template-columns: repeat(2, var(--craft-cell));
-  grid-template-rows: repeat(2, var(--craft-cell));
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--craft-gap);
-  width: auto;
+  aspect-ratio: 1;
 }
 
 html.bp-mobile .craft-slot,
 body.bp-mobile .craft-slot {
-  width: var(--craft-cell);
-  height: var(--craft-cell);
-  min-width: 0;
-  min-height: 0;
+  width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  aspect-ratio: 1;
 }
 
 html.bp-mobile .craft-slot .equip-ico,
@@ -3002,13 +3222,14 @@ body.bp-mobile .craft-slot .equip-ico {
 
 html.bp-mobile .craft-result,
 body.bp-mobile .craft-result {
-  flex: 0 0 var(--craft-cell);
-  width: var(--craft-cell);
-  height: calc(var(--craft-cell) * 2 + var(--craft-gap));
-  min-width: 0;
-  min-height: 0;
-  max-width: none;
-  max-height: none;
+  flex: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto;
 }
 
 html.bp-mobile .craft-arrow,
@@ -3033,10 +3254,146 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
 }
 
 @media (max-width: 599.98px) {
-  html:not(.bp-desktop):not(.bp-tablet) body .card {
+  html, body {
+    overflow-x: hidden;
+  }
+  .card,
+  #log,
+  .entry,
+  .actions,
+  .fight-screen,
+  .craft-screen,
+  .hero-view,
+  .inv-screen,
+  .save-board,
+  .class-board,
+  .stage-art,
+  .stage-head,
+  .stage-foot,
+  .stage-head-text {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+  .card {
     max-width: 100%;
     border-radius: 12px;
-    padding: 14px 12px;
+    padding: 14px 10px;
+    overflow-x: hidden;
+  }
+  #log,
+  .entry {
+    overflow-x: hidden;
+  }
+  .entry-title,
+  .craft-lead,
+  .craft-panel,
+  .craft-hint,
+  .stage-sub,
+  .entry-desc {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .actions button,
+  .save-slot,
+  .class-slot {
+    max-width: 100% !important;
+    width: 100% !important;
+    left: auto !important;
+    box-sizing: border-box;
+  }
+  .save-board {
+    align-items: stretch;
+    gap: 16px;
+    padding: 4px 0;
+  }
+  .stage-art,
+  .portrait,
+  .ga-frame,
+  .ga-img {
+    max-width: 100% !important;
+    height: auto;
+  }
+  .portrait {
+    max-height: min(36vh, 280px);
+  }
+  .equip-row {
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+  }
+  html.bp-mobile .entry,
+  body.bp-mobile .entry {
+    padding: 12px 8px;
+  }
+  .craft-bench {
+    --craft-gap: 8px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 2fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .craft-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--craft-gap);
+    aspect-ratio: 1;
+  }
+  .craft-slot,
+  .craft-result {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  .craft-slot {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1;
+  }
+  .craft-result {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: none !important;
+    aspect-ratio: auto;
+  }
+  .craft-arrow {
+    font-size: 22px;
+  }
+  .craft-panel,
+  .craft-hint {
+    min-height: 0;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .stat-line-full { display: none !important; }
+  .stat-line-mobile {
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-line-mobile .stat {
+    gap: 3px;
+    white-space: nowrap;
+  }
+  .fight-log-short { display: none !important; }
+  .fight-log-full {
+    display: block !important;
+    font-size: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -3062,14 +3419,11 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
 <main class="card">
   <div class="topbar" id="topbar">
     <div class="topbar-start" id="topbarStart">
-      <button type="button" class="icon-btn more-menu-btn" id="moreMenuBtn" title="Ещё" aria-expanded="false" aria-controls="moreMenuPop">⋯</button>
-      <div class="more-menu-pop" id="moreMenuPop">
-        <a class="icon-btn support-btn" id="supportBtn" href="https://pay.cloudtips.ru/p/97c0dec7" target="_blank" rel="noopener noreferrer" title="Поддержать разработчика">❤️ Поддержать разработчика</a>
-        <button type="button" class="icon-btn contact-btn" id="contactBtn" title="Связаться со мной" aria-expanded="false" aria-controls="contactPop">💬 Связаться со мной</button>
-        <div class="contact-pop" id="contactPop" hidden>
-          <a class="contact-link" id="contactTelegram" href="https://t.me/Sad_Boy_x_who" target="_blank" rel="noopener noreferrer">✈️ Telegram</a>
-          <a class="contact-link" id="contactVk" href="https://vk.me/sad_boy_x_3d" target="_blank" rel="noopener noreferrer">VK ВКонтакте</a>
-        </div>
+      <a class="icon-btn support-btn" id="supportBtn" href="https://pay.cloudtips.ru/p/97c0dec7" target="_blank" rel="noopener noreferrer" title="Поддержать разработчика">❤️ Поддержать разработчика</a>
+      <button type="button" class="icon-btn contact-btn" id="contactBtn" title="Связаться со мной" aria-expanded="false" aria-controls="contactPop">💬 Связаться со мной</button>
+      <div class="contact-pop" id="contactPop" hidden>
+        <a class="contact-link" id="contactTelegram" href="https://t.me/Sad_Boy_x_who" target="_blank" rel="noopener noreferrer">✈️ Telegram</a>
+        <a class="contact-link" id="contactVk" href="https://vk.me/sad_boy_x_3d" target="_blank" rel="noopener noreferrer">VK ВКонтакте</a>
       </div>
     </div>
     <strong id="topTitle">TextRPG</strong>
@@ -4861,7 +5215,7 @@ function ask(prompt, options, layout) {
     layout === "menu" ? "actions menu-spread" :
     layout === "foot" ? "actions menu-foot" : "actions";
   actionsBox.innerHTML = "";
-  if (prompt) {
+  if (prompt && prompt !== "Выбери действие:") {
     const title = document.createElement("p");
     title.className = "prompt";
     title.textContent = prompt;
@@ -5123,11 +5477,36 @@ function pickClassForSlot(slotIndex, back) {
 
 function statsBlock(data, options) {
   const skipLevel = options && options.skipLevel;
+  const compact = options && options.compact;
   const needed = expNeeded(data.level);
   const levelText =
     data.level >= MAX_LEVEL
       ? `<span class="stat"><span class="ico">⭐</span>Уровень: <b>${data.level}</b> (максимум)</span>`
       : `<span class="stat"><span class="ico">⭐</span>Уровень: <b>${data.level}</b></span>`;
+  if (compact) {
+    return (
+      `<div class="stats victory-stat-grid">` +
+      `<div class="stat-line stat-pair">` +
+      (skipLevel ? "" : levelText) +
+      `<span class="stat"><span class="ico">🏆</span>Побед: <b>${data.wins}</b></span>` +
+      `</div>` +
+      `<div class="stat-line stat-pair">` +
+      `<span class="stat"><span class="ico">❤️</span>Здоровье: <b>${data.health}</b> / ${liveMaxHealth(data)}</span>` +
+      `<span class="stat"><span class="ico">⚔️</span>Атака: <b>${liveAttack(data)}</b></span>` +
+      `</div>` +
+      `<div class="stat-line stat-center">` +
+      `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(liveDefense(data))}</b></span>` +
+      `</div>` +
+      `<div class="stat-line stat-pair">` +
+      `<span class="stat"><span class="ico">🎯</span>Крит-шанс: <b>${liveCritChance(data)}%</b></span>` +
+      `<span class="stat"><span class="ico">💥</span>Крит-урон: <b>+${liveCritDamage(data)}%</b></span>` +
+      `</div>` +
+      (data.level >= MAX_LEVEL ? "" : `<div class="stat-line stat-center"><span class="stat"><span class="ico">✨</span>Опыт: <b>${data.experience}</b> / ${needed}</span></div>`) +
+      `</div>` +
+      bar(data.health, liveMaxHealth(data), "hp") +
+      (data.level >= MAX_LEVEL ? "" : bar(data.experience, needed, "xp"))
+    );
+  }
   return (
     `<div class="stats">` +
     `<div class="stat-line">` +
@@ -5211,13 +5590,15 @@ function statsOverlayRow(data, spec, canPlus, canMinus) {
   const allocBadge = alloc > 0 ? ` <span style="color:var(--good)">(${alloc})</span>` : "";
   const buttons = spec.spend
     ? `<div class="stat-plus-row">` +
-      `<button type="button" class="stat-plus" data-spend-stat="${spec.spend}"${canPlus ? "" : " disabled"}>+</button>` +
       `<button type="button" class="stat-plus" data-unspend-stat="${spec.spend}"${canMinus ? "" : " disabled"}>−</button>` +
+      `<button type="button" class="stat-plus" data-spend-stat="${spec.spend}"${canPlus ? "" : " disabled"}>+</button>` +
       `</div>`
-    : `<span class="stat-plus" style="visibility:hidden">+</span>`;
+    : `<div class="stat-plus-row is-empty"></div>`;
   return (
     `<div class="stats-row">` +
-    `<div class="stats-main"><span class="ico">${spec.ico}</span><span>${spec.label}: <b>${spec.value}</b>${allocBadge}</span>${buttons}</div>` +
+    `<span class="ico">${spec.ico}</span>` +
+    `<span class="stats-label">${spec.label}: <b>${spec.value}</b>${allocBadge}</span>` +
+    buttons +
     `<div class="stats-gear">${spec.gear || "—"}</div>` +
     `</div>`
   );
@@ -5634,12 +6015,20 @@ function enemyBlock(compact, target, withLoot) {
     portraitHtml(unit, compact, compact ? ["thumbnail", "combat", "portrait"] : ["combat", "portrait"]) +
     `<div class="stage-foot">` +
     descHtml(kind) +
-    `<div class="stats"><div class="stat-line">` +
+    `<div class="stats">` +
+    `<div class="stat-line stat-line-full">` +
     `<span class="stat stat-core"><span class="ico">❤️</span>Здоровье: <b>${unit.health}</b> / ${unit.maxHealth}</span>` +
     `<span class="stat stat-core"><span class="ico">⚔️</span>Урон: <b>${unit.damage}</b></span>` +
     `<span class="stat stat-extra"><span class="ico">🛡️</span>Защита: <b>${armorText(unit.defense)}</b></span>` +
     `<span class="stat stat-extra"><span class="ico">🎯</span>Крит-шанс: <b>${Number(critChance) || 0}%</b></span>` +
     `<span class="stat stat-extra"><span class="ico">💥</span>Крит-урон: <b>+${Number(critDamage) || 0}%</b></span>` +
+    `</div>` +
+    `<div class="stat-line stat-line-mobile">` +
+    `<span class="stat"><span class="ico">❤️</span><b>${unit.health}</b> / ${unit.maxHealth}</span>` +
+    `<span class="stat"><span class="ico">⚔️</span><b>${unit.damage}</b></span>` +
+    `<span class="stat"><span class="ico">🛡️</span><b>${Number(unit.defense) || 0}</b></span>` +
+    `<span class="stat"><span class="ico">🎯</span><b>${Number(critChance) || 0}%</b></span>` +
+    `<span class="stat"><span class="ico">💥</span><b>+${Number(critDamage) || 0}%</b></span>` +
     `</div></div>` +
     bar(unit.health, unit.maxHealth, "hp") +
     `</div>`
@@ -5659,9 +6048,6 @@ function strikeNote(strike, dealt, who) {
     const whoText = who === "enemy" ? "Противник нанёс критический удар" : "Вы нанесли критический удар";
     return `<div class="hit-note">🎯 ${whoText}: <b>${dealt}</b> урона после всех расчётов. Крит-урон +${strike.critDamage}%.</div>`;
   }
-  if (strike.critChance) {
-    return `<div class="hit-note">🎯 Крит не сработал (шанс ${strike.critChance}%).</div>`;
-  }
   return "";
 }
 
@@ -5671,17 +6057,25 @@ function fightScreen() {
   html += `</div>`;
   if (encounterNote) html += `<div class="fight-note fight-secondary">${encounterNote}</div>`;
   html +=
-    `<div class="fight-hero" data-vx="fight-hero"><div class="stats"><div class="stat-line">` +
+    `<div class="fight-hero" data-vx="fight-hero"><div class="stats">` +
+    `<div class="stat-line stat-line-full">` +
     `<span class="stat stat-core"><span class="ico">❤️</span>${escapeHtml(save.name)}: <b>${hero.health}</b> / ${liveMaxHealth(hero)}</span>` +
     `<span class="stat stat-core"><span class="ico">⚔️</span>Атака: <b>${liveAttack(hero)}</b></span>` +
     `<span class="stat stat-extra"><span class="ico">🛡️</span>Защита: <b>${armorText(liveDefense(hero))}</b></span>` +
     `<span class="stat stat-extra"><span class="ico">🎯</span>Крит-шанс: <b>${liveCritChance(hero)}%</b></span>` +
     `<span class="stat stat-extra"><span class="ico">💥</span>Крит-урон: <b>+${liveCritDamage(hero)}%</b></span>` +
+    `</div>` +
+    `<div class="stat-line stat-line-mobile">` +
+    `<span class="stat"><span class="ico">❤️</span><b>${hero.health}</b> / ${liveMaxHealth(hero)}</span>` +
+    `<span class="stat"><span class="ico">⚔️</span><b>${liveAttack(hero)}</b></span>` +
+    `<span class="stat"><span class="ico">🛡️</span><b>${liveDefense(hero)}</b></span>` +
+    `<span class="stat"><span class="ico">🎯</span><b>${liveCritChance(hero)}%</b></span>` +
+    `<span class="stat"><span class="ico">💥</span><b>+${liveCritDamage(hero)}%</b></span>` +
     `</div></div>` +
     bar(hero.health, liveMaxHealth(hero), "hp") +
     `</div>`;
   if (lastHit) {
-    html += `<div class="hit-log fight-secondary">`;
+    html += `<div class="hit-log fight-log fight-log-full">`;
     html += lastHit.heroCrit
       ? `<div class="hit hit-you">🎯 Критический удар! Вы нанесли <b>${lastHit.dealt}</b> урона. Базовая атака ${lastHit.heroAttack} → ${lastHit.heroRaw} до защиты. 🛡️ Защита противника поглотила ${lastHit.enemyReduced}%.</div>`
       : `<div class="hit hit-you">⚔️ Обычный удар. Атака ${lastHit.heroAttack}. 🛡️ Защита противника поглотила ${lastHit.enemyReduced}%. Нанесено: <b>${lastHit.dealt}</b>.</div>`;
@@ -5691,6 +6085,16 @@ function fightScreen() {
         ? `<div class="hit hit-enemy">🎯 Противник нанёс критический удар: <b>${lastHit.received}</b> урона. Удар ${lastHit.enemyDamage} → ${lastHit.enemyRaw} до защиты. 🛡️ Ваша защита поглотила ${lastHit.heroReduced}%.</div>`
         : `<div class="hit hit-enemy">💥 Удар противника ${lastHit.enemyDamage}. 🛡️ Ваша защита поглотила ${lastHit.heroReduced}%. Получено: <b>${lastHit.received}</b>.</div>`;
       html += strikeNote(lastHit.enemyStrike, lastHit.received, "enemy");
+    }
+    html += `</div>`;
+    html += `<div class="hit-log fight-log fight-log-short">`;
+    html += lastHit.heroCrit
+      ? `<div class="hit hit-you">🎯 Крит: <b>${lastHit.dealt}</b>. Защита −${lastHit.enemyReduced}%.</div>`
+      : `<div class="hit hit-you">⚔️ Удар: <b>${lastHit.dealt}</b>. Защита −${lastHit.enemyReduced}%.</div>`;
+    if (lastHit.received > 0) {
+      html += lastHit.enemyCrit
+        ? `<div class="hit hit-enemy">🎯 Крит по вам: <b>${lastHit.received}</b>. Защита −${lastHit.heroReduced}%.</div>`
+        : `<div class="hit hit-enemy">💥 Получено: <b>${lastHit.received}</b>. Защита −${lastHit.heroReduced}%.</div>`;
     }
     html += `</div>`;
   }
@@ -6706,13 +7110,23 @@ function victory() {
     const chance = scaledDropChance(entry.chance, enemy.level, isGearDropItem(item));
     if (Math.random() * 100 >= chance) return;
     const equippedNow = giveItem(hero, item);
-    drops.push(`${item.icon || ""} ${item.name}`.trim() + (equippedNow ? " (надето)" : ""));
+    drops.push({
+      icon: item.icon || "📦",
+      name: item.name + (equippedNow ? " (надето)" : ""),
+    });
   });
   let extra = `<div class="victory-loot">` +
     `<div>✨ Опыт: <b>+${gainedExp}</b></div>` +
     `<div>💰 Золото: <b>+${gold}</b></div>`;
   if (drops.length) {
-    extra += `<div>🎒 Добыча: ${drops.map((name) => escapeHtml(name)).join(", ")}</div>`;
+    extra += `<div class="victory-drops"><div>🎒 Добыча</div><div class="victory-drops-icons">`;
+    extra += drops.map((row) => (
+      `<span class="victory-drop" title="${escapeHtml(row.name)}">` +
+      `<span class="equip-ico">${escapeHtml(row.icon)}</span>` +
+      `<span class="victory-drop-name">${escapeHtml(row.name)}</span>` +
+      `</span>`
+    )).join("");
+    extra += `</div></div>`;
   }
   extra += `</div>` + phraseHtml("victory");
   lastLevelGain = gained > 0
@@ -6733,7 +7147,7 @@ function victory() {
 function showVictory(extra) {
   if (extra) lastVictoryExtra = extra;
   write(
-    '<div class="entry-title" data-vx="victory-title">🏆 Победа</div>' + lastVictoryExtra + `<div class="victory-stats">${statsBlock(hero)}</div>`,
+    '<div class="entry-title" data-vx="victory-title">🏆 Победа</div>' + lastVictoryExtra + `<div class="victory-stats">${statsBlock(hero, { compact: true })}</div>`,
     "entry-good"
   );
   setChrome("play");
@@ -6787,9 +7201,9 @@ function deathShortcutCard(kind, feature, icon, title, desc) {
 function deathShortcutsHtml() {
   return (
     `<div class="death-shortcuts">` +
-    deathShortcutCard("shop", "shop", "💰", "Магазин", "Здесь можно купить ресурсы/снаряжение/лут") +
+    deathShortcutCard("shop", "shop", "💰", "Магазин", "Ресурсы, снаряжение и лут") +
     deathShortcutCard("inv", "inventory", "🎒", "Инвентарь", "Проверьте вашу добычу!") +
-    deathShortcutCard("craft", "craft", "⚒️", "Крафт", "Экспериментируйте с материалами и открывайте новые рецепты") +
+    deathShortcutCard("craft", "craft", "⚒️", "Крафт", "Открывайте новые рецепты") +
     `</div>`
   );
 }
@@ -6847,30 +7261,16 @@ function deathMenu() {
 function bindContactUi() {
   const btn = document.getElementById("contactBtn");
   const pop = document.getElementById("contactPop");
-  const moreBtn = document.getElementById("moreMenuBtn");
-  const morePop = document.getElementById("moreMenuPop");
   if (!btn || !pop || bindContactUi.ready) return;
   bindContactUi.ready = true;
   const setOpen = (open) => {
     pop.hidden = !open;
     btn.setAttribute("aria-expanded", open ? "true" : "false");
   };
-  const setMoreOpen = (open) => {
-    if (!moreBtn || !morePop) return;
-    morePop.classList.toggle("is-open", !!open);
-    moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    if (!open) setOpen(false);
-  };
   btn.onclick = (event) => {
     event.stopPropagation();
     setOpen(pop.hidden);
   };
-  if (moreBtn && morePop) {
-    moreBtn.onclick = (event) => {
-      event.stopPropagation();
-      setMoreOpen(!morePop.classList.contains("is-open"));
-    };
-  }
   pop.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -6879,14 +7279,10 @@ function bindContactUi() {
         return;
       }
       setOpen(false);
-      setMoreOpen(false);
     });
   });
   document.addEventListener("click", (event) => {
     if (event.target.closest(".studio-bar, .vx-dock, .vx-handles, .vx-marquee, .vx-nudge, .dev-tools")) return;
-    if (morePop && morePop.classList.contains("is-open")) {
-      if (!morePop.contains(event.target) && !(moreBtn && moreBtn.contains(event.target))) setMoreOpen(false);
-    }
     if (pop.hidden) return;
     if (pop.contains(event.target) || btn.contains(event.target)) return;
     setOpen(false);
@@ -6895,7 +7291,6 @@ function bindContactUi() {
     if (event.key !== "Escape") return;
     if (document.body.classList.contains("vx-edit")) return;
     setOpen(false);
-    setMoreOpen(false);
   });
 }
 
@@ -6953,7 +7348,7 @@ window.addEventListener("resize", syncPlayBreakpoint);
 
 start();
 </script>
-<script src="visual_editor.js?v=layout-flow-1"></script>
+<script src="visual_editor.js?v=layout-flow-3"></script>
 <script>
 (function () {
   const bar = document.getElementById("studioBar");

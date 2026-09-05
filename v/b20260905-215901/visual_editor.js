@@ -40,6 +40,8 @@
     "screen-bg": true,
     "craft-bench": true,
     "craft-grid": true,
+    "craft-lead": true,
+    "craft-screen": true,
     "fight-screen": true,
     "hero-view": true,
   };
@@ -292,8 +294,9 @@
   function isFlowRecord(item, key) {
     if (item && item.pin) return false;
     if (item && item.flow) return true;
+    if (key && FLOW_DEFAULTS[panelBase(key)]) return true;
     if (item && item.x != null && item.y != null) return false;
-    return !!(key && FLOW_DEFAULTS[panelBase(key)]);
+    return false;
   }
 
   function targetRecord(raw) {
@@ -316,6 +319,8 @@
       const inherited = Object.assign({}, raw);
       delete inherited.x;
       delete inherited.y;
+      delete inherited.w;
+      delete inherited.h;
       return inherited;
     }
     const view = Object.assign({}, raw, over);
@@ -324,6 +329,8 @@
       delete view.y;
       view.flow = true;
     }
+    if (over.w == null && !over.pin) delete view.w;
+    if (over.h == null && !over.pin) delete view.h;
     return view;
   }
 
@@ -463,6 +470,7 @@
 
   function pinLayoutActive() {
     if (state.edit) return true;
+    if (currentBreak() !== "desktop") return false;
     const box = card();
     if (!box) return true;
     const w = box.clientWidth;
@@ -493,10 +501,19 @@
   function applyFlow(el, item) {
     if (!el || !item) return;
     el.classList.toggle("is-compact", !!item.compact);
-    if (item.w != null) el.style.width = sizeValue(item.w);
-    if (item.h != null) el.style.height = sizeValue(item.h);
-    if (item.minW != null) el.style.minWidth = sizeValue(item.minW);
-    if (item.minH != null) el.style.minHeight = sizeValue(item.minH);
+    const playNarrow = !state.edit && currentBreak() !== "desktop";
+    if (playNarrow) {
+      el.style.left = "";
+      el.style.top = "";
+      el.style.position = "";
+      el.style.maxWidth = "100%";
+    }
+    if (item.w != null && !playNarrow) el.style.width = sizeValue(item.w);
+    else if (playNarrow) el.style.width = "";
+    if (item.h != null && !playNarrow) el.style.height = sizeValue(item.h);
+    else if (playNarrow && (panelBase(el.dataset && el.dataset.vx) === "content-panel" || panelBase(el.dataset && el.dataset.vx) === "stage-panel")) el.style.height = "";
+    if (item.minW != null && !playNarrow) el.style.minWidth = sizeValue(item.minW);
+    if (item.minH != null && !playNarrow) el.style.minHeight = sizeValue(item.minH);
     if (item.maxW != null) el.style.maxWidth = sizeValue(item.maxW);
     if (item.maxH != null) el.style.maxHeight = sizeValue(item.maxH);
     if (item.fontSize != null) el.style.fontSize = Number(item.fontSize) + "px";
@@ -745,8 +762,8 @@
     } else {
       bg.style.backgroundImage = "";
     }
-    const item = state.layout.items["card-bg"];
-    if (pinLayoutActive() && item && (item.x != null || item.w != null)) applyItem(bg, item);
+    const item = resolvedView(state.layout.items["card-bg"] || {}, "card-bg");
+    if (currentBreak() === "desktop" && pinLayoutActive() && item && (item.x != null || item.w != null)) applyItem(bg, item);
     else {
       bg.style.position = "absolute";
       bg.style.left = "0";

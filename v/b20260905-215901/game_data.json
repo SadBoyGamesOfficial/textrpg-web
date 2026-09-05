@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788557397401",
+  "assetRev": "1788640791877",
   "economy": {
     "startingGold": 5,
     "craftFailMs": 5000,
@@ -1365,16 +1365,20 @@
       "id": "survivor",
       "name": "Выживший",
       "icon": "⛑️",
-      "description": "Одержите 5 побед.",
+      "description": "Погибните хотя бы раз и после этого одержите 15 побед всеми героями.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 4,
+      "difficulty": 6,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
+          "type": "deaths",
+          "value": 1
+        },
+        {
           "type": "wins",
-          "value": 5
+          "value": 15
         }
       ]
     },
@@ -1382,16 +1386,20 @@
       "id": "warrior_wins",
       "name": "Непробиваемый",
       "icon": "🛡️",
-      "description": "Одержите 5 побед воином.",
+      "description": "Доведите воина до 7 уровня и наденьте полный комплект снаряжения.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 4,
+      "difficulty": 7,
       "scope": "hero",
       "classKey": "Воин",
       "conditions": [
         {
-          "type": "wins",
-          "value": 5
+          "type": "level",
+          "value": 7
+        },
+        {
+          "type": "full_set",
+          "value": 1
         }
       ]
     },
@@ -1399,16 +1407,17 @@
       "id": "archer_wins",
       "name": "Охотник",
       "icon": "🎯",
-      "description": "Одержите 5 побед лучником.",
+      "description": "Победите дикого волка 8 раз лучником.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 4,
+      "difficulty": 7,
       "scope": "hero",
       "classKey": "Лучник",
       "conditions": [
         {
-          "type": "wins",
-          "value": 5
+          "type": "kills",
+          "value": 8,
+          "enemyId": "enemy_wild_wolf"
         }
       ]
     },
@@ -1416,16 +1425,20 @@
       "id": "mage_wins",
       "name": "Буря",
       "icon": "✨",
-      "description": "Одержите 5 побед магом.",
+      "description": "Скрафтите 10 предметов магом и доведите его до 6 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 4,
+      "difficulty": 7,
       "scope": "hero",
       "classKey": "Маг",
       "conditions": [
         {
-          "type": "wins",
-          "value": 5
+          "type": "crafts",
+          "value": 10
+        },
+        {
+          "type": "level",
+          "value": 6
         }
       ]
     },
@@ -1450,16 +1463,16 @@
       "id": "ten_wins",
       "name": "Десять схваток",
       "icon": "⚔️",
-      "description": "Одержите 10 побед.",
+      "description": "Одержите 25 побед всеми героями.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 5,
+      "difficulty": 6,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
           "type": "wins",
-          "value": 10
+          "value": 25
         }
       ]
     },
@@ -1621,7 +1634,7 @@
       "id": "wolf_hunter",
       "name": "Охотник на волков",
       "icon": "🐺",
-      "description": "Победите дикого волка 5 раз.",
+      "description": "Победите дикого волка 15 раз.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 8,
@@ -1630,7 +1643,7 @@
       "conditions": [
         {
           "type": "kills",
-          "value": 5,
+          "value": 15,
           "enemyId": "enemy_wild_wolf"
         }
       ]
@@ -1639,16 +1652,16 @@
       "id": "twenty_wins",
       "name": "Двадцать боёв",
       "icon": "⚔️",
-      "description": "Одержите 20 побед.",
+      "description": "Одержите 50 побед всеми героями.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 8,
+      "difficulty": 9,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
           "type": "wins",
-          "value": 20
+          "value": 50
         }
       ]
     },
@@ -1656,7 +1669,7 @@
       "id": "warrior_legend",
       "name": "Щит леса",
       "icon": "🛡️",
-      "description": "Одержите 20 побед воином.",
+      "description": "Одержите 40 побед воином и доведите его до 12 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 8,
@@ -1665,7 +1678,11 @@
       "conditions": [
         {
           "type": "wins",
-          "value": 20
+          "value": 40
+        },
+        {
+          "type": "level",
+          "value": 12
         }
       ]
     },
@@ -1673,7 +1690,7 @@
       "id": "archer_hunt",
       "name": "Тишина тетивы",
       "icon": "🏹",
-      "description": "Одержите 20 побед лучником.",
+      "description": "Победите дикого волка 18 раз лучником.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 8,
@@ -1681,8 +1698,9 @@
       "classKey": "Лучник",
       "conditions": [
         {
-          "type": "wins",
-          "value": 20
+          "type": "kills",
+          "value": 18,
+          "enemyId": "enemy_wild_wolf"
         }
       ]
     },
@@ -1690,7 +1708,7 @@
       "id": "mage_storm",
       "name": "Гроза чащобы",
       "icon": "🔮",
-      "description": "Одержите 20 побед магом.",
+      "description": "Скрафтите 20 предметов магом и доведите его до 10 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 8,
@@ -1698,8 +1716,12 @@
       "classKey": "Маг",
       "conditions": [
         {
-          "type": "wins",
+          "type": "crafts",
           "value": 20
+        },
+        {
+          "type": "level",
+          "value": 10
         }
       ]
     },
@@ -1878,18 +1900,23 @@
     },
     {
       "id": "three_wins",
-      "name": "Третья схватка",
-      "icon": "⚔️",
-      "description": "Одержите 3 победы.",
+      "name": "Первый трофей",
+      "icon": "🎒",
+      "description": "Соберите ржавый клык с врага и накопите 20 золота на одном герое.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 2,
+      "difficulty": 3,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
-          "type": "wins",
-          "value": 3
+          "type": "item",
+          "value": 1,
+          "itemId": "item_rusty_fang"
+        },
+        {
+          "type": "gold_held",
+          "value": 20
         }
       ]
     },
@@ -1914,7 +1941,7 @@
       "id": "warrior_ten",
       "name": "Десять стоек",
       "icon": "🗡️",
-      "description": "Одержите 10 побед воином.",
+      "description": "Одержите 12 побед воином и накопите на нём 80 золота.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 6,
@@ -1923,7 +1950,11 @@
       "conditions": [
         {
           "type": "wins",
-          "value": 10
+          "value": 12
+        },
+        {
+          "type": "gold_held",
+          "value": 80
         }
       ]
     },
@@ -1931,7 +1962,7 @@
       "id": "archer_ten",
       "name": "Десять выстрелов",
       "icon": "🏹",
-      "description": "Одержите 10 побед лучником.",
+      "description": "Доведите лучника до 5 уровня и соберите 12 веток.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 6,
@@ -1939,8 +1970,13 @@
       "classKey": "Лучник",
       "conditions": [
         {
-          "type": "wins",
-          "value": 10
+          "type": "level",
+          "value": 5
+        },
+        {
+          "type": "item",
+          "value": 12,
+          "itemId": "item_forest_stick"
         }
       ]
     },
@@ -1948,7 +1984,7 @@
       "id": "mage_ten",
       "name": "Десять заклятий",
       "icon": "🔮",
-      "description": "Одержите 10 побед магом.",
+      "description": "Заработайте 80 золота за всё время, играя магом, и доведите его до 5 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 6,
@@ -1956,8 +1992,12 @@
       "classKey": "Маг",
       "conditions": [
         {
-          "type": "wins",
-          "value": 10
+          "type": "gold_earned",
+          "value": 80
+        },
+        {
+          "type": "level",
+          "value": 5
         }
       ]
     },
@@ -3017,7 +3057,8 @@
       "wolf_claw": "item_wolf_claw",
       "rat_tail": "item_rat_tail",
       "robber_sign": "item_robber_sign",
-      "item__new": "item_novyy_predmet"
+      "item__new": "item_novyy_predmet",
+      "item__new_2": "item_novyy_predmet_2"
     },
     "enemy": {
       "forest_rat": "enemy_forest_rat",
@@ -3303,7 +3344,8 @@
   ],
   "retiredIds": {
     "item": [
-      "item_novyy_predmet"
+      "item_novyy_predmet",
+      "item_novyy_predmet_2"
     ]
   }
 }
