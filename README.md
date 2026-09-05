@@ -4,7 +4,7 @@
 
 ## Играть
 
-https://sadboygamesofficial.github.io/textrpg-web/v/b20260904-001644/
+https://sadboygamesofficial.github.io/textrpg-web/v/b20260905-215901/
 
 Ссылка обновляется при создании нового билда. Прогресс этой версии хранится в браузере на вашем устройстве.
 
