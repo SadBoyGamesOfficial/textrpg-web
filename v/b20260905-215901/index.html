@@ -1921,6 +1921,13 @@ img.ga-img.is-alpha,
   object-position: center;
 }
 
+.event-art-frame.is-alpha,
+.event-art-frame:has(> img.is-alpha) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
 .event-art-frame.is-empty {
   display: flex;
   align-items: center;
@@ -2019,6 +2026,65 @@ img.ga-img.is-alpha,
 .event-copy.is-below {
   flex: 0 0 auto;
   padding: 10px 4px 0;
+}
+
+.event-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  max-height: min(42vh, 360px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+.event-choices button {
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.event-prizes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.event-prize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 88px;
+  max-width: 100%;
+  padding: 10px 8px;
+  background: rgba(10, 12, 18, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.event-prize b,
+.event-prize small {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.event-prize .equip-ico,
+.event-prize .ga-glyph {
+  font-size: 28px;
+  line-height: 1;
 }
 
 .event-screen.is-titleout > .event-title {
@@ -2542,6 +2608,59 @@ body.is-event-click .actions {
   padding: 0;
   font-size: 14px;
   line-height: 20px;
+}
+
+.craft-step button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.craft-step b {
+  min-width: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.craft-step b.is-done {
+  color: var(--good, #7bd88f);
+}
+
+.craft-needs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 8px 0 10px;
+}
+
+.craft-need {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.craft-need.is-ok {
+  color: var(--good, #7bd88f);
+  border-color: currentColor;
+}
+
+.craft-need.is-short {
+  color: var(--muted);
+}
+
+.craft-ready-btn.is-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: inherit;
+}
+
+.recipe-count {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 2px;
 }
 
 .craft-slot .equip-ico {
@@ -3671,7 +3790,11 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
   .stage-art,
   .stage-head,
   .stage-foot,
-  .stage-head-text {
+  .stage-head-text,
+  .event-choices,
+  .event-choices button,
+  .event-prizes,
+  .event-prize {
     max-width: 100% !important;
     width: 100% !important;
     min-width: 0 !important;
@@ -4279,6 +4402,19 @@ function cloneData(data) {
   return JSON.parse(JSON.stringify(data));
 }
 
+function emptyEventStatGain() {
+  return { maxHealth: 0, attack: 0, defense: 0, critChance: 0, critDamage: 0 };
+}
+
+function normalizeEventStatGain(raw) {
+  const next = emptyEventStatGain();
+  const src = raw && typeof raw === "object" ? raw : {};
+  Object.keys(next).forEach((key) => {
+    next[key] = Math.round(Number(src[key]) || 0);
+  });
+  return next;
+}
+
 function normalizeGameData(data) {
   const next = cloneData(data || {});
   if (!next.economy) next.economy = { startingGold: 0 };
@@ -4287,7 +4423,7 @@ function normalizeGameData(data) {
   if (next.economy.craftRevealMs == null) next.economy.craftRevealMs = 5000;
   if (next.economy.craftSuccessMs == null) next.economy.craftSuccessMs = 5000;
   if (next.economy.goldPerEnemyLevel == null) next.economy.goldPerEnemyLevel = 0.07;
-  if (next.economy.lootChancePerLevel == null) next.economy.lootChancePerLevel = 0.2;
+  if (next.economy.lootChancePerLevel == null) next.economy.lootChancePerLevel = 0.05;
   if (next.economy.lootChanceCap == null) next.economy.lootChanceCap = 24;
   if (next.economy.gearChancePerLevel == null) next.economy.gearChancePerLevel = 0.02;
   if (next.economy.gearChanceCap == null) next.economy.gearChanceCap = 2.5;
@@ -4376,11 +4512,44 @@ function normalizeGameData(data) {
     event.icon = event.icon || "📌";
     event.chance = Math.max(0, Math.min(100, Number(event.chance) || 0));
     if (!Number.isFinite(Number(event.chance))) event.chance = 0;
-    event.locationId = event.locationId || primary.id;
+    if (event.locationId == null) event.locationId = primary.id;
     if (!Array.isArray(event.effects)) event.effects = [];
     if (event.enabled == null) event.enabled = true;
     event.hideTitle = !!event.hideTitle;
     event.artLayout = event.artLayout === "cover" || event.artLayout === "titleOut" ? event.artLayout : "frame";
+    event.chanceMode = event.chanceMode === "guaranteed" ? "guaranteed" : "random";
+    event.beforeFightChance = event.beforeFightChance == null || event.beforeFightChance === ""
+      ? 0
+      : Math.max(0, Math.min(100, Number(event.beforeFightChance) || 0));
+    if (!Array.isArray(event.rewards)) event.rewards = [];
+    event.rewards = event.rewards.map((row) => ({
+      kind: row && row.kind === "gold" ? "gold" : "item",
+      itemId: (row && row.itemId) || "",
+      amount: Math.max(1, Math.round(Number(row && row.amount) || 1)),
+      chance: Math.max(0, Math.min(100, Number(row && row.chance) || 100)),
+    }));
+    event.healEnabled = !!event.healEnabled;
+    event.healAmount = Math.max(0, Math.round(Number(event.healAmount) || 0));
+    event.healPercent = Math.max(0, Math.min(100, Number(event.healPercent) || 0));
+    event.statGainEnabled = !!event.statGainEnabled;
+    event.statGainOnce = event.statGainOnce !== false;
+    event.statGainMode = event.statGainMode === "perClass" ? "perClass" : "all";
+    event.statGain = normalizeEventStatGain(event.statGain);
+    event.statGainByClass = event.statGainByClass && typeof event.statGainByClass === "object" ? event.statGainByClass : {};
+    Object.keys(event.statGainByClass).forEach((key) => {
+      event.statGainByClass[key] = normalizeEventStatGain(event.statGainByClass[key]);
+    });
+    event.choiceEnabled = !!event.choiceEnabled;
+    event.choicePickCount = Math.max(1, Math.round(Number(event.choicePickCount) || 1));
+    event.choiceDoneText = event.choiceDoneText == null ? "" : String(event.choiceDoneText);
+    if (!Array.isArray(event.choices)) event.choices = [];
+    event.choices = event.choices.map((row, choiceIndex) => ({
+      id: (row && row.id) || ("choice_" + choiceIndex),
+      label: String((row && row.label) || "").trim() || ("Вариант " + (choiceIndex + 1)),
+      itemId: (row && row.itemId) || "",
+      amount: Math.max(1, Math.round(Number(row && row.amount) || 1)),
+      kind: row && row.kind === "gold" ? "gold" : "item",
+    }));
   });
   if (!Array.isArray(next.phrases)) next.phrases = [];
   if (!next.phrases.length && next.strings) {
@@ -4735,15 +4904,19 @@ function phraseHtml(when, vars, cls) {
   return `<div class="${cls || "entry-desc"}">${escapeHtml(text)}</div>`;
 }
 
-function eventsForLocation(locationId) {
+function eventsForLocation(locationId, trigger) {
   return ((GAME_DATA && GAME_DATA.events) || []).filter((event) => {
     if (event.enabled === false) return false;
     const where = event.locationId || "";
-    return !where || where === locationId;
+    if (where && where !== locationId) return false;
+    return true;
   });
 }
 
 let eventClickState = null;
+let eventChoiceState = null;
+let pendingAfterEvent = null;
+let skipLocationEntryEvent = false;
 
 function eventClickerOf(event) {
   const clicks = Math.max(1, Math.round(Number(event && event.clickerClicks) || 10));
@@ -4758,6 +4931,90 @@ function eventClickerOf(event) {
   };
 }
 
+function eventRollChance(event, trigger) {
+  if (!event) return 0;
+  if (trigger === "fight") {
+    return Math.max(0, Math.min(100, Number(event.beforeFightChance) || 0));
+  }
+  if (event.chanceMode === "guaranteed") return 100;
+  return Math.max(0, Math.min(100, Number(event.chance) || 0));
+}
+
+function pickRolledEvent(pool, trigger, skipId) {
+  const list = (pool || []).filter((event) => event && event.id !== skipId);
+  for (let index = list.length - 1; index > 0; index -= 1) {
+    const other = Math.floor(Math.random() * (index + 1));
+    const hold = list[index];
+    list[index] = list[other];
+    list[other] = hold;
+  }
+  for (let index = 0; index < list.length; index += 1) {
+    if (Math.random() * 100 < eventRollChance(list[index], trigger)) return list[index];
+  }
+  return null;
+}
+
+function eventChoiceOf(event) {
+  const rows = ((event && event.choices) || []).filter((row) => row && (row.kind === "gold" || row.itemId));
+  return {
+    enabled: !!(event && event.choiceEnabled && rows.length),
+    pickCount: Math.max(1, Math.min(rows.length || 1, Math.round(Number(event && event.choicePickCount) || 1))),
+    doneText: String((event && event.choiceDoneText) || "").trim(),
+    rows,
+  };
+}
+
+function eventStatGainFor(event, data) {
+  const empty = emptyEventStatGain();
+  if (!event || !event.statGainEnabled) return empty;
+  if (event.statGainMode === "perClass") {
+    const key = (data && data.classKey) || "";
+    return normalizeEventStatGain(event.statGainByClass && event.statGainByClass[key]);
+  }
+  return normalizeEventStatGain(event.statGain);
+}
+
+function grantEventLootRow(row) {
+  const amount = Math.max(1, Math.round(Number(row && row.amount) || 1));
+  if (row && row.kind === "gold") {
+    hero.gold = Math.max(0, (hero.gold || 0) + amount);
+    noteGoldEarned(amount);
+    return { kind: "gold", amount, icon: "💰", name: "Золото", text: "💰 +" + amount + " золота" };
+  }
+  const item = findItem(row && row.itemId);
+  if (!item) return null;
+  giveItem(hero, item, amount);
+  return {
+    kind: "item",
+    amount,
+    item,
+    icon: item.icon || "🎁",
+    name: item.name,
+    text: (item.icon || "🎁") + " " + item.name + (amount > 1 ? " ×" + amount : ""),
+  };
+}
+
+function eventPrizeHtml(prize) {
+  if (!prize) return "";
+  const icon = prize.item ? itemGlyphHtml(prize.item) : `<span class="equip-ico">${escapeHtml(prize.icon || "🎁")}</span>`;
+  return (
+    `<div class="event-prize">` +
+    icon +
+    `<b>${escapeHtml(prize.name || "")}</b>` +
+    `<small>${prize.kind === "gold" ? "+" + prize.amount : "×" + prize.amount}</small>` +
+    `</div>`
+  );
+}
+
+function continueAfterEvent() {
+  eventClickState = null;
+  eventChoiceState = null;
+  const next = pendingAfterEvent;
+  pendingAfterEvent = null;
+  if (typeof next === "function") next();
+  else spawnEnemy();
+}
+
 function eventLayoutOf(event) {
   const raw = event && event.artLayout;
   if (raw === "cover" || raw === "titleOut") return raw;
@@ -4769,21 +5026,78 @@ function eventShowTitle(event) {
   return !!String(event.name || "").trim();
 }
 
-function eventFillArt(event, clickable) {
-  let src = "";
-  if (window.GameAssets && GAME_DATA && event) {
-    const resolved = window.GameAssets.resolve(GAME_DATA, event, "illustration", {
-      fallback: ["card", "portrait", "background", "banner"],
-    });
-    src = (resolved && resolved.src) || "";
+function eventArtSources(event) {
+  const srcs = [];
+  const seen = Object.create(null);
+  function add(src) {
+    const clean = String(src || "").trim();
+    if (!clean || seen[clean]) return;
+    seen[clean] = true;
+    srcs.push(clean);
   }
-  if (!src) src = entityImage(event);
+  if (window.GameAssets && GAME_DATA && event) {
+    const rows = window.GameAssets.resolveCandidates
+      ? window.GameAssets.resolveCandidates(GAME_DATA, event, "illustration", {
+          fallback: ["card", "portrait", "background", "banner"],
+        })
+      : [];
+    rows.forEach((row) => add(row && row.src));
+    if (!rows.length) {
+      const resolved = window.GameAssets.resolve(GAME_DATA, event, "illustration", {
+        fallback: ["card", "portrait", "background", "banner"],
+      });
+      add(resolved && resolved.src);
+    }
+  }
+  add(entityImage(event));
+  return srcs;
+}
+
+function imageIsAlpha(src) {
+  if (window.GameAssets && window.GameAssets.isAlphaSrc) return window.GameAssets.isAlphaSrc(src);
+  return /\.(png|webp|svg)(\?|$)/i.test(src) || src.indexOf("data:image/png") === 0 || src.indexOf("data:image/webp") === 0;
+}
+
+function markImageAlpha(img, src) {
+  const alpha = imageIsAlpha(src);
+  img.classList.toggle("is-alpha", alpha);
+  const frame = img.closest(".event-art-frame, .stage-art, .ga-frame");
+  if (frame) frame.classList.toggle("is-alpha", alpha);
+}
+
+function bindImageFallbacks(root) {
+  if (!root) return;
+  root.querySelectorAll("img[data-img-fallback]").forEach((img) => {
+    const queue = String(img.getAttribute("data-img-fallback") || "").split("|").filter(Boolean);
+    if (!queue.length) return;
+    const tryNext = () => {
+      while (queue.length) {
+        const next = queue.shift();
+        if (next && next !== img.getAttribute("src")) {
+          markImageAlpha(img, next);
+          img.src = next;
+          return;
+        }
+      }
+      img.removeEventListener("error", tryNext);
+    };
+    img.addEventListener("error", tryNext);
+    if (img.complete && img.naturalWidth === 0) tryNext();
+  });
+}
+
+function eventFillArt(event, clickable) {
+  const srcs = eventArtSources(event);
+  const src = srcs[0] || "";
   if (!src) {
     return clickable
       ? `<div class="event-art-frame is-empty">Нажимайте здесь</div>`
       : "";
   }
-  return `<div class="event-art-frame"><img class="event-art-img" src="${escapeHtml(src)}" alt=""></div>`;
+  const rest = srcs.slice(1).join("|");
+  const alpha = imageIsAlpha(src) ? " is-alpha" : "";
+  const fallback = rest ? ` data-img-fallback="${escapeHtml(rest)}"` : "";
+  return `<div class="event-art-frame${alpha}"><img class="event-art-img${alpha}" src="${escapeHtml(src)}" alt=""${fallback}></div>`;
 }
 
 function eventTitleHtml(event) {
@@ -4802,7 +5116,7 @@ function eventScreenHtml(event, extras) {
   const clickable = !!(extras && extras.clickable);
   const extra = extras && extras.body ? `<div class="event-extra">${extras.body}</div>` : "";
   const title = eventTitleHtml(event);
-  const text = eventTextHtml(event);
+  const text = extras && extras.hideText ? "" : eventTextHtml(event);
   const art = eventFillArt(event, clickable);
   const clickAttr = clickable ? ' data-event-click="1"' : "";
   if (layout === "cover") {
@@ -4834,23 +5148,81 @@ function grantEventClickReward(event) {
 
 function rollWalkEvent() {
   const place = currentLocation();
-  const pool = eventsForLocation(place && place.id);
-  const shuffled = pool.slice();
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const other = Math.floor(Math.random() * (index + 1));
-    const hold = shuffled[index];
-    shuffled[index] = shuffled[other];
-    shuffled[other] = hold;
+  return pickRolledEvent(eventsForLocation(place && place.id, "walk"), "walk");
+}
+
+function rollBeforeFightEvent(skipId) {
+  const place = currentLocation();
+  return pickRolledEvent(eventsForLocation(place && place.id, "fight"), "fight", skipId);
+}
+
+function applyEventHeal(event, notes) {
+  if (!event || !event.healEnabled || !hero) return;
+  const maxHp = liveMaxHealth(hero);
+  const flat = Math.max(0, Math.round(Number(event.healAmount) || 0));
+  const pct = Math.max(0, Math.min(100, Number(event.healPercent) || 0));
+  const fromPct = Math.round(maxHp * pct / 100);
+  const delta = flat + fromPct;
+  if (delta < 1) return;
+  const before = Number(hero.health) || 0;
+  hero.health = Math.max(0, Math.min(maxHp, before + delta));
+  const got = hero.health - before;
+  if (got > 0) notes.push("❤️ +" + got + " здоровья");
+}
+
+function applyEventStatGain(event, notes) {
+  if (!event || !event.statGainEnabled || !hero) return;
+  hero.eventFlags = hero.eventFlags || {};
+  const flag = hero.eventFlags[event.id] || {};
+  if (event.statGainOnce !== false && flag.stats) return;
+  const gain = eventStatGainFor(event, hero);
+  let any = false;
+  if (gain.maxHealth) {
+    hero.maxHealth = Math.max(1, (Number(hero.maxHealth) || 1) + gain.maxHealth);
+    if (gain.maxHealth > 0) hero.health = (Number(hero.health) || 0) + gain.maxHealth;
+    hero.health = Math.min(Number(hero.health) || 0, liveMaxHealth(hero));
+    notes.push((gain.maxHealth >= 0 ? "❤️ запас +" : "❤️ запас ") + gain.maxHealth);
+    any = true;
   }
-  for (let index = 0; index < shuffled.length; index += 1) {
-    const event = shuffled[index];
-    if (Math.random() * 100 < Math.max(0, Number(event.chance) || 0)) return event;
+  if (gain.attack) {
+    hero.attack = Math.max(1, (Number(hero.attack) || 1) + gain.attack);
+    notes.push((gain.attack >= 0 ? "⚔️ +" : "⚔️ ") + gain.attack + " атаки");
+    any = true;
   }
-  return null;
+  if (gain.defense) {
+    hero.defense = clampArmor((Number(hero.defense) || 0) + gain.defense);
+    notes.push((gain.defense >= 0 ? "🛡️ +" : "🛡️ ") + gain.defense + " защиты");
+    any = true;
+  }
+  if (gain.critChance) {
+    hero.critChance = Math.max(0, Math.min(100, (Number(hero.critChance) || 0) + gain.critChance));
+    notes.push((gain.critChance >= 0 ? "🎯 +" : "🎯 ") + gain.critChance + "% крит-шанс");
+    any = true;
+  }
+  if (gain.critDamage) {
+    hero.critDamage = Math.max(0, (Number(hero.critDamage) || 0) + gain.critDamage);
+    notes.push((gain.critDamage >= 0 ? "💥 +" : "💥 ") + gain.critDamage + "% крит-урон");
+    any = true;
+  }
+  if (any) {
+    flag.stats = true;
+    hero.eventFlags[event.id] = flag;
+  }
+}
+
+function applyEventRewards(event, notes) {
+  (event.rewards || []).forEach((row) => {
+    if (Math.random() * 100 >= Math.max(0, Number(row.chance) || 0)) return;
+    const prize = grantEventLootRow(row);
+    if (prize) notes.push(prize.text);
+  });
 }
 
 function applyEventEffects(event) {
   const notes = [];
+  applyEventRewards(event, notes);
+  applyEventHeal(event, notes);
+  applyEventStatGain(event, notes);
   (event.effects || []).forEach((effect) => {
     const type = effect.type || "gold";
     if (type === "gold") {
@@ -5104,6 +5476,7 @@ function normalizeHero(data, className) {
   next.created = true;
   if (!next.stats) next.stats = emptyStats();
   if (next.stats.crafts == null) next.stats.crafts = 0;
+  if (!next.eventFlags || typeof next.eventFlags !== "object") next.eventFlags = {};
   return next;
 }
 
@@ -5276,6 +5649,7 @@ function write(html, tone, options) {
   if (html.indexOf("stage-art") !== -1) entry.classList.add("has-art");
   if (options && options.menuCenter) entry.classList.add("menu-center");
   entry.innerHTML = html;
+  bindImageFallbacks(entry);
   if (html.indexOf("victory-loot") !== -1) entry.classList.add("victory-screen");
   if (html.indexOf("level-gain") !== -1) entry.classList.add("level-screen");
   if (html.indexOf("death-shortcuts") !== -1) entry.classList.add("death-screen");
@@ -6468,65 +6842,124 @@ function showLevelUpChoice() {
   viewRefresh = showLevelUpChoice;
 }
 
-function walkForward(leadIn) {
-  const event = rollWalkEvent();
+function startEncounter(leadIn, trigger) {
+  const event = trigger === "fight" ? rollBeforeFightEvent() : rollWalkEvent();
   if (event) {
+    pendingAfterEvent = () => spawnEnemy(leadIn);
     showWorldEvent(event);
     return;
   }
-  spawnEnemy(leadIn || pickPhrase("walk"));
+  spawnEnemy(leadIn);
 }
 
 function enterForest() {
   setChrome("play");
-  walkForward(pickPhrase("location_enter"));
+  const leadIn = pickPhrase("location_enter");
+  if (skipLocationEntryEvent) {
+    skipLocationEntryEvent = false;
+    spawnEnemy(leadIn);
+    return;
+  }
+  startEncounter(leadIn, "fight");
 }
 
 function goOnward() {
-  walkForward(pickPhrase("walk"));
+  skipLocationEntryEvent = false;
+  startEncounter(pickPhrase("walk"), "walk");
+}
+
+function eventChoiceButtonsHtml(event, state) {
+  const cfg = eventChoiceOf(event);
+  const taken = {};
+  (state.picked || []).forEach((row) => { taken[row.id] = true; });
+  const left = cfg.rows.filter((row) => !taken[row.id]);
+  return `<div class="event-choices">` + left.map((row) => {
+    return `<button type="button" data-event-choice="${escapeHtml(row.id)}">${escapeHtml(row.label)}</button>`;
+  }).join("") + `</div>`;
+}
+
+function eventChoiceResultHtml(event, state) {
+  const cfg = eventChoiceOf(event);
+  const text = cfg.doneText || "Вы получили выбранный ресурс";
+  const prizes = (state.picked || []).map(eventPrizeHtml).join("");
+  return (
+    `<div>${escapeHtml(text)}</div>` +
+    (prizes ? `<div class="event-prizes">${prizes}</div>` : "")
+  );
+}
+
+function finishWorldEvent(event, extraNotes) {
+  const result = (extraNotes || []).concat(applyEventEffects(event));
+  checkAchievements();
+  storeSave();
+  refreshLocationTag();
+  if (eventClickState && eventClickState.id === event.id) eventClickState.result = result;
+  if (eventChoiceState && eventChoiceState.id === event.id) eventChoiceState.result = result;
+  return result;
 }
 
 function showWorldEvent(event, notes) {
   const clicker = eventClickerOf(event);
+  const choice = eventChoiceOf(event);
   if (clicker.enabled) {
     if (!eventClickState || eventClickState.id !== event.id) {
       eventClickState = { id: event.id, clicks: 0, done: false, result: notes || [] };
     }
-    const state = eventClickState;
-    let result = state.result || [];
+  }
+  if (choice.enabled) {
+    if (!eventChoiceState || eventChoiceState.id !== event.id) {
+      eventChoiceState = { id: event.id, picked: [], done: false, result: notes || [] };
+    }
+  }
+  const clickState = eventClickState && eventClickState.id === event.id ? eventClickState : null;
+  const choiceState = eventChoiceState && eventChoiceState.id === event.id ? eventChoiceState : null;
+  const clicking = !!(clicker.enabled && clickState && !clickState.done);
+  const choosing = !!(choice.enabled && choiceState && !choiceState.done && !clicking);
+  if (clicking) {
     write(
       eventScreenHtml(event, {
-        clickable: !state.done,
-        body:
-          `<div data-clicker-progress>${state.done ? "Готово." : "Нажатий: " + state.clicks + " / " + clicker.clicks}</div>` +
-          (result.length ? `<div>${result.map((line) => escapeHtml(line)).join("<br>")}</div>` : ""),
+        clickable: true,
+        body: `<div data-clicker-progress>Нажатий: ${clickState.clicks} / ${clicker.clicks}</div>`,
       }),
       "entry-info",
       { gold: hero ? hero.gold : 0 }
     );
-    if (!state.done) bindEventClickUi(event);
-    ask(state.done ? "Выбери действие:" : "", state.done ? [
-      { label: "🥾 Идти дальше", style: "primary", action: () => { eventClickState = null; spawnEnemy(); } },
-    ] : []);
-    viewRefresh = () => showWorldEvent(event, state.result);
+    bindEventClickUi(event);
+    ask("", []);
+    viewRefresh = () => showWorldEvent(event, notes);
+    return;
+  }
+  if (choosing) {
+    write(
+      eventScreenHtml(event, {
+        clickable: false,
+        body: eventChoiceButtonsHtml(event, choiceState),
+      }),
+      "entry-info",
+      { gold: hero ? hero.gold : 0 }
+    );
+    bindEventChoiceUi(event);
+    ask("", []);
+    viewRefresh = () => showWorldEvent(event, notes);
     return;
   }
   let result = notes;
-  if (!result) {
-    result = applyEventEffects(event);
-    checkAchievements();
-    storeSave();
-    refreshLocationTag();
-  }
+  if (!result) result = finishWorldEvent(event, choiceState && choiceState.picked ? choiceState.picked.map((row) => row.text) : []);
+  const chosen = !!(choice.enabled && choiceState && choiceState.done);
+  const body = (chosen ? eventChoiceResultHtml(event, choiceState) : "") +
+    (result && result.length ? `<div>${result.map((line) => escapeHtml(line)).join("<br>")}</div>` : "") +
+    (clicker.enabled ? `<div data-clicker-progress>Готово.</div>` : "");
   write(
     eventScreenHtml(event, {
       clickable: false,
-      body: result.length ? result.map((line) => escapeHtml(line)).join("<br>") : "",
+      hideText: chosen,
+      body,
     }),
-    "entry-info"
+    "entry-info",
+    { gold: hero ? hero.gold : 0 }
   );
   ask("Выбери действие:", [
-    { label: "🥾 Идти дальше", style: "primary", action: () => spawnEnemy() },
+    { label: "🥾 Идти дальше", style: "primary", action: continueAfterEvent },
   ]);
   viewRefresh = () => showWorldEvent(event, result);
 }
@@ -6557,14 +6990,35 @@ function bindEventClickUi(event) {
     storeSave();
     if (eventClickState.clicks >= cfg.clicks) {
       eventClickState.done = true;
-      eventClickState.result = applyEventEffects(event);
-      checkAchievements();
       storeSave();
-      refreshLocationTag();
-      showWorldEvent(event, eventClickState.result);
+      showWorldEvent(event);
     }
   };
   stage.addEventListener("pointerdown", onClick);
+}
+
+function bindEventChoiceUi(event) {
+  const cfg = eventChoiceOf(event);
+  if (!cfg.enabled || !eventChoiceState || eventChoiceState.id !== event.id || eventChoiceState.done) return;
+  logBox.querySelectorAll("[data-event-choice]").forEach((node) => {
+    node.onclick = () => {
+      if (!eventChoiceState || eventChoiceState.done) return;
+      const id = node.getAttribute("data-event-choice");
+      const row = cfg.rows.find((item) => item.id === id);
+      if (!row || eventChoiceState.picked.some((item) => item.id === id)) return;
+      const prize = grantEventLootRow(row);
+      if (prize) eventChoiceState.picked.push(Object.assign({ id: row.id }, prize));
+      syncGoldHud({ gold: hero.gold });
+      storeSave();
+      if (eventChoiceState.picked.length >= cfg.pickCount) {
+        eventChoiceState.done = true;
+        const result = finishWorldEvent(event, []);
+        showWorldEvent(event, result);
+        return;
+      }
+      showWorldEvent(event);
+    };
+  });
 }
 
 function combatEconomy() {
@@ -6848,7 +7302,8 @@ function scaledDropChance(base, enemyLevel, isGear) {
     const grown = chance * (1 + (lvl - 1) * eco.gearChancePerLevel);
     return Math.max(0, Math.min(eco.gearChanceCap, grown));
   }
-  return Math.max(0, Math.min(eco.lootChanceCap, chance + (lvl - 1) * eco.lootChancePerLevel));
+  const grown = chance * (1 + (lvl - 1) * eco.lootChancePerLevel);
+  return Math.max(0, Math.min(eco.lootChanceCap, grown));
 }
 
 function scaledGoldRange(kind, enemyLevel) {
@@ -6914,13 +7369,27 @@ function pickEnemyLevel(heroLevel) {
   return clampLevel(heroLevel + 7 + Math.floor(Math.random() * 6));
 }
 
+// Вес противника в подборе встречи. Плавная кривая вместо ступенек:
+// свежеоткрытый враг набирает вес примерно за 12 уровней (rampIn), старый
+// затухает вдвое каждые 9 уровней (fade), а floor держит небольшой шанс
+// встретить кого угодно даже на 50-м уровне.
+const SPAWN_RAMP_LEVELS = 12;
+const SPAWN_HALF_LIFE = 9;
+const SPAWN_FLOOR = 0.03;
+
+function enemySpawnWeight(kind, heroLevel) {
+  const unlock = Math.max(1, Number(kind && kind.unlockLevel) || 1);
+  const behind = Math.max(0, (Number(heroLevel) || 1) - unlock);
+  const base = 0.5 + (Number(kind && kind.tier) || 1);
+  const rampIn = Math.min(1, (behind + 1) / SPAWN_RAMP_LEVELS);
+  const fade = Math.pow(0.5, behind / SPAWN_HALF_LIFE);
+  return base * (rampIn * fade + SPAWN_FLOOR);
+}
+
 function pickEnemyKind(heroLevel) {
   const kinds = ENEMY_KINDS.filter((kind) => (Number(kind.unlockLevel) || 1) <= heroLevel);
   const pool = kinds.length ? kinds : ENEMY_KINDS;
-  const weights = pool.map((kind) => {
-    const behind = Math.max(0, heroLevel - (Number(kind.unlockLevel) || 1));
-    return (0.22 + Number(kind.tier || 1)) * Math.pow(0.82, behind / 5) + 0.16;
-  });
+  const weights = pool.map((kind) => enemySpawnWeight(kind, heroLevel));
   const total = weights.reduce((sum, value) => sum + value, 0);
   let roll = Math.random() * total;
   for (let index = 0; index < pool.length; index += 1) {
@@ -7114,6 +7583,7 @@ function askFlee() {
 }
 
 function doFlee() {
+  skipLocationEntryEvent = true;
   const loss = resolveFleeLoss();
   enemy = null;
   lastHit = null;
@@ -7338,15 +7808,40 @@ function enabledShop() {
   return ((GAME_DATA && GAME_DATA.shop) || []).filter((row) => row && row.enabled !== false && row.itemId);
 }
 
+// Цена покупки в магазине. Главный источник — «Цена покупки» предмета (item.buyPrice);
+// цена из витрины (row.price) используется как запасная для предметов без buyPrice.
+function shopBuyPrice(row, item) {
+  return Number(item && item.buyPrice) || Number(row && row.price) || Number(item && item.sellPrice) || 0;
+}
+
 function recipeById(id) {
   return enabledRecipes().find((row) => row.id === id) || null;
 }
 
+// Крафт живёт в двух режимах.
+// 1) Исследование: игрок пробует ТИПЫ ресурсов, по одной штуке на слот.
+//    Совпавшие типы открывают части рецепта в Книге.
+// 2) Открытый рецепт: типы уже известны, и слоты работают с количествами.
+const CRAFT_SLOTS = 4;
+
+// Уникальные типы ингредиентов рецепта, в порядке записи.
+function recipeTypeIds(recipe) {
+  const seen = [];
+  ((recipe && recipe.ingredients) || []).forEach((ing) => {
+    const id = ing && ing.itemId;
+    if (!id || seen.indexOf(id) >= 0) return;
+    if (seen.length < CRAFT_SLOTS) seen.push(id);
+  });
+  return seen;
+}
+
+// Точные количества рецепта: { itemId: count }.
 function recipeNeedMap(recipe) {
   const map = {};
-  recipeSlotIds(recipe).forEach((id) => {
+  ((recipe && recipe.ingredients) || []).forEach((ing) => {
+    const id = ing && ing.itemId;
     if (!id) return;
-    map[id] = (map[id] || 0) + 1;
+    map[id] = (map[id] || 0) + Math.max(1, Number(ing.count) || 1);
   });
   return map;
 }
@@ -7355,6 +7850,15 @@ function recipeCanCraft(recipe, data) {
   if (!recipe) return false;
   const need = recipeNeedMap(recipe);
   return Object.keys(need).every((id) => bagCount(data, id) >= need[id]);
+}
+
+// Рецепт открыт полностью — известны все его типы ингредиентов.
+function recipeIsKnown(recipe) {
+  if (!recipe) return false;
+  const row = recipeBookRow(recipe.id);
+  if (row.result) return true;
+  const types = recipeTypeIds(recipe);
+  return types.length > 0 && types.every((_, idx) => !!row.slots[idx]);
 }
 
 function recipeNeedsText(recipe) {
@@ -7371,14 +7875,17 @@ function emptyCraftBench() {
 function normalizeCraftBench(bench) {
   const next = emptyCraftBench();
   (bench || []).forEach((slot, index) => {
-    if (index > 3) return;
+    if (index >= CRAFT_SLOTS) return;
     if (typeof slot === "string") {
       next[index] = { itemId: slot, count: slot ? 1 : 0 };
       return;
     }
-    next[index] = { itemId: (slot && slot.itemId) || "", count: Math.max(0, Number(slot && slot.count) || 0) };
+    next[index] = {
+      itemId: (slot && slot.itemId) || "",
+      count: Math.max(0, Math.round(Number(slot && slot.count) || 0)),
+    };
     if (!next[index].itemId) next[index].count = 0;
-    if (next[index].count > 1) next[index].count = 1;
+    else if (next[index].count < 1) next[index].count = 1;
   });
   return next;
 }
@@ -7401,42 +7908,43 @@ function compactBench(bench) {
   return map;
 }
 
-function recipeSlotIds(recipe) {
-  const slots = [];
-  ((recipe && recipe.ingredients) || []).forEach((ing) => {
-    const n = Math.max(1, Number(ing.count) || 1);
-    for (let i = 0; i < n && slots.length < 4; i += 1) slots.push(ing.itemId || "");
-  });
-  while (slots.length < 4) slots.push("");
-  return slots;
+// Сколько ещё этого ресурса можно доложить в слот (остаток в сумке).
+function benchSlotRoom(itemId, index) {
+  if (!itemId) return 0;
+  return Math.max(0, bagCount(hero, itemId) - benchUsed(itemId, index));
 }
 
 function benchFilledCount(bench) {
   return (bench || []).filter((slot) => slot && slot.itemId && (Number(slot.count) || 0) > 0).length;
 }
 
-function benchIdPool(bench) {
-  const have = [];
+// Уникальные типы ресурсов, лежащих на столе.
+function benchTypeIds(bench) {
+  const seen = [];
   (bench || []).forEach((slot) => {
-    const n = Number(slot && slot.count) || 0;
-    if (!slot || !slot.itemId || n < 1) return;
-    for (let i = 0; i < n; i += 1) have.push(slot.itemId);
+    const id = slot && slot.itemId;
+    if (!id || (Number(slot.count) || 0) < 1) return;
+    if (seen.indexOf(id) < 0) seen.push(id);
   });
-  return have;
+  return seen;
 }
 
-function recipeMatchInfo(recipe, bench) {
-  const need = recipeSlotIds(recipe);
-  const pool = benchIdPool(bench);
-  const matchedNeedIdx = [];
+// Сравнение по ТИПАМ — основа режима исследования. Количество здесь не важно.
+function recipeTypeMatch(recipe, bench) {
+  const need = recipeTypeIds(recipe);
+  const have = benchTypeIds(bench);
+  const matchedIdx = [];
   need.forEach((id, idx) => {
-    if (!id) return;
-    const at = pool.indexOf(id);
-    if (at < 0) return;
-    pool.splice(at, 1);
-    matchedNeedIdx.push(idx);
+    if (have.indexOf(id) >= 0) matchedIdx.push(idx);
   });
-  return { matched: matchedNeedIdx.length, matchedNeedIdx, need };
+  return {
+    need,
+    have,
+    matched: matchedIdx.length,
+    matchedIdx,
+    // Точное совпадение набора типов: ни одного лишнего и ни одного пропущенного.
+    exactTypes: matchedIdx.length === need.length && have.length === need.length && need.length > 0,
+  };
 }
 
 function pickRandom(list) {
@@ -7456,45 +7964,74 @@ function pickRandomMany(list, count) {
   return copy.slice(0, n);
 }
 
+// Два угаданных типа открывают один ингредиент, три — два, и так далее.
+function revealStrength(matched) {
+  return Math.max(0, matched - 1);
+}
+
 function recipeRevealIndexes(recipe, bench, info) {
-  const match = info || recipeMatchInfo(recipe, bench);
+  const match = info || recipeTypeMatch(recipe, bench);
   if (match.matched < 2) return [];
   const progress = recipeBookRow(recipe.id);
-  const unknown = match.matchedNeedIdx.filter((idx) => !progress.slots[idx]);
-  return pickRandomMany(unknown, match.matched - 1);
+  const unknown = match.matchedIdx.filter((idx) => !progress.slots[idx]);
+  return pickRandomMany(unknown, revealStrength(match.matched));
 }
 
-function bestRecipeMatch(bench) {
-  let best = null;
-  enabledRecipes().forEach((recipe) => {
-    const info = recipeMatchInfo(recipe, bench);
-    if (!best || info.matched > best.info.matched) best = { recipe, info };
+// Ещё не открытый рецепт, чьи типы игрок угадал полностью.
+function exactTypeRecipe(bench, onlyUnknown) {
+  const pool = enabledRecipes().filter((recipe) => {
+    if (!recipeTypeMatch(recipe, bench).exactTypes) return false;
+    return onlyUnknown ? !recipeIsKnown(recipe) : true;
   });
-  return best;
+  return pickRandom(pool);
 }
 
+// Открытый рецепт, чьи типы сейчас разложены на столе, — из него и крафтим.
+function benchKnownRecipe(bench) {
+  const pool = enabledRecipes().filter((recipe) =>
+    recipeIsKnown(recipe) && recipeTypeMatch(recipe, bench).exactTypes);
+  return pool[0] || null;
+}
+
+// Лучший частичный матч: чем больше угаданных типов, тем сильнее подсказка.
+// Рецепты, где по этой комбинации открывать уже нечего, отбрасываются —
+// тогда подсказка уйдёт в другой подходящий рецепт.
 function bestRevealMatch(bench) {
   const candidates = [];
   let maxMatched = 0;
   enabledRecipes().forEach((recipe) => {
-    const info = recipeMatchInfo(recipe, bench);
+    const info = recipeTypeMatch(recipe, bench);
     if (info.matched < 2) return;
     const indexes = recipeRevealIndexes(recipe, bench, info);
     if (!indexes.length) return;
     if (info.matched > maxMatched) maxMatched = info.matched;
     candidates.push({ recipe, info, indexes });
   });
-  const pool = candidates.filter((row) => row.info.matched === maxMatched);
-  const chosen = pickRandom(pool);
+  const chosen = pickRandom(candidates.filter((row) => row.info.matched === maxMatched));
   if (!chosen) return null;
   chosen.indexes = recipeRevealIndexes(chosen.recipe, bench, chosen.info);
   return chosen;
 }
 
+// Что произойдёт по кнопке: крафт, нехватка количества, эксперимент или ничего.
+function craftPlan(bench) {
+  const filled = benchFilledCount(bench);
+  const known = benchKnownRecipe(bench);
+  if (known) {
+    const need = recipeNeedMap(known);
+    const have = compactBench(bench);
+    const exact = Object.keys(need).every((id) => have[id] === need[id])
+      && Object.keys(have).length === Object.keys(need).length;
+    if (exact) return { kind: "craft", recipe: known, need };
+    return { kind: "quantity", recipe: known, need, have };
+  }
+  if (filled >= 2) return { kind: "experiment", filled };
+  return { kind: filled === 1 ? "progress" : "idle", filled };
+}
+
 function matchRecipeFromBench(bench) {
-  const best = bestRecipeMatch(bench);
-  if (!best || best.info.matched < 4) return null;
-  return best.recipe;
+  const plan = craftPlan(bench);
+  return plan.kind === "craft" || plan.kind === "quantity" ? plan.recipe : null;
 }
 
 function recipeBookRow(id) {
@@ -7511,15 +8048,22 @@ function recipeBookRow(id) {
   return row;
 }
 
+// Открывает ингредиенты рецепта. Как только известны все типы, рецепт
+// считается разблокированным целиком — дальше он крафтится по количествам.
 function revealRecipeSlots(id, indexes, revealResult) {
   const row = recipeBookRow(id);
   (indexes || []).forEach((idx) => {
-    if (idx >= 0 && idx < 4) row.slots[idx] = true;
+    if (idx >= 0 && idx < CRAFT_SLOTS) row.slots[idx] = true;
   });
+  const recipe = recipeById(id);
+  const types = recipe ? recipeTypeIds(recipe) : [];
   if (revealResult) {
     row.result = true;
-    row.slots = [true, true, true, true];
+    for (let i = 0; i < CRAFT_SLOTS; i += 1) row.slots[i] = true;
+  } else if (types.length && types.every((_, idx) => !!row.slots[idx])) {
+    row.result = true;
   }
+  return row;
 }
 
 function craftTiming(key, fallback) {
@@ -7536,8 +8080,27 @@ function clearCraftTimer() {
 
 function syncCraftMode() {
   if (craftState.flash) return;
-  const filled = benchFilledCount(craftState.bench);
-  craftState.mode = filled < 1 ? "idle" : filled < 2 ? "progress" : "ready";
+  const plan = craftPlan(craftState.bench);
+  if (plan.kind === "craft") craftState.mode = "ready";
+  else if (plan.kind === "quantity") craftState.mode = "quantity";
+  else if (plan.kind === "experiment") craftState.mode = "ready";
+  else if (plan.kind === "progress") craftState.mode = "progress";
+  else craftState.mode = "idle";
+}
+
+// Подгоняет количества под режим: пока рецепт не собран, каждый слот держит
+// ровно одну штуку — исследование идёт по типам, а не по количеству.
+function syncBenchQuantities() {
+  const known = benchKnownRecipe(craftState.bench);
+  craftState.bench.forEach((slot, index) => {
+    if (!slot || !slot.itemId) return;
+    if (!known) {
+      slot.count = 1;
+      return;
+    }
+    const room = benchSlotRoom(slot.itemId, index);
+    slot.count = Math.max(1, Math.min(Number(slot.count) || 1, room));
+  });
 }
 
 function craftPanelHtml() {
@@ -7553,6 +8116,23 @@ function craftPanelHtml() {
   } else if (mode === "ready") {
     cls += " craft-ready";
     inner = `<button type="button" class="craft-ready-btn" data-craft-now="1"><span class="craft-ready-text" data-vx="craft-ready-text">Скрафтить</span></button>`;
+  } else if (mode === "quantity") {
+    const plan = craftPlan(craftState.bench);
+    const need = plan.need || {};
+    const have = plan.have || {};
+    const list = Object.keys(need).map((id) => {
+      const item = findItem(id);
+      const short = Math.max(0, need[id] - (have[id] || 0));
+      const icon = (item && item.icon) || "📦";
+      const name = (item && item.name) || id;
+      return `<span class="craft-need${short ? " is-short" : " is-ok"}">${escapeHtml(icon)} ${escapeHtml(name)} ` +
+        `${have[id] || 0}/${need[id]}</span>`;
+    }).join("");
+    cls += " craft-progress";
+    inner = `<div class="craft-hint-title" data-vx="craft-panel-title">📐 Рецепт открыт</div>` +
+      `<div class="entry-desc" data-vx="craft-panel-text">Выставьте количество кнопками − и + в слотах.</div>` +
+      `<div class="craft-needs">${list}</div>` +
+      `<button type="button" class="craft-ready-btn is-ghost" data-craft-fill="1">Заполнить по рецепту</button>`;
   } else if (mode === "fail") {
     cls += " craft-fail";
     inner = `<div class="entry-desc" data-vx="craft-panel-text">${escapeHtml(flash.text || "Подсказка: крафт не удался, предметы удалены.")}</div>`;
@@ -7574,29 +8154,47 @@ function craftPanelHtml() {
 }
 
 function craftHtml() {
-  const exact = matchRecipeFromBench(craftState.bench);
-  const result = exact ? findItem(exact.resultItemId) : null;
-  const knownResult = exact && result && recipeBookRow(exact.id).result;
+  const known = benchKnownRecipe(craftState.bench);
+  const need = known ? recipeNeedMap(known) : null;
+  const result = known ? findItem(known.resultItemId) : null;
   const slots = craftState.bench.map((slot, index) => {
     const item = slot.itemId ? findItem(slot.itemId) : null;
     if (!item || slot.count < 1) {
-      return `<button type="button" class="craft-slot is-empty" data-vx="craft-slot-${index}" data-bench-open="${index}"><span class="equip-ico">+</span><small>Пусто</small></button>`;
+      return `<div class="craft-slot is-empty" role="button" tabindex="0" data-vx="craft-slot-${index}" data-bench-open="${index}"><span class="equip-ico">+</span><small>Пусто</small></div>`;
+    }
+    // Количество показываем только у открытого рецепта: в режиме исследования
+    // всегда ровно одна штука на слот.
+    let step = "";
+    if (need) {
+      const want = need[slot.itemId] || 0;
+      const room = benchSlotRoom(slot.itemId, index);
+      const done = want > 0 && slot.count === want;
+      step =
+        `<div class="craft-step">` +
+        `<button type="button" data-bench-dec="${index}"${slot.count <= 1 ? " disabled" : ""}>−</button>` +
+        `<b class="${done ? "is-done" : ""}">${slot.count}${want ? "/" + want : ""}</b>` +
+        `<button type="button" data-bench-inc="${index}"${room < 1 ? " disabled" : ""}>+</button>` +
+        `</div>`;
     }
     return (
-      `<button type="button" class="craft-slot" data-vx="craft-slot-${index}" data-bench-open="${index}">` +
+      `<div class="craft-slot" role="button" tabindex="0" data-vx="craft-slot-${index}" data-bench-open="${index}">` +
       `<span class="equip-ico">${escapeHtml(item.icon || "📦")}</span>` +
       `<small>${escapeHtml(item.name)}</small>` +
-      `</button>`
+      step +
+      `</div>`
     );
   }).join("");
-  const resultCell = knownResult
+  const resultCell = result
     ? `<div class="craft-slot craft-result" data-vx="craft-result"><span class="equip-ico">${escapeHtml(result.icon || "⚒️")}</span><small>${escapeHtml(result.name)}</small></div>`
     : `<div class="craft-slot craft-result is-empty" data-vx="craft-result"><span class="equip-ico">❓</span><small>Результат</small></div>`;
+  const lead = known
+    ? "Рецепт открыт: задайте количество каждого ресурса кнопками − и +."
+    : "Нажмите на пустой слот и выберите предмет из инвентаря. Пока рецепт не открыт, важны только типы ресурсов.";
   return (
     `<div class="craft-screen" data-vx="craft-screen">` +
     `<div class="craft-head"><div class="entry-title" data-vx="craft-title">⚒️ Крафт</div>` +
     `<button type="button" class="craft-book-btn" data-open-book="1"><span class="equip-ico">📖</span><span>Книга рецептов</span></button></div>` +
-    `<div class="entry-desc craft-lead" data-vx="craft-lead">Нажмите на пустой слот и выберите предмет из инвентаря.</div>` +
+    `<div class="entry-desc craft-lead" data-vx="craft-lead">${escapeHtml(lead)}</div>` +
     `<div class="craft-bench" data-vx="craft-bench"><div class="craft-grid" data-vx="craft-grid">${slots}</div><span class="craft-arrow" data-vx="craft-arrow">→</span>${resultCell}</div>` +
     craftPanelHtml() +
     `</div>`
@@ -7607,10 +8205,54 @@ function bindCraftUi() {
   logBox.querySelectorAll("[data-bench-open]").forEach((node) => {
     node.onclick = () => openCraftItemPick(Number(node.getAttribute("data-bench-open")));
   });
+  logBox.querySelectorAll("[data-bench-inc]").forEach((node) => {
+    node.onclick = (event) => {
+      event.stopPropagation();
+      bumpBenchCount(Number(node.getAttribute("data-bench-inc")), 1);
+    };
+  });
+  logBox.querySelectorAll("[data-bench-dec]").forEach((node) => {
+    node.onclick = (event) => {
+      event.stopPropagation();
+      bumpBenchCount(Number(node.getAttribute("data-bench-dec")), -1);
+    };
+  });
+  const fill = logBox.querySelector("[data-craft-fill]");
+  if (fill) fill.onclick = fillBenchFromRecipe;
   const book = logBox.querySelector("[data-open-book]");
   if (book) book.onclick = openRecipeBook;
   const craftBtn = logBox.querySelector("[data-craft-now]");
   if (craftBtn) craftBtn.onclick = () => tryCraft();
+}
+
+// Кнопки − и + у слота открытого рецепта. Выше запаса в сумке не поднимаем.
+function bumpBenchCount(index, dir) {
+  const slot = craftState.bench[index];
+  if (!slot || !slot.itemId) return;
+  if (!benchKnownRecipe(craftState.bench)) return;
+  clearCraftTimer();
+  craftState.flash = null;
+  const room = benchSlotRoom(slot.itemId, index);
+  const next = (Number(slot.count) || 1) + dir;
+  slot.count = Math.max(1, Math.min(next, Math.max(1, room)));
+  syncCraftMode();
+  openCraft(craftState.back, craftState.settings);
+}
+
+// Разом выставляет количества открытого рецепта, насколько хватает сумки.
+function fillBenchFromRecipe() {
+  const known = benchKnownRecipe(craftState.bench);
+  if (!known) return;
+  clearCraftTimer();
+  craftState.flash = null;
+  const need = recipeNeedMap(known);
+  craftState.bench.forEach((slot, index) => {
+    if (!slot || !slot.itemId) return;
+    const want = need[slot.itemId] || 1;
+    slot.count = Math.max(1, Math.min(want, Math.max(1, benchSlotRoom(slot.itemId, index))));
+  });
+  syncCraftMode();
+  openCraft(craftState.back, craftState.settings);
 }
 
 function openCraftItemPick(index) {
@@ -7652,6 +8294,7 @@ function putItemOnBench(index, itemId) {
   if (current.itemId === itemId) {
     craftState.bench[index] = { itemId: "", count: 0 };
     craftState.recipeId = "";
+    syncBenchQuantities();
     syncCraftMode();
     return;
   }
@@ -7659,6 +8302,7 @@ function putItemOnBench(index, itemId) {
   if (left < 1) return;
   craftState.bench[index] = { itemId, count: 1 };
   craftState.recipeId = "";
+  syncBenchQuantities();
   syncCraftMode();
 }
 
@@ -7668,7 +8312,10 @@ function openCraft(back, options) {
   craftState.back = back || heroHub;
   craftState.settings = settings;
   craftState.bench = normalizeCraftBench(craftState.bench);
-  if (!craftState.flash) syncCraftMode();
+  if (!craftState.flash) {
+    syncBenchQuantities();
+    syncCraftMode();
+  }
   write(craftHtml(), "entry-info", { gold: hero.gold });
   setChrome("play");
   const buttons = [];
@@ -7694,8 +8341,16 @@ function recipeBookCell(itemId, known, result) {
 function openRecipeBook() {
   const rows = enabledRecipes().map((recipe) => {
     const progress = recipeBookRow(recipe.id);
-    const slots = recipeSlotIds(recipe);
-    const cells = slots.map((id, idx) => recipeBookCell(id, !!progress.slots[idx], false)).join(`<span class="recipe-plus">+</span>`);
+    const types = recipeTypeIds(recipe);
+    const need = recipeNeedMap(recipe);
+    const full = recipeIsKnown(recipe);
+    // У открытого рецепта показываем точные количества, у закрытого — только
+    // те типы, которые уже угаданы.
+    const cells = types.map((id, idx) => {
+      const cell = recipeBookCell(id, !!progress.slots[idx], false);
+      if (!full || !progress.slots[idx]) return cell;
+      return cell + `<span class="recipe-count">×${need[id] || 1}</span>`;
+    }).join(`<span class="recipe-plus">+</span>`);
     const resultKnown = !!progress.result;
     const resultItem = recipe.resultItemId ? findItem(recipe.resultItemId) : null;
     const resultCls = "recipe-cell is-result" + (resultKnown && resultItem ? " is-known" : "") + (!resultKnown ? " is-unknown" : "");
@@ -7723,15 +8378,18 @@ function loadRecipeOnBench(id) {
     syncCraftMode();
     return;
   }
-  const slots = recipeSlotIds(recipe);
-  const used = {};
-  slots.forEach((itemId, index) => {
-    if (!itemId) return;
-    const have = bagCount(hero, itemId) - (used[itemId] || 0);
+  // Открытый рецепт раскладывается сразу с нужными количествами,
+  // неоткрытый — по одной штуке каждого известного типа.
+  const known = recipeIsKnown(recipe);
+  const need = recipeNeedMap(recipe);
+  recipeTypeIds(recipe).forEach((itemId, index) => {
+    if (!itemId || index >= CRAFT_SLOTS) return;
+    const have = bagCount(hero, itemId);
     if (have < 1) return;
-    craftState.bench[index] = { itemId, count: 1 };
-    used[itemId] = (used[itemId] || 0) + 1;
+    const want = known ? Math.min(need[itemId] || 1, have) : 1;
+    craftState.bench[index] = { itemId, count: Math.max(1, want) };
   });
+  syncBenchQuantities();
   syncCraftMode();
 }
 
@@ -7761,36 +8419,52 @@ function startCraftFlash(mode, flash, ms) {
 
 function tryCraft() {
   if (!hero) return;
-  const filled = benchFilledCount(craftState.bench);
-  if (filled < 2) return;
-  const complete = bestRecipeMatch(craftState.bench);
-  const reveal = (!complete || complete.info.matched < 4) ? bestRevealMatch(craftState.bench) : null;
-  consumeBenchItems();
-  if (complete && complete.info.matched >= 4) {
-    const made = complete.recipe;
+  const plan = craftPlan(craftState.bench);
+
+  // Открытый рецепт с верными количествами — обычный крафт.
+  if (plan.kind === "craft") {
+    const made = plan.recipe;
     const result = findItem(made.resultItemId);
+    consumeBenchItems();
     if (!result) {
       startCraftFlash("fail", { text: "Подсказка: крафт не удался, предметы удалены." }, craftTiming("craftFailMs", 5000));
       return;
     }
-    const wasKnown = recipeBookRow(made.id).result;
     giveItem(hero, result, Number(made.resultCount) || 1, { source: "craft" });
     noteCraft();
-    revealRecipeSlots(made.id, [0, 1, 2, 3], true);
     checkAchievements();
     storeSave();
-    if (wasKnown) {
-      startCraftFlash("success", { item: result }, craftTiming("craftSuccessMs", 1500));
-    } else {
-      startCraftFlash("success", { item: result, firstTime: true }, craftTiming("craftSuccessMs", 5000));
-    }
+    startCraftFlash("success", { item: result }, craftTiming("craftSuccessMs", 1500));
     return;
   }
+
+  // Типы верные, но количества не набраны — ресурсы не тратим, это не попытка.
+  if (plan.kind === "quantity") return;
+  if (plan.kind !== "experiment") return;
+
+  // Дальше — исследование: считаем совпадения по типам и тратим по одной штуке.
+  const exact = exactTypeRecipe(craftState.bench, true);
+  const reveal = exact ? null : bestRevealMatch(craftState.bench);
+  consumeBenchItems();
+
+  if (exact) {
+    revealRecipeSlots(exact.id, [], true);
+    const result = findItem(exact.resultItemId);
+    checkAchievements();
+    storeSave();
+    startCraftFlash(
+      "success",
+      { item: result || { icon: "📖", name: exact.name || "Рецепт" }, firstTime: true },
+      craftTiming("craftSuccessMs", 5000)
+    );
+    return;
+  }
+
   if (reveal && reveal.indexes.length) {
-    const need = reveal.info.need || recipeSlotIds(reveal.recipe);
+    const types = reveal.info.need || recipeTypeIds(reveal.recipe);
     const opened = [];
     reveal.indexes.forEach((idx) => {
-      const item = findItem(need[idx]);
+      const item = findItem(types[idx]);
       if (item) opened.push(`${item.icon || "📦"} ${item.name}`);
     });
     revealRecipeSlots(reveal.recipe.id, reveal.indexes, false);
@@ -7803,6 +8477,7 @@ function tryCraft() {
     );
     return;
   }
+
   checkAchievements();
   storeSave();
   startCraftFlash("fail", { text: "Подсказка: крафт не удался, предметы удалены." }, craftTiming("craftFailMs", 5000));
@@ -7815,7 +8490,7 @@ function shopGoods(tab) {
 function shopIconButton(row) {
   const item = findItem(row.itemId);
   if (!item) return "";
-  const price = Number(row.price) || Number(item.buyPrice) || 0;
+  const price = shopBuyPrice(row, item);
   return (
     `<button type="button" class="shop-icon" data-shop-item="${escapeHtml(row.id)}">` +
     itemGlyphHtml(item) +
@@ -7913,7 +8588,7 @@ function openShopItem(id) {
   const row = enabledShop().find((item) => item.id === id);
   const item = row ? findItem(row.itemId) : null;
   if (!row || !item) return;
-  const price = Number(row.price) || Number(item.buyPrice) || 0;
+  const price = shopBuyPrice(row, item);
   const bulk = row.tab !== "gear";
   shopBuyQty = Math.max(1, Number(shopBuyQty) || 1);
   const total = price * shopBuyQty;
@@ -7987,7 +8662,7 @@ function buyShopGood(id, amount) {
   const row = enabledShop().find((item) => item.id === id);
   const item = row ? findItem(row.itemId) : null;
   const qty = Math.max(1, Math.round(Number(amount) || 1));
-  const price = row ? Number(row.price) || Number(item && item.buyPrice) || 0 : 0;
+  const price = row && item ? shopBuyPrice(row, item) : 0;
   const total = price * qty;
   if (!row || !item || total <= 0 || (Number(hero.gold) || 0) < total) return;
   hero.gold -= total;

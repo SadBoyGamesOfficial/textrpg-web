@@ -437,6 +437,16 @@
       if (event.clickerEnabled && event.clickerReward === "item" && resolve(data, "item", event.clickerItemId) === id) {
         rows.push({ kind: "event", id: event.id, name: event.name || event.id, role: "клик" });
       }
+      (event.rewards || []).forEach((row) => {
+        if (row && row.kind !== "gold" && resolve(data, "item", row.itemId) === id) {
+          rows.push({ kind: "event", id: event.id, name: event.name || event.id, role: "награда" });
+        }
+      });
+      (event.choices || []).forEach((row) => {
+        if (row && row.kind !== "gold" && resolve(data, "item", row.itemId) === id) {
+          rows.push({ kind: "event", id: event.id, name: event.name || event.id, role: "выбор" });
+        }
+      });
     });
     return rows;
   }
@@ -579,6 +589,9 @@
       });
       (data.events || []).forEach((event) => {
         (event.effects || []).forEach((fx) => bump(fx, "itemId"));
+        bump(event, "clickerItemId");
+        (event.rewards || []).forEach((row) => bump(row, "itemId"));
+        (event.choices || []).forEach((row) => bump(row, "itemId"));
       });
       (data.achievements || []).forEach((row) => {
         (row.conditions || []).forEach((cond) => bump(cond, "itemId"));

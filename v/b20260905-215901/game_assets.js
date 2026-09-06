@@ -73,6 +73,15 @@
     banner: ["background", "illustration"],
     avatar: ["icon", "thumbnail", "portrait"],
   };
+  const DISPLAY_ROLES = {
+    event: ["illustration", "card", "portrait"],
+    enemy: ["portrait", "combat", "thumbnail"],
+    class: ["portrait", "combat", "thumbnail"],
+    item: ["icon", "card", "thumbnail"],
+    location: ["background", "banner", "illustration"],
+    achievement: ["icon", "card", "portrait"],
+  };
+  const IMAGE_SYNC_ROLES = { portrait: 1, illustration: 1, card: 1 };
 
   function list(data) {
     if (!data) return [];
@@ -370,6 +379,10 @@
     delete entity.art[role];
   }
 
+  function displayRolesFor(kind) {
+    return DISPLAY_ROLES[kind] || ["portrait"];
+  }
+
   function assign(data, entity, role, assetId, display) {
     if (!entity) return null;
     const art = artOf(entity);
@@ -383,7 +396,7 @@
     }
     const slot = Object.assign({ assetId: assetId }, pickDisplay(display));
     art[role] = slot;
-    if (role === "portrait") {
+    if (IMAGE_SYNC_ROLES[role] || !entity.image) {
       const asset = find(data, assetId);
       if (asset) {
         entity.image = cleanPath(asset.path);
@@ -392,6 +405,26 @@
       }
     }
     return slot;
+  }
+
+  function assignVisible(data, entity, kind, assetId, options) {
+    if (!entity || !assetId) return null;
+    const roles = displayRolesFor(kind);
+    const current = (options && options.role) || roles[0];
+    const forceAll = !!(options && options.forceAll);
+    const missing = (options && options.missing) || {};
+    assign(data, entity, current, assetId);
+    roles.forEach((role) => {
+      if (role === current && !forceAll) return;
+      const slot = slotOf(entity, role);
+      const existing = slot && slot.assetId ? find(data, slot.assetId) : null;
+      const fileGone = !existing || !!missing[cleanPath(existing.path)];
+      const sameStem = existing && entity.id && stem(existing.path) === entity.id;
+      if (forceAll || !slot || !slot.assetId || fileGone || sameStem) {
+        assign(data, entity, role, assetId);
+      }
+    });
+    return slotOf(entity, current);
   }
 
   function setSlotDisplay(entity, role, display) {
@@ -457,6 +490,30 @@
       }
     });
     return data;
+  }
+
+  function resolveCandidates(data, entity, role, options) {
+    const wanted = [role].concat((options && options.fallback) || FALLBACK[role] || []);
+    const seen = Object.create(null);
+    const rows = [];
+    function push(src, asset, usedRole, slot) {
+      const key = cleanPath(src);
+      if (!src || seen[key]) return;
+      seen[key] = true;
+      rows.push({ src, asset: asset || null, role: usedRole, slot: slot || null });
+    }
+    wanted.forEach((tryRole) => {
+      const trySlot = slotOf(entity, tryRole);
+      if (trySlot && trySlot.assetId) {
+        const found = find(data, trySlot.assetId);
+        if (found) push(srcOf(found, data && data.assetRev), found, tryRole, trySlot);
+      }
+    });
+    if (entity) {
+      const legacy = legacySrc(entity, data && data.assetRev);
+      if (legacy) push(legacy, findByPath(data, cleanPath(entity.image)), "image", null);
+    }
+    return rows;
   }
 
   function resolve(data, entity, role, options) {
@@ -607,9 +664,13 @@
     }
     const alpha = isAlphaSrc(resolved.src) ? " is-alpha" : "";
     const cls = "stage-art ga-frame" + (compact ? " compact" : "") + alpha;
+    const extras = resolveCandidates(data, entity, primary, { fallback: listRoles.slice(1) })
+      .map((row) => row.src)
+      .filter((src) => src && src !== resolved.src);
+    const fallbackAttr = extras.length ? ' data-img-fallback="' + escapeHtml(extras.join("|")) + '"' : "";
     return (
       '<div class="' + cls + '" data-vx="stage-panel" style="' + cssMap(frame) + '">' +
-      '<img class="portrait ga-img' + alpha + '" src="' + escapeHtml(resolved.src) + '" alt="" style="' + cssMap(img) + '">' +
+      '<img class="portrait ga-img' + alpha + '" src="' + escapeHtml(resolved.src) + '" alt=""' + fallbackAttr + ' style="' + cssMap(img) + '">' +
       "</div>"
     );
   }
@@ -771,6 +832,10 @@
     remove,
     incoming,
     assign,
+    assignVisible,
+    displayRolesFor,
+    resolveCandidates,
+    isAlphaSrc,
     clearSlot,
     setSlotDisplay,
     setAssetView,

@@ -1,12 +1,12 @@
 {
-  "assetRev": "1788664416446",
+  "assetRev": "1788731703588",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
     "craftRevealMs": 5000,
     "craftSuccessMs": 5000,
     "goldPerEnemyLevel": 0.07,
-    "lootChancePerLevel": 0.2,
+    "lootChancePerLevel": 0.05,
     "lootChanceCap": 24,
     "gearChancePerLevel": 0.1,
     "gearChanceCap": 8,
@@ -51,8 +51,8 @@
       "attack": 3,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 3,
-      "buyPrice": 12,
+      "sellPrice": 45,
+      "buyPrice": 300,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -65,10 +65,10 @@
       "slot": "chest",
       "description": "Грубая шкура, немного держит удар.",
       "attack": 0,
-      "defense": 6,
-      "maxHealth": 0,
-      "sellPrice": 8,
-      "buyPrice": 432,
+      "defense": 12,
+      "maxHealth": 8,
+      "sellPrice": 225,
+      "buyPrice": 1500,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -80,11 +80,11 @@
       "icon": "🔪",
       "slot": "weapon",
       "description": "Короткий нож, удобнее голых рук.",
-      "attack": 6,
+      "attack": 9,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 10,
-      "buyPrice": 384,
+      "sellPrice": 195,
+      "buyPrice": 1300,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -99,8 +99,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 1,
-      "buyPrice": 5,
+      "sellPrice": 11,
+      "buyPrice": 75,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -115,8 +115,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 2,
-      "buyPrice": 10,
+      "sellPrice": 26,
+      "buyPrice": 170,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -131,8 +131,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 2,
-      "buyPrice": 8,
+      "sellPrice": 19,
+      "buyPrice": 125,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -144,11 +144,11 @@
       "icon": "🏒",
       "slot": "weapon",
       "description": "Грубое оружие из веток. Лучше, чем кулаки.",
-      "attack": 3,
+      "attack": 5,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 4,
-      "buyPrice": 192,
+      "sellPrice": 90,
+      "buyPrice": 600,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -161,10 +161,10 @@
       "slot": "head",
       "description": "Простая шапка. Чуть держит удар по голове.",
       "attack": 0,
-      "defense": 3,
-      "maxHealth": 0,
-      "sellPrice": 4,
-      "buyPrice": 144,
+      "defense": 7,
+      "maxHealth": 4,
+      "sellPrice": 105,
+      "buyPrice": 700,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -177,10 +177,10 @@
       "slot": "chest",
       "description": "Лёгкая куртка для лесных троп.",
       "attack": 0,
-      "defense": 3,
-      "maxHealth": 3,
-      "sellPrice": 5,
-      "buyPrice": 180,
+      "defense": 9,
+      "maxHealth": 10,
+      "sellPrice": 150,
+      "buyPrice": 1000,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -193,10 +193,10 @@
       "slot": "legs",
       "description": "Плотные штаны, не рвутся о кусты.",
       "attack": 0,
-      "defense": 3,
-      "maxHealth": 0,
-      "sellPrice": 4,
-      "buyPrice": 144,
+      "defense": 7,
+      "maxHealth": 5,
+      "sellPrice": 112,
+      "buyPrice": 750,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -209,10 +209,10 @@
       "slot": "feet",
       "description": "Ходят по сырой земле без жалоб.",
       "attack": 0,
-      "defense": 3,
-      "maxHealth": 0,
-      "sellPrice": 4,
-      "buyPrice": 144,
+      "defense": 6,
+      "maxHealth": 4,
+      "sellPrice": 98,
+      "buyPrice": 650,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -224,11 +224,11 @@
       "icon": "🔪",
       "slot": "weapon",
       "description": "Короткий нож для дороги и мелкой дичи.",
-      "attack": 3,
+      "attack": 6,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 6,
-      "buyPrice": 192,
+      "sellPrice": 120,
+      "buyPrice": 800,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -241,10 +241,10 @@
       "slot": "head",
       "description": "Тяжёлый шлем. Хорошо держит удар.",
       "attack": 0,
-      "defense": 6,
-      "maxHealth": 0,
-      "sellPrice": 10,
-      "buyPrice": 360,
+      "defense": 14,
+      "maxHealth": 8,
+      "sellPrice": 270,
+      "buyPrice": 1800,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -257,10 +257,10 @@
       "slot": "chest",
       "description": "Пластины на корпусе. Заметно крепче ткани.",
       "attack": 0,
-      "defense": 9,
-      "maxHealth": 6,
-      "sellPrice": 14,
-      "buyPrice": 480,
+      "defense": 19,
+      "maxHealth": 16,
+      "sellPrice": 390,
+      "buyPrice": 2600,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -273,10 +273,10 @@
       "slot": "legs",
       "description": "Металл на ногах. Тяжело, но надёжно.",
       "attack": 0,
-      "defense": 6,
-      "maxHealth": 0,
-      "sellPrice": 11,
-      "buyPrice": 380,
+      "defense": 14,
+      "maxHealth": 9,
+      "sellPrice": 285,
+      "buyPrice": 1900,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -289,10 +289,10 @@
       "slot": "feet",
       "description": "Тяжёлая обувь для долгого боя.",
       "attack": 0,
-      "defense": 6,
-      "maxHealth": 0,
-      "sellPrice": 11,
-      "buyPrice": 380,
+      "defense": 13,
+      "maxHealth": 8,
+      "sellPrice": 255,
+      "buyPrice": 1700,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -304,14 +304,14 @@
       "icon": "⚔️",
       "slot": "weapon",
       "description": "Честный меч. Бьёт сильнее ножа.",
-      "attack": 9,
+      "attack": 14,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 16,
-      "buyPrice": 560,
+      "sellPrice": 420,
+      "buyPrice": 2800,
       "image": "",
       "hideDescription": false,
-      "critChance": 0,
+      "critChance": 3,
       "critDamage": 0
     },
     {
@@ -323,8 +323,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 1,
-      "buyPrice": 4,
+      "sellPrice": 10,
+      "buyPrice": 70,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -339,8 +339,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 2,
-      "buyPrice": 6,
+      "sellPrice": 15,
+      "buyPrice": 100,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -355,8 +355,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 1,
-      "buyPrice": 5,
+      "sellPrice": 13,
+      "buyPrice": 85,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -371,8 +371,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 2,
-      "buyPrice": 6,
+      "sellPrice": 14,
+      "buyPrice": 90,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -387,8 +387,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 2,
-      "buyPrice": 8,
+      "sellPrice": 21,
+      "buyPrice": 140,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -403,8 +403,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 1,
-      "buyPrice": 4,
+      "sellPrice": 10,
+      "buyPrice": 65,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -419,8 +419,8 @@
       "attack": 3,
       "defense": 0,
       "maxHealth": 0,
-      "sellPrice": 4,
-      "buyPrice": 14,
+      "sellPrice": 90,
+      "buyPrice": 600,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -435,8 +435,8 @@
       "attack": 0,
       "defense": 0,
       "maxHealth": 3,
-      "sellPrice": 2,
-      "buyPrice": 8,
+      "sellPrice": 45,
+      "buyPrice": 300,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -451,8 +451,8 @@
       "attack": 0,
       "defense": 3,
       "maxHealth": 0,
-      "sellPrice": 5,
-      "buyPrice": 18,
+      "sellPrice": 150,
+      "buyPrice": 1000,
       "image": "",
       "hideDescription": false,
       "critChance": 0,
@@ -470,14 +470,14 @@
       "ingredients": [
         {
           "itemId": "item_forest_stick",
-          "count": 1
-        },
-        {
-          "itemId": "item_forest_stick",
-          "count": 1
+          "count": 4
         },
         {
           "itemId": "item_forest_root",
+          "count": 2
+        },
+        {
+          "itemId": "item_forest_berry",
           "count": 1
         },
         {
@@ -496,19 +496,19 @@
       "ingredients": [
         {
           "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_forest_stick",
-          "count": 1
-        },
-        {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_charcoal",
-          "count": 1
+          "count": 2
+        },
+        {
+          "itemId": "item_tree_sap",
+          "count": 2
         }
       ]
     },
@@ -522,18 +522,18 @@
       "ingredients": [
         {
           "itemId": "item_cloth_strip",
-          "count": 1
-        },
-        {
-          "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_forest_herb",
-          "count": 1
+          "count": 2
         },
         {
-          "itemId": "item_forest_stick",
+          "itemId": "item_tree_sap",
+          "count": 2
+        },
+        {
+          "itemId": "item_wolf_claw",
           "count": 1
         }
       ]
@@ -548,19 +548,19 @@
       "ingredients": [
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_forest_herb",
-          "count": 1
-        },
-        {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_forest_berry",
-          "count": 1
+          "count": 2
+        },
+        {
+          "itemId": "item_forest_stick",
+          "count": 2
         }
       ]
     },
@@ -573,20 +573,20 @@
       "enabled": true,
       "ingredients": [
         {
-          "itemId": "item_iron_scrap",
+          "itemId": "item_rat_tail",
+          "count": 2
+        },
+        {
+          "itemId": "item_robber_sign",
           "count": 1
         },
         {
-          "itemId": "item_iron_scrap",
-          "count": 1
-        },
-        {
-          "itemId": "item_charcoal",
-          "count": 1
+          "itemId": "item_wolf_claw",
+          "count": 2
         },
         {
           "itemId": "item_rusty_fang",
-          "count": 1
+          "count": 2
         }
       ]
     },
@@ -600,19 +600,19 @@
       "ingredients": [
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_forest_herb",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_forest_root",
-          "count": 1
+          "count": 2
         },
         {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "itemId": "item_forest_mushroom",
+          "count": 2
         }
       ]
     },
@@ -626,18 +626,18 @@
       "ingredients": [
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_forest_root",
-          "count": 1
+          "count": 3
+        },
+        {
+          "itemId": "item_forest_mushroom",
+          "count": 2
         },
         {
           "itemId": "item_forest_berry",
-          "count": 1
-        },
-        {
-          "itemId": "item_tree_sap",
           "count": 1
         }
       ]
@@ -652,18 +652,18 @@
       "ingredients": [
         {
           "itemId": "item_cloth_strip",
-          "count": 1
-        },
-        {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_forest_root",
-          "count": 1
+          "count": 2
         },
         {
-          "itemId": "item_charcoal",
+          "itemId": "item_forest_stick",
+          "count": 2
+        },
+        {
+          "itemId": "item_tree_sap",
           "count": 1
         }
       ]
@@ -678,11 +678,11 @@
       "ingredients": [
         {
           "itemId": "item_forest_stick",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 2
         },
         {
           "itemId": "item_tree_sap",
@@ -704,19 +704,19 @@
       "ingredients": [
         {
           "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 4
         },
         {
           "itemId": "item_charcoal",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_forest_root",
-          "count": 1
+          "count": 2
         }
       ]
     },
@@ -730,19 +730,19 @@
       "ingredients": [
         {
           "itemId": "item_iron_scrap",
-          "count": 1
-        },
-        {
-          "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 6
         },
         {
           "itemId": "item_charcoal",
-          "count": 1
+          "count": 4
         },
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 4
+        },
+        {
+          "itemId": "item_forest_mushroom",
+          "count": 3
         }
       ]
     },
@@ -756,19 +756,19 @@
       "ingredients": [
         {
           "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 4
         },
         {
           "itemId": "item_charcoal",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_forest_root",
-          "count": 1
+          "count": 3
         },
         {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "itemId": "item_forest_mushroom",
+          "count": 4
         }
       ]
     },
@@ -782,19 +782,19 @@
       "ingredients": [
         {
           "itemId": "item_iron_scrap",
-          "count": 1
+          "count": 4
         },
         {
           "itemId": "item_charcoal",
-          "count": 1
+          "count": 3
         },
         {
           "itemId": "item_cloth_strip",
-          "count": 1
+          "count": 2
         },
         {
-          "itemId": "item_tree_sap",
-          "count": 1
+          "itemId": "item_forest_root",
+          "count": 3
         }
       ]
     }
@@ -804,7 +804,7 @@
       "id": "shop_forgotten_forest::item_traveler_head",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_traveler_head",
-      "price": 480,
+      "price": 700,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -815,7 +815,7 @@
       "id": "shop_forgotten_forest::item_traveler_chest",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_traveler_chest",
-      "price": 600,
+      "price": 1000,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -826,7 +826,7 @@
       "id": "shop_forgotten_forest::item_traveler_legs",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_traveler_legs",
-      "price": 480,
+      "price": 750,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -837,7 +837,7 @@
       "id": "shop_forgotten_forest::item_traveler_feet",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_traveler_feet",
-      "price": 480,
+      "price": 650,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -848,7 +848,7 @@
       "id": "shop_forgotten_forest::item_traveler_weapon",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_traveler_weapon",
-      "price": 640,
+      "price": 800,
       "enabled": true,
       "tab": "gear",
       "setId": "traveler",
@@ -859,7 +859,7 @@
       "id": "shop_forgotten_forest::item_iron_head",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_head",
-      "price": 1440,
+      "price": 1800,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -870,7 +870,7 @@
       "id": "shop_forgotten_forest::item_iron_chest",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_chest",
-      "price": 1920,
+      "price": 2600,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -881,7 +881,7 @@
       "id": "shop_forgotten_forest::item_iron_legs",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_legs",
-      "price": 1520,
+      "price": 1900,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -892,7 +892,7 @@
       "id": "shop_forgotten_forest::item_iron_feet",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_feet",
-      "price": 1520,
+      "price": 1700,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -903,7 +903,7 @@
       "id": "shop_forgotten_forest::item_iron_weapon",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_weapon",
-      "price": 2200,
+      "price": 2800,
       "enabled": true,
       "tab": "gear",
       "setId": "iron",
@@ -914,7 +914,7 @@
       "id": "shop_forgotten_forest::item_forest_stick",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_forest_stick",
-      "price": 22,
+      "price": 75,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -925,7 +925,7 @@
       "id": "shop_forgotten_forest::item_iron_scrap",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_iron_scrap",
-      "price": 48,
+      "price": 170,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -936,7 +936,7 @@
       "id": "shop_forgotten_forest::item_cloth_strip",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_cloth_strip",
-      "price": 36,
+      "price": 125,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -947,7 +947,7 @@
       "id": "shop_forgotten_forest::item_forest_root",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_forest_root",
-      "price": 20,
+      "price": 70,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -958,7 +958,7 @@
       "id": "shop_forgotten_forest::item_tree_sap",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_tree_sap",
-      "price": 28,
+      "price": 100,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -969,7 +969,7 @@
       "id": "shop_forgotten_forest::item_forest_herb",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_forest_herb",
-      "price": 24,
+      "price": 85,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -980,7 +980,7 @@
       "id": "shop_forgotten_forest::item_forest_mushroom",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_forest_mushroom",
-      "price": 26,
+      "price": 90,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -991,7 +991,7 @@
       "id": "shop_forgotten_forest::item_charcoal",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_charcoal",
-      "price": 40,
+      "price": 140,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -1002,7 +1002,7 @@
       "id": "shop_forgotten_forest::item_forest_berry",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_forest_berry",
-      "price": 18,
+      "price": 65,
       "enabled": true,
       "tab": "material",
       "setId": "",
@@ -1013,7 +1013,7 @@
       "id": "shop_forgotten_forest::item_wolf_pelt",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_wolf_pelt",
-      "price": 1440,
+      "price": 1500,
       "enabled": true,
       "tab": "loot",
       "setId": "",
@@ -1024,7 +1024,7 @@
       "id": "shop_forgotten_forest::item_robber_knife",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_robber_knife",
-      "price": 1280,
+      "price": 1300,
       "enabled": true,
       "tab": "loot",
       "setId": "",
@@ -1035,7 +1035,7 @@
       "id": "shop_forgotten_forest::item_stick_club",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_stick_club",
-      "price": 640,
+      "price": 600,
       "enabled": true,
       "tab": "loot",
       "setId": "",
@@ -1046,7 +1046,7 @@
       "id": "shop_forgotten_forest::item_rusty_fang",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_rusty_fang",
-      "price": 40,
+      "price": 300,
       "enabled": true,
       "tab": "trophy",
       "setId": "",
@@ -1057,7 +1057,7 @@
       "id": "shop_forgotten_forest::item_wolf_claw",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_wolf_claw",
-      "price": 50,
+      "price": 600,
       "enabled": true,
       "tab": "trophy",
       "setId": "",
@@ -1068,7 +1068,7 @@
       "id": "shop_forgotten_forest::item_rat_tail",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_rat_tail",
-      "price": 28,
+      "price": 300,
       "enabled": true,
       "tab": "trophy",
       "setId": "",
@@ -1079,7 +1079,7 @@
       "id": "shop_forgotten_forest::item_robber_sign",
       "shopId": "shop_forgotten_forest",
       "itemId": "item_robber_sign",
-      "price": 70,
+      "price": 1000,
       "enabled": true,
       "tab": "trophy",
       "setId": "",
@@ -1150,8 +1150,8 @@
     {
       "id": "first_blood",
       "name": "Первая кровь",
-      "icon": "🏆",
-      "description": "Одержите первую победу любым героем.",
+      "icon": "🩸",
+      "description": "Победите первого противника.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 1,
@@ -1165,64 +1165,13 @@
       ]
     },
     {
-      "id": "warrior_first",
-      "name": "Первый удар",
-      "icon": "🗡️",
-      "description": "Одержите 1 победу воином.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 1,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "wins",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "archer_first",
-      "name": "Первая стрела",
-      "icon": "🏹",
-      "description": "Одержите 1 победу лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 1,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "wins",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "mage_first",
-      "name": "Первое заклятие",
-      "icon": "🔮",
-      "description": "Одержите 1 победу магом.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 1,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "wins",
-          "value": 1
-        }
-      ]
-    },
-    {
       "id": "explorer",
       "name": "Следопыт",
-      "icon": "🌲",
-      "description": "Посетите Забытый лес.",
+      "icon": "🗺️",
+      "description": "Доберитесь до Забытого леса.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 2,
+      "difficulty": 1,
       "scope": "common",
       "classKey": "",
       "conditions": [
@@ -1234,454 +1183,13 @@
       ]
     },
     {
-      "id": "trophy_fang",
-      "name": "Охотник за клыками",
-      "icon": "🦷",
-      "description": "Соберите 15 ржавых клыков с поверженных врагов.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 15,
-          "itemId": "item_rusty_fang"
-        }
-      ]
-    },
-    {
-      "id": "crafter",
-      "name": "Первый молот",
-      "icon": "🔨",
-      "description": "Скрафтите любой предмет.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "pocket",
-      "name": "Тяжёлый кошель",
-      "icon": "💰",
-      "description": "Накопите 25 золота на одном герое.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "gold_held",
-          "value": 25
-        }
-      ]
-    },
-    {
-      "id": "warrior_shield",
-      "name": "Железная стойка",
-      "icon": "🛡️",
-      "description": "Доведите воина до 3 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "id": "archer_aim",
-      "name": "Меткий глаз",
-      "icon": "🎯",
-      "description": "Доведите лучника до 3 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "id": "mage_spark",
-      "name": "Первая искра",
-      "icon": "✨",
-      "description": "Доведите мага до 3 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "id": "warrior_craft",
-      "name": "Походный кузнец",
-      "icon": "🔨",
-      "description": "Скрафтите предмет воином.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 4,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "archer_craft",
-      "name": "Лесной мастер",
-      "icon": "🔨",
-      "description": "Скрафтите предмет лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 4,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "mage_craft",
-      "name": "Алхимия в поле",
-      "icon": "🔨",
-      "description": "Скрафтите предмет магом.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 4,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "survivor",
-      "name": "Выживший",
-      "icon": "⛑️",
-      "description": "Погибните хотя бы раз и после этого одержите 15 побед всеми героями.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "deaths",
-          "value": 1
-        },
-        {
-          "type": "wins",
-          "value": 15
-        }
-      ]
-    },
-    {
-      "id": "warrior_wins",
-      "name": "Непробиваемый",
-      "icon": "🛡️",
-      "description": "Доведите воина до 7 уровня и наденьте полный комплект снаряжения.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 7
-        },
-        {
-          "type": "full_set",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "archer_wins",
-      "name": "Охотник",
-      "icon": "🎯",
-      "description": "Победите дикого волка 8 раз лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "kills",
-          "value": 8,
-          "enemyId": "enemy_wild_wolf"
-        }
-      ]
-    },
-    {
-      "id": "mage_wins",
-      "name": "Буря",
-      "icon": "✨",
-      "description": "Скрафтите 10 предметов магом и доведите его до 6 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 10
-        },
-        {
-          "type": "level",
-          "value": 6
-        }
-      ]
-    },
-    {
-      "id": "veteran",
-      "name": "Ветеран тропы",
-      "icon": "⭐",
-      "description": "Доведите любого героя до 5 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 5,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 5
-        }
-      ]
-    },
-    {
-      "id": "ten_wins",
-      "name": "Десять схваток",
+      "id": "glob_wins_50",
+      "name": "Полсотни схваток",
       "icon": "⚔️",
-      "description": "Одержите 25 побед всеми героями.",
+      "description": "50 побед на счету аккаунта.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 6,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "wins",
-          "value": 25
-        }
-      ]
-    },
-    {
-      "id": "warrior_gold",
-      "name": "Жалованье воина",
-      "icon": "💰",
-      "description": "Накопите 40 золота на воине.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 5,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "gold_held",
-          "value": 40
-        }
-      ]
-    },
-    {
-      "id": "archer_gold",
-      "name": "Добыча стрелка",
-      "icon": "💰",
-      "description": "Накопите 40 золота на лучнике.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 5,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "gold_held",
-          "value": 40
-        }
-      ]
-    },
-    {
-      "id": "mage_gold",
-      "name": "Сундук мага",
-      "icon": "💰",
-      "description": "Накопите 40 золота на маге.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 5,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "gold_held",
-          "value": 40
-        }
-      ]
-    },
-    {
-      "id": "rich",
-      "name": "Полный карман",
-      "icon": "💰",
-      "description": "Заработайте 50 золота за всё время.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "gold_earned",
-          "value": 50
-        }
-      ]
-    },
-    {
-      "id": "smith",
-      "name": "Мастерская",
-      "icon": "🔨",
-      "description": "Скрафтите 25 предметов всеми героями.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 25
-        }
-      ]
-    },
-    {
-      "id": "rat_slayer",
-      "name": "Истребитель крыс",
-      "icon": "🐀",
-      "description": "Победите лесную крысу 10 раз.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "kills",
-          "value": 10,
-          "enemyId": "enemy_forest_rat"
-        }
-      ]
-    },
-    {
-      "id": "warrior_iron",
-      "name": "Закалённый клинок",
-      "icon": "⚔️",
-      "description": "Доведите воина до 8 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 8
-        }
-      ]
-    },
-    {
-      "id": "archer_mark",
-      "name": "Дальний выстрел",
-      "icon": "🏹",
-      "description": "Доведите лучника до 8 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 8
-        }
-      ]
-    },
-    {
-      "id": "mage_circle",
-      "name": "Круг силы",
-      "icon": "🔮",
-      "description": "Доведите мага до 8 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 7,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 8
-        }
-      ]
-    },
-    {
-      "id": "wolf_hunter",
-      "name": "Охотник на волков",
-      "icon": "🐺",
-      "description": "Победите дикого волка 15 раз.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "kills",
-          "value": 15,
-          "enemyId": "enemy_wild_wolf"
-        }
-      ]
-    },
-    {
-      "id": "twenty_wins",
-      "name": "Двадцать боёв",
-      "icon": "⚔️",
-      "description": "Одержите 50 побед всеми героями.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 9,
+      "difficulty": 2,
       "scope": "common",
       "classKey": "",
       "conditions": [
@@ -1692,468 +1200,129 @@
       ]
     },
     {
-      "id": "warrior_legend",
-      "name": "Щит леса",
-      "icon": "🛡️",
-      "description": "Одержите 40 побед воином и доведите его до 12 уровня.",
+      "id": "glob_wins_100",
+      "name": "Сотня побед",
+      "icon": "🗡️",
+      "description": "100 побед на счету аккаунта.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Воин",
+      "difficulty": 3,
+      "scope": "common",
+      "classKey": "",
       "conditions": [
         {
           "type": "wins",
-          "value": 40
-        },
-        {
-          "type": "level",
-          "value": 12
-        }
-      ]
-    },
-    {
-      "id": "archer_hunt",
-      "name": "Тишина тетивы",
-      "icon": "🏹",
-      "description": "Победите дикого волка 18 раз лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "kills",
-          "value": 18,
-          "enemyId": "enemy_wild_wolf"
-        }
-      ]
-    },
-    {
-      "id": "mage_storm",
-      "name": "Гроза чащобы",
-      "icon": "🔮",
-      "description": "Скрафтите 20 предметов магом и доведите его до 10 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 20
-        },
-        {
-          "type": "level",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "level_ten",
-      "name": "Десятый рубеж",
-      "icon": "⭐",
-      "description": "Доведите любого героя до 10 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 9,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "gold_hoard",
-      "name": "Схрон",
-      "icon": "💰",
-      "description": "Накопите 100 золота на одном герое.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 9,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "gold_held",
           "value": 100
         }
       ]
     },
     {
-      "id": "robber_bane",
-      "name": "Кара разбойникам",
-      "icon": "🔪",
-      "description": "Победите лесного разбойника 3 раза.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 9,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "kills",
-          "value": 3,
-          "enemyId": "enemy_forest_robber"
-        }
-      ]
-    },
-    {
-      "id": "archer_pelt",
-      "name": "Сборщик шкур",
-      "icon": "🧥",
-      "description": "Соберите 10 волчьих шкур с врагов лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 10,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 10,
-          "itemId": "item_wolf_pelt"
-        }
-      ]
-    },
-    {
-      "id": "mage_scrap",
-      "name": "Железо для рун",
-      "icon": "🔗",
-      "description": "Соберите 10 обломков железа с врагов магом.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 10,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 10,
-          "itemId": "item_iron_scrap"
-        }
-      ]
-    },
-    {
-      "id": "master_gold",
-      "name": "Богатство тропы",
-      "icon": "💰",
-      "description": "Заработайте 250 золота за всё время.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 10,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "gold_earned",
-          "value": 250
-        }
-      ]
-    },
-    {
-      "id": "warrior_peak",
-      "name": "Живая крепость",
+      "id": "glob_wins_200",
+      "name": "Двести побед",
       "icon": "🛡️",
-      "description": "Доведите воина до 15 уровня.",
+      "description": "200 побед на счету аккаунта.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 10,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 15
-        }
-      ]
-    },
-    {
-      "id": "archer_peak",
-      "name": "Тень кроны",
-      "icon": "🌲",
-      "description": "Доведите лучника до 15 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 10,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 15
-        }
-      ]
-    },
-    {
-      "id": "mage_peak",
-      "name": "Архимаг чащобы",
-      "icon": "🌟",
-      "description": "Доведите мага до 15 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 10,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 15
-        }
-      ]
-    },
-    {
-      "id": "copper_start",
-      "name": "Первые монеты",
-      "icon": "💰",
-      "description": "Накопите 10 золота на одном герое.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 1,
+      "difficulty": 5,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
-          "type": "gold_held",
+          "type": "wins",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "id": "glob_wins_500",
+      "name": "Пятьсот побед",
+      "icon": "🏅",
+      "description": "500 побед на счету аккаунта.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "wins",
+          "value": 500
+        }
+      ]
+    },
+    {
+      "id": "glob_wins_1000",
+      "name": "Тысяча побед",
+      "icon": "👑",
+      "description": "1000 побед на счету аккаунта.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 10,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "wins",
+          "value": 1000
+        }
+      ]
+    },
+    {
+      "id": "glob_level_10",
+      "name": "Десятый рубеж",
+      "icon": "🔟",
+      "description": "Довести героя до 10 уровня.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 2,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "level",
           "value": 10
         }
       ]
     },
     {
-      "id": "three_wins",
-      "name": "Первый трофей",
-      "icon": "🎒",
-      "description": "Соберите ржавый клык с врага и накопите 20 золота на одном герое.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 1,
-          "itemId": "item_rusty_fang"
-        },
-        {
-          "type": "gold_held",
-          "value": 20
-        }
-      ]
-    },
-    {
-      "id": "first_fall",
-      "name": "Первый урок",
-      "icon": "💀",
-      "description": "Погибните один раз.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 3,
-      "scope": "common",
-      "classKey": "",
-      "conditions": [
-        {
-          "type": "deaths",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "warrior_ten",
-      "name": "Десять стоек",
-      "icon": "🗡️",
-      "description": "Одержите 12 побед воином и накопите на нём 80 золота.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "wins",
-          "value": 12
-        },
-        {
-          "type": "gold_held",
-          "value": 80
-        }
-      ]
-    },
-    {
-      "id": "archer_ten",
-      "name": "Десять выстрелов",
-      "icon": "🏹",
-      "description": "Доведите лучника до 5 уровня и соберите 12 веток.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "level",
-          "value": 5
-        },
-        {
-          "type": "item",
-          "value": 12,
-          "itemId": "item_forest_stick"
-        }
-      ]
-    },
-    {
-      "id": "mage_ten",
-      "name": "Десять заклятий",
-      "icon": "🔮",
-      "description": "Заработайте 80 золота за всё время, играя магом, и доведите его до 5 уровня.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "gold_earned",
-          "value": 80
-        },
-        {
-          "type": "level",
-          "value": 5
-        }
-      ]
-    },
-    {
-      "id": "warrior_fang",
-      "name": "Клык в кулаке",
-      "icon": "🦷",
-      "description": "Соберите 12 ржавых клыков с врагов воином.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 6,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 12,
-          "itemId": "item_rusty_fang"
-        }
-      ]
-    },
-    {
-      "id": "archer_stick",
-      "name": "Ветка для древка",
-      "icon": "🌿",
-      "description": "Соберите 25 веток с врагов лучником.",
+      "id": "glob_level_25",
+      "name": "Половина пути",
+      "icon": "🌗",
+      "description": "Довести героя до 25 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 5,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 25,
-          "itemId": "item_forest_stick"
-        }
-      ]
-    },
-    {
-      "id": "mage_cloth",
-      "name": "Ткань для рун",
-      "icon": "👕",
-      "description": "Соберите 20 лоскутов с врагов магом.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 5,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "item",
-          "value": 20,
-          "itemId": "item_cloth_strip"
-        }
-      ]
-    },
-    {
-      "id": "warrior_smith3",
-      "name": "Походная кузня",
-      "icon": "⚒️",
-      "description": "Скрафтите 12 предметов воином.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Воин",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 12
-        }
-      ]
-    },
-    {
-      "id": "archer_smith3",
-      "name": "Свой колчан",
-      "icon": "⚒️",
-      "description": "Скрафтите 12 предметов лучником.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Лучник",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 12
-        }
-      ]
-    },
-    {
-      "id": "mage_smith3",
-      "name": "Полевой круг",
-      "icon": "⚒️",
-      "description": "Скрафтите 12 предметов магом.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 8,
-      "scope": "hero",
-      "classKey": "Маг",
-      "conditions": [
-        {
-          "type": "crafts",
-          "value": 12
-        }
-      ]
-    },
-    {
-      "id": "crafts_50",
-      "name": "Цех леса",
-      "icon": "🏭",
-      "description": "Скрафтите 50 предметов всеми героями.",
-      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
-      "enabled": true,
-      "difficulty": 9,
       "scope": "common",
       "classKey": "",
       "conditions": [
         {
-          "type": "crafts",
-          "value": 50
+          "type": "level",
+          "value": 25
         }
       ]
     },
     {
-      "id": "crafts_100",
-      "name": "Легенда кузни",
-      "icon": "🔥",
-      "description": "Скрафтите 100 предметов всеми героями.",
+      "id": "glob_level_40",
+      "name": "Сороковой рубеж",
+      "icon": "🌘",
+      "description": "Довести героя до 40 уровня.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 8,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "id": "glob_level_50",
+      "name": "Предел тропы",
+      "icon": "🌟",
+      "description": "Довести героя до 50 уровня.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 12,
@@ -2161,19 +1330,155 @@
       "classKey": "",
       "conditions": [
         {
-          "type": "crafts",
+          "type": "level",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "id": "glob_kills_100",
+      "name": "Гроза чащобы",
+      "icon": "💀",
+      "description": "Сразить 100 противников любого вида.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 4,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "kills",
           "value": 100
+        }
+      ]
+    },
+    {
+      "id": "glob_kills_500",
+      "name": "Хозяин леса",
+      "icon": "☠️",
+      "description": "Сразить 500 противников любого вида.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 8,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "kills",
+          "value": 500
+        }
+      ]
+    },
+    {
+      "id": "glob_gold_1000",
+      "name": "Тяжёлый кошель",
+      "icon": "💰",
+      "description": "Иметь при себе 1000 золота.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 3,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "gold_held",
+          "value": 1000
+        }
+      ]
+    },
+    {
+      "id": "glob_gold_5000",
+      "name": "Схрон",
+      "icon": "🏦",
+      "description": "Иметь при себе 5000 золота.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 6,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "gold_held",
+          "value": 5000
+        }
+      ]
+    },
+    {
+      "id": "glob_gold_earned_25000",
+      "name": "Богатство тропы",
+      "icon": "💎",
+      "description": "Заработать 25000 золота за всё время.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 9,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "gold_earned",
+          "value": 25000
+        }
+      ]
+    },
+    {
+      "id": "glob_crafts_10",
+      "name": "Первый молот",
+      "icon": "🔨",
+      "description": "Создать 10 предметов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 3,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "crafts",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "glob_crafts_50",
+      "name": "Мастерская",
+      "icon": "⚒️",
+      "description": "Создать 50 предметов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "crafts",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "id": "glob_crafts_150",
+      "name": "Легенда кузни",
+      "icon": "🏭",
+      "description": "Создать 150 предметов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 10,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "crafts",
+          "value": 150
         }
       ]
     },
     {
       "id": "full_set",
       "name": "Полный комплект",
-      "icon": "🥋",
-      "description": "Наденьте на любого героя все пять слотов: голову, корпус, ноги, обувь и оружие.",
+      "icon": "🧰",
+      "description": "Занять все пять слотов снаряжения.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 8,
+      "difficulty": 5,
       "scope": "common",
       "classKey": "",
       "conditions": [
@@ -2184,10 +1489,67 @@
       ]
     },
     {
-      "id": "warrior_set",
-      "name": "Воин в доспехах",
-      "icon": "🛡️",
-      "description": "Полностью экипируйте воина: голова, корпус, ноги, обувь и оружие.",
+      "id": "glob_survivor",
+      "name": "Выживший",
+      "icon": "🕯️",
+      "description": "100 побед после первой смерти.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 6,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "deaths",
+          "value": 1
+        },
+        {
+          "type": "wins",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "glob_iron_blade",
+      "name": "Железный клинок",
+      "icon": "🗡️",
+      "description": "Заполучить железное оружие.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 9,
+      "scope": "common",
+      "classKey": "",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 1,
+          "itemId": "item_iron_weapon"
+        }
+      ]
+    },
+    {
+      "id": "warrior_bandit_hunter",
+      "name": "Кара разбойникам",
+      "icon": "🪓",
+      "description": "Сразить 40 бандитов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 5,
+      "scope": "hero",
+      "classKey": "Воин",
+      "conditions": [
+        {
+          "type": "kills",
+          "value": 40,
+          "enemyId": "enemy_bandit"
+        }
+      ]
+    },
+    {
+      "id": "warrior_thug_breaker",
+      "name": "Ломающий громил",
+      "icon": "🥊",
+      "description": "Сразить 75 лесных громил.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
       "difficulty": 8,
@@ -2195,42 +1557,321 @@
       "classKey": "Воин",
       "conditions": [
         {
+          "type": "kills",
+          "value": 75,
+          "enemyId": "enemy_forest_thug"
+        }
+      ]
+    },
+    {
+      "id": "warrior_ironclad",
+      "name": "Закованный в железо",
+      "icon": "🛡️",
+      "description": "Найти 4 железных нагрудника.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "hero",
+      "classKey": "Воин",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 4,
+          "itemId": "item_iron_chest"
+        }
+      ]
+    },
+    {
+      "id": "warrior_wall",
+      "name": "Живая стена",
+      "icon": "🧱",
+      "description": "30 уровень в полном комплекте.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "hero",
+      "classKey": "Воин",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 30
+        },
+        {
           "type": "full_set",
           "value": 1
         }
       ]
     },
     {
-      "id": "archer_set",
-      "name": "Снаряжённый следопыт",
-      "icon": "🏹",
-      "description": "Полностью экипируйте лучника: голова, корпус, ноги, обувь и оружие.",
+      "id": "warrior_unbroken",
+      "name": "Несломленный",
+      "icon": "💢",
+      "description": "300 побед, пережив 25 смертей.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 8,
+      "difficulty": 6,
+      "scope": "hero",
+      "classKey": "Воин",
+      "conditions": [
+        {
+          "type": "wins",
+          "value": 300
+        },
+        {
+          "type": "deaths",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "id": "warrior_fortress",
+      "name": "Крепость леса",
+      "icon": "🏰",
+      "description": "45 уровень и 10 железных шлемов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 10,
+      "scope": "hero",
+      "classKey": "Воин",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 45
+        },
+        {
+          "type": "item",
+          "value": 10,
+          "itemId": "item_iron_head"
+        }
+      ]
+    },
+    {
+      "id": "archer_wolf_master",
+      "name": "Волчий пастырь",
+      "icon": "🐺",
+      "description": "Сразить 60 диких волков.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 5,
       "scope": "hero",
       "classKey": "Лучник",
       "conditions": [
         {
-          "type": "full_set",
-          "value": 1
+          "type": "kills",
+          "value": 60,
+          "enemyId": "enemy_wild_wolf"
         }
       ]
     },
     {
-      "id": "mage_set",
-      "name": "Облачение мага",
-      "icon": "🔮",
-      "description": "Полностью экипируйте мага: голова, корпус, ноги, обувь и оружие.",
+      "id": "archer_stalker",
+      "name": "Тень на тропе",
+      "icon": "🌿",
+      "description": "Сразить 50 лесных разбойников.",
       "unlockText": "Поздравляем! Вы получили достижение «{name}».",
       "enabled": true,
-      "difficulty": 8,
+      "difficulty": 6,
+      "scope": "hero",
+      "classKey": "Лучник",
+      "conditions": [
+        {
+          "type": "kills",
+          "value": 50,
+          "enemyId": "enemy_forest_robber"
+        }
+      ]
+    },
+    {
+      "id": "archer_quiver",
+      "name": "Свой колчан",
+      "icon": "🏹",
+      "description": "Собрать 40 веток на древки.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 5,
+      "scope": "hero",
+      "classKey": "Лучник",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 40,
+          "itemId": "item_forest_stick"
+        }
+      ]
+    },
+    {
+      "id": "archer_pelts",
+      "name": "Сборщик шкур",
+      "icon": "🧥",
+      "description": "Собрать 8 волчьих шкур.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "hero",
+      "classKey": "Лучник",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 8,
+          "itemId": "item_wolf_pelt"
+        }
+      ]
+    },
+    {
+      "id": "archer_light_step",
+      "name": "Лёгкий шаг",
+      "icon": "👣",
+      "description": "30 уровень и 10 клинков путника.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "hero",
+      "classKey": "Лучник",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 30
+        },
+        {
+          "type": "item",
+          "value": 10,
+          "itemId": "item_traveler_weapon"
+        }
+      ]
+    },
+    {
+      "id": "archer_eagle_eye",
+      "name": "Глаз орла",
+      "icon": "🦅",
+      "description": "45 уровень и 150 убитых волков.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 10,
+      "scope": "hero",
+      "classKey": "Лучник",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 45
+        },
+        {
+          "type": "kills",
+          "value": 150,
+          "enemyId": "enemy_wild_wolf"
+        }
+      ]
+    },
+    {
+      "id": "mage_rat_purge",
+      "name": "Чистка нор",
+      "icon": "🐀",
+      "description": "Сразить 80 лесных крыс.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 5,
       "scope": "hero",
       "classKey": "Маг",
       "conditions": [
         {
-          "type": "full_set",
-          "value": 1
+          "type": "kills",
+          "value": 80,
+          "enemyId": "enemy_forest_rat"
+        }
+      ]
+    },
+    {
+      "id": "mage_runes",
+      "name": "Ткань для рун",
+      "icon": "🧵",
+      "description": "Собрать 40 лоскутов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 5,
+      "scope": "hero",
+      "classKey": "Маг",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 40,
+          "itemId": "item_cloth_strip"
+        }
+      ]
+    },
+    {
+      "id": "mage_iron_runes",
+      "name": "Железо для рун",
+      "icon": "🔗",
+      "description": "Собрать 30 обломков железа.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 6,
+      "scope": "hero",
+      "classKey": "Маг",
+      "conditions": [
+        {
+          "type": "item",
+          "value": 30,
+          "itemId": "item_iron_scrap"
+        }
+      ]
+    },
+    {
+      "id": "mage_arcane_wealth",
+      "name": "Сундук мага",
+      "icon": "🔮",
+      "description": "Накопить 3000 золота этим героем.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 6,
+      "scope": "hero",
+      "classKey": "Маг",
+      "conditions": [
+        {
+          "type": "gold_held",
+          "value": 3000
+        }
+      ]
+    },
+    {
+      "id": "mage_circle",
+      "name": "Круг силы",
+      "icon": "🌀",
+      "description": "30 уровень и 40 созданных предметов.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 7,
+      "scope": "hero",
+      "classKey": "Маг",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 30
+        },
+        {
+          "type": "crafts",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "id": "mage_archmage",
+      "name": "Архимаг чащобы",
+      "icon": "🧙",
+      "description": "45 уровень и 3 железных клинка.",
+      "unlockText": "Поздравляем! Вы получили достижение «{name}».",
+      "enabled": true,
+      "difficulty": 10,
+      "scope": "hero",
+      "classKey": "Маг",
+      "conditions": [
+        {
+          "type": "level",
+          "value": 45
+        },
+        {
+          "type": "item",
+          "value": 3,
+          "itemId": "item_iron_weapon"
         }
       ]
     }
@@ -2239,10 +1880,10 @@
     {
       "id": "event_forest_cache",
       "locationId": "location_forgotten_forest",
-      "name": "Старый тайник",
+      "name": "Брошенные припасы",
       "icon": "📦",
-      "chance": 10,
-      "text": "Под корнями вы замечаете заброшенный тайник.",
+      "chance": 4,
+      "text": "Вы находите между корней несколько аккуратно сложенных припасов. Хозяина поблизости нет, а старые следы почти исчезли.",
       "enabled": true,
       "effects": [
         {
@@ -2251,7 +1892,7 @@
           "max": 10
         }
       ],
-      "clickerEnabled": true,
+      "clickerEnabled": false,
       "clickerReward": "gold",
       "clickerAmount": 4,
       "clickerClicks": 8,
@@ -2262,11 +1903,390 @@
           "assetId": "art_event_forest_cache"
         },
         "portrait": {
-          "assetId": "art_event_forest_cache"
+          "assetId": "art_event_forest_cache_2"
         }
       },
-      "image": "asset/library/event_forest_cache.jpg",
-      "imageRev": "1788657935300"
+      "image": "asset/library/event_forest_cache.png",
+      "imageRev": "1788714618242",
+      "triggerBeforeFight": true,
+      "triggerWalk": true,
+      "chanceMode": "random",
+      "beforeFightChance": 8,
+      "choiceEnabled": false,
+      "rewards": []
+    },
+    {
+      "id": "event_staryy_rudnik",
+      "name": "Старый рудник",
+      "icon": "⛏️",
+      "locationId": "location_forgotten_forest",
+      "chance": 4,
+      "text": "Между деревьями вы находите старый заброшенный рудник и решаете зайти внутрь. В глубине ещё виднеются нетронутые участки породы",
+      "enabled": true,
+      "effects": [],
+      "clickerEnabled": true,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 5,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": true,
+      "beforeFightChance": 4,
+      "rewards": [],
+      "healEnabled": false,
+      "healAmount": 0,
+      "healPercent": 0,
+      "statGainEnabled": false,
+      "statGainOnce": true,
+      "statGainMode": "all",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {},
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_staryy_rudnik"
+        }
+      },
+      "image": "asset/library/event_staryy_rudnik.png",
+      "imageRev": "1788715331713"
+    },
+    {
+      "id": "event_lesnaya_feya",
+      "name": "Лесная фея",
+      "icon": "🧚",
+      "locationId": "location_forgotten_forest",
+      "chance": 6,
+      "text": "Во время пути перед вами неожиданно появляется маленькая лесная фея. Она касается вас ладонью, и усталость понемногу отступает",
+      "enabled": true,
+      "effects": [],
+      "clickerEnabled": false,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 1,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": true,
+      "beforeFightChance": 0,
+      "rewards": [],
+      "healEnabled": true,
+      "healAmount": 0,
+      "healPercent": 33,
+      "statGainEnabled": false,
+      "statGainOnce": true,
+      "statGainMode": "all",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {},
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_lesnaya_feya"
+        }
+      },
+      "image": "asset/library/event_lesnaya_feya.png",
+      "imageRev": "1788716140985"
+    },
+    {
+      "id": "event_otdyh_u_kostra",
+      "name": "Отдых у костра",
+      "icon": "🔥",
+      "locationId": "location_forgotten_forest",
+      "chance": 5,
+      "text": "После долгого путешествия вы решаете устроить привал\nНормальный отдых идёт вам на пользу лучше любого зелья",
+      "enabled": true,
+      "effects": [],
+      "clickerEnabled": false,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 1,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": false,
+      "beforeFightChance": 0,
+      "rewards": [],
+      "healEnabled": true,
+      "healAmount": 0,
+      "healPercent": 10,
+      "statGainEnabled": true,
+      "statGainOnce": false,
+      "statGainMode": "perClass",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {
+        "Воин": {
+          "maxHealth": 4,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 0,
+          "critDamage": 0
+        },
+        "Лучник": {
+          "maxHealth": 1,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 0,
+          "critDamage": 0
+        },
+        "Маг": {
+          "maxHealth": 1,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 0,
+          "critDamage": 0
+        }
+      },
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_otdyh_u_kostra"
+        }
+      },
+      "image": "asset/library/event_otdyh_u_kostra.png",
+      "imageRev": "1788715721375"
+    },
+    {
+      "id": "event_chute_na_slaboe_mesto",
+      "name": "Чутьё",
+      "icon": "🎯",
+      "locationId": "location_forgotten_forest",
+      "chance": 5,
+      "text": "Вы замечаете неподалёку следы добычи и решаете поохотиться. Приходится действовать осторожно, выжидать момент и искать слабое место",
+      "enabled": true,
+      "effects": [],
+      "clickerEnabled": false,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 1,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": false,
+      "beforeFightChance": null,
+      "rewards": [],
+      "healEnabled": false,
+      "healAmount": 0,
+      "healPercent": 0,
+      "statGainEnabled": true,
+      "statGainOnce": false,
+      "statGainMode": "perClass",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {
+        "Воин": {
+          "maxHealth": 0,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 0,
+          "critDamage": 2
+        },
+        "Лучник": {
+          "maxHealth": 0,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 1,
+          "critDamage": 1
+        },
+        "Маг": {
+          "maxHealth": 0,
+          "attack": 0,
+          "defense": 0,
+          "critChance": 0,
+          "critDamage": 4
+        }
+      },
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_chute_na_slaboe_mesto_2"
+        },
+        "illustration": {
+          "assetId": "art_event_chute_na_slaboe_mesto_2"
+        },
+        "card": {
+          "assetId": "art_event_chute_na_slaboe_mesto_2"
+        }
+      },
+      "image": "asset/library/event_chute_na_slaboe_mesto.png",
+      "imageRev": "1788716980337"
+    },
+    {
+      "id": "event_trenirovka",
+      "name": "Тренировка",
+      "icon": "⚔️",
+      "locationId": "location_forgotten_forest",
+      "chance": 5,
+      "text": "Между боями выпадает редкая спокойная минута, и вы решаете провести её с пользой\n Небольшая тренировка помогает лучше подготовиться к следующим схваткам",
+      "enabled": true,
+      "effects": [],
+      "clickerEnabled": false,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 1,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": false,
+      "beforeFightChance": null,
+      "rewards": [],
+      "healEnabled": false,
+      "healAmount": 0,
+      "healPercent": 0,
+      "statGainEnabled": false,
+      "statGainOnce": true,
+      "statGainMode": "all",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {},
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_trenirovka"
+        },
+        "illustration": {
+          "assetId": "art_event_trenirovka"
+        },
+        "card": {
+          "assetId": "art_event_trenirovka"
+        }
+      },
+      "image": "asset/library/event_trenirovka.png",
+      "imageRev": "1788717373029"
+    },
+    {
+      "id": "event_sunduk_v_zaroslyah",
+      "name": "Сундук в зарослях",
+      "icon": "🌿",
+      "locationId": "location_forgotten_forest",
+      "chance": 2,
+      "text": "Сойдя с тропы, вы замечаете в густых зарослях крепкий деревянный сундук. Кто и зачем спрятал его здесь — остаётся только гадать",
+      "enabled": true,
+      "effects": [
+        {
+          "type": "item",
+          "min": 1,
+          "max": 3,
+          "delta": 0,
+          "itemId": "item_traveler_weapon",
+          "locationId": "location_forgotten_forest"
+        },
+        {
+          "type": "gold",
+          "min": 150,
+          "max": 300,
+          "delta": 0,
+          "itemId": "item_rusty_fang",
+          "locationId": "location_forgotten_forest"
+        }
+      ],
+      "clickerEnabled": false,
+      "clickerClicks": 10,
+      "clickerReward": "gold",
+      "clickerAmount": 1,
+      "clickerEmoji": "💰",
+      "clickerItemId": "",
+      "hideTitle": false,
+      "artLayout": "cover",
+      "chanceMode": "random",
+      "triggerWalk": true,
+      "triggerBeforeFight": false,
+      "beforeFightChance": 2,
+      "rewards": [],
+      "healEnabled": false,
+      "healAmount": 0,
+      "healPercent": 0,
+      "statGainEnabled": false,
+      "statGainOnce": true,
+      "statGainMode": "all",
+      "statGain": {
+        "maxHealth": 0,
+        "attack": 0,
+        "defense": 0,
+        "critChance": 0,
+        "critDamage": 0
+      },
+      "statGainByClass": {},
+      "choiceEnabled": false,
+      "choicePickCount": 1,
+      "choiceDoneText": "Вы получили выбранный ресурс",
+      "choices": [],
+      "type": "event",
+      "art": {
+        "portrait": {
+          "assetId": "art_event_sunduk_v_zaroslyah"
+        },
+        "illustration": {
+          "assetId": "art_event_sunduk_v_zaroslyah"
+        },
+        "card": {
+          "assetId": "art_event_sunduk_v_zaroslyah"
+        }
+      },
+      "image": "asset/library/event_sunduk_v_zaroslyah.png",
+      "imageRev": "1788717473033"
     }
   ],
   "strings": {
@@ -2288,9 +2308,9 @@
       "name": "Воин",
       "icon": "🗡️",
       "description": "Крепкий боец ближнего боя с хорошей защитой",
-      "maxHealth": 32,
+      "maxHealth": 45,
       "attack": 5,
-      "defense": 10,
+      "defense": 15,
       "image": "asset/character/warrior.png",
       "hideDescription": true,
       "imageRev": "1788376223485",
@@ -2351,42 +2371,54 @@
       "female": true,
       "tier": 1,
       "unlockLevel": 1,
-      "defenseShare": 0.11,
-      "hitsToKill": 2,
+      "defenseShare": 0.1,
+      "hitsToKill": 3,
       "hitsYouSurvive": 10,
       "goldMin": 1,
-      "goldMax": 2,
+      "goldMax": 1,
       "loot": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 9
+          "chance": 2
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 10
+          "chance": 2
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 8
+          "chance": 4
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1.7
+          "chance": 1.5
         }
       ],
-      "image": "",
+      "image": "asset/library/enemy_forest_rat.png",
       "hideDescription": false,
       "critChance": 0,
       "critDamage": 0,
-      "lootTableId": "loot_forest_rat"
+      "lootTableId": "loot_forest_rat",
+      "art": {
+        "portrait": {
+          "assetId": "art_enemy_forest_rat"
+        },
+        "combat": {
+          "assetId": "art_enemy_forest_rat"
+        },
+        "thumbnail": {
+          "assetId": "art_enemy_forest_rat"
+        }
+      },
+      "imageRev": "1788726832021"
     },
     {
       "id": "enemy_wild_wolf",
@@ -2394,28 +2426,28 @@
       "description": "Атакует стаей и быстро сокращает дистанцию. Источник трав, смолы и шкур.",
       "female": false,
       "tier": 2,
-      "unlockLevel": 2,
-      "defenseShare": 0.22,
-      "hitsToKill": 3,
+      "unlockLevel": 3,
+      "defenseShare": 0.15,
+      "hitsToKill": 4,
       "hitsYouSurvive": 8,
       "goldMin": 2,
       "goldMax": 4,
       "loot": [
         {
           "itemId": "item_wolf_claw",
-          "chance": 12
+          "chance": 1
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 10
+          "chance": 4
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 8
+          "chance": 4
         },
         {
           "itemId": "item_forest_root",
-          "chance": 7
+          "chance": 1
         },
         {
           "itemId": "item_forest_stick",
@@ -2432,15 +2464,21 @@
       ],
       "image": "asset/library/enemy_wild_wolf.png",
       "hideDescription": true,
-      "critChance": 2,
+      "critChance": 5,
       "critDamage": 40,
       "lootTableId": "loot_wild_wolf",
       "art": {
         "portrait": {
-          "assetId": "art_enemy_wild_wolf"
+          "assetId": "art_enemy_wild_wolf_2"
+        },
+        "combat": {
+          "assetId": "art_enemy_wild_wolf_2"
+        },
+        "thumbnail": {
+          "assetId": "art_enemy_wild_wolf_2"
         }
       },
-      "imageRev": "1788641552257"
+      "imageRev": "1788726839554"
     },
     {
       "id": "enemy_forest_robber",
@@ -2448,8 +2486,8 @@
       "description": "Опасный противник. Таскает ткань, уголь и редкий нож.",
       "female": false,
       "tier": 3,
-      "unlockLevel": 5,
-      "defenseShare": 0.32,
+      "unlockLevel": 7,
+      "defenseShare": 0.2,
       "hitsToKill": 4,
       "hitsYouSurvive": 6,
       "goldMin": 4,
@@ -2457,23 +2495,19 @@
       "loot": [
         {
           "itemId": "item_cloth_strip",
-          "chance": 11
-        },
-        {
-          "itemId": "item_robber_sign",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_charcoal",
-          "chance": 6
+          "chance": 1
         },
         {
           "itemId": "item_forest_root",
-          "chance": 6
+          "chance": 1
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 7
+          "chance": 1
         },
         {
           "itemId": "item_robber_knife",
@@ -2488,11 +2522,23 @@
           "chance": 1
         }
       ],
-      "image": "",
+      "image": "asset/library/enemy_forest_robber.png",
       "hideDescription": false,
       "critChance": 6,
       "critDamage": 55,
-      "lootTableId": "loot_forest_robber"
+      "lootTableId": "loot_forest_robber",
+      "art": {
+        "portrait": {
+          "assetId": "art_enemy_forest_robber"
+        },
+        "combat": {
+          "assetId": "art_enemy_forest_robber"
+        },
+        "thumbnail": {
+          "assetId": "art_enemy_forest_robber"
+        }
+      },
+      "imageRev": "1788726845190"
     },
     {
       "id": "enemy_bandit",
@@ -2500,32 +2546,32 @@
       "description": "Крепкий противник с тяжёлым оружием. Источник железа и угля.",
       "female": false,
       "tier": 4,
-      "unlockLevel": 10,
-      "defenseShare": 0.28,
-      "hitsToKill": 4,
-      "hitsYouSurvive": 4,
+      "unlockLevel": 14,
+      "defenseShare": 0.24,
+      "hitsToKill": 6,
+      "hitsYouSurvive": 7,
       "goldMin": 5,
       "goldMax": 9,
       "loot": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 10
+          "chance": 1
         },
         {
           "itemId": "item_charcoal",
-          "chance": 9
+          "chance": 1
         },
         {
           "itemId": "item_cloth_strip",
-          "chance": 5
+          "chance": 2
         },
         {
           "itemId": "item_robber_sign",
-          "chance": 4
+          "chance": 0.1
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.4
+          "chance": 0.6
         },
         {
           "itemId": "item_traveler_legs",
@@ -2537,14 +2583,26 @@
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 1
+          "chance": 0.1
         }
       ],
-      "image": "",
+      "image": "asset/library/enemy_bandit.png",
       "hideDescription": false,
-      "critChance": 8,
+      "critChance": 10,
       "critDamage": 70,
-      "lootTableId": "loot_bandit"
+      "lootTableId": "loot_bandit",
+      "art": {
+        "portrait": {
+          "assetId": "art_enemy_bandit"
+        },
+        "combat": {
+          "assetId": "art_enemy_bandit"
+        },
+        "thumbnail": {
+          "assetId": "art_enemy_bandit"
+        }
+      },
+      "imageRev": "1788726849931"
     },
     {
       "id": "enemy_forest_thug",
@@ -2552,28 +2610,28 @@
       "description": "Медленный, но очень живучий. Редко роняет готовое железо.",
       "female": false,
       "tier": 5,
-      "unlockLevel": 25,
-      "defenseShare": 0.42,
-      "hitsToKill": 6,
-      "hitsYouSurvive": 3,
+      "unlockLevel": 30,
+      "defenseShare": 0.35,
+      "hitsToKill": 5,
+      "hitsYouSurvive": 6,
       "goldMin": 8,
       "goldMax": 13,
       "loot": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 12
+          "chance": 1
         },
         {
           "itemId": "item_charcoal",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_forest_root",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_iron_head",
@@ -2593,14 +2651,26 @@
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.5
+          "chance": 0.2
         }
       ],
-      "image": "",
+      "image": "asset/library/enemy_forest_thug.png",
       "hideDescription": false,
       "critChance": 4,
-      "critDamage": 50,
-      "lootTableId": "loot_forest_thug"
+      "critDamage": 70,
+      "lootTableId": "loot_forest_thug",
+      "art": {
+        "portrait": {
+          "assetId": "art_enemy_forest_thug"
+        },
+        "combat": {
+          "assetId": "art_enemy_forest_thug"
+        },
+        "thumbnail": {
+          "assetId": "art_enemy_forest_thug"
+        }
+      },
+      "imageRev": "1788726853503"
     }
   ],
   "featureLocks": [
@@ -2656,27 +2726,27 @@
       "drops": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 9
+          "chance": 2
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 10
+          "chance": 2
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 8
+          "chance": 4
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1.7
+          "chance": 1.5
         }
       ]
     },
@@ -2686,19 +2756,19 @@
       "drops": [
         {
           "itemId": "item_wolf_claw",
-          "chance": 12
+          "chance": 1
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 10
+          "chance": 4
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 8
+          "chance": 4
         },
         {
           "itemId": "item_forest_root",
-          "chance": 7
+          "chance": 1
         },
         {
           "itemId": "item_forest_stick",
@@ -2720,23 +2790,19 @@
       "drops": [
         {
           "itemId": "item_cloth_strip",
-          "chance": 11
-        },
-        {
-          "itemId": "item_robber_sign",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_charcoal",
-          "chance": 6
+          "chance": 1
         },
         {
           "itemId": "item_forest_root",
-          "chance": 6
+          "chance": 1
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 7
+          "chance": 1
         },
         {
           "itemId": "item_robber_knife",
@@ -2758,23 +2824,23 @@
       "drops": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 10
+          "chance": 1
         },
         {
           "itemId": "item_charcoal",
-          "chance": 9
+          "chance": 1
         },
         {
           "itemId": "item_cloth_strip",
-          "chance": 5
+          "chance": 2
         },
         {
           "itemId": "item_robber_sign",
-          "chance": 4
+          "chance": 0.1
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.4
+          "chance": 0.6
         },
         {
           "itemId": "item_traveler_legs",
@@ -2786,7 +2852,7 @@
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 1
+          "chance": 0.1
         }
       ]
     },
@@ -2796,19 +2862,19 @@
       "drops": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 12
+          "chance": 1
         },
         {
           "itemId": "item_charcoal",
-          "chance": 8
+          "chance": 2
         },
         {
           "itemId": "item_forest_root",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 7
+          "chance": 2
         },
         {
           "itemId": "item_iron_head",
@@ -2828,7 +2894,7 @@
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.5
+          "chance": 0.2
         }
       ]
     }
@@ -2842,7 +2908,7 @@
       "stock": [
         {
           "itemId": "item_traveler_head",
-          "price": 480,
+          "price": 700,
           "enabled": true,
           "tab": "gear",
           "setId": "traveler",
@@ -2851,7 +2917,7 @@
         },
         {
           "itemId": "item_traveler_chest",
-          "price": 600,
+          "price": 1000,
           "enabled": true,
           "tab": "gear",
           "setId": "traveler",
@@ -2860,7 +2926,7 @@
         },
         {
           "itemId": "item_traveler_legs",
-          "price": 480,
+          "price": 750,
           "enabled": true,
           "tab": "gear",
           "setId": "traveler",
@@ -2869,7 +2935,7 @@
         },
         {
           "itemId": "item_traveler_feet",
-          "price": 480,
+          "price": 650,
           "enabled": true,
           "tab": "gear",
           "setId": "traveler",
@@ -2878,7 +2944,7 @@
         },
         {
           "itemId": "item_traveler_weapon",
-          "price": 640,
+          "price": 800,
           "enabled": true,
           "tab": "gear",
           "setId": "traveler",
@@ -2887,7 +2953,7 @@
         },
         {
           "itemId": "item_iron_head",
-          "price": 1440,
+          "price": 1800,
           "enabled": true,
           "tab": "gear",
           "setId": "iron",
@@ -2896,7 +2962,7 @@
         },
         {
           "itemId": "item_iron_chest",
-          "price": 1920,
+          "price": 2600,
           "enabled": true,
           "tab": "gear",
           "setId": "iron",
@@ -2905,7 +2971,7 @@
         },
         {
           "itemId": "item_iron_legs",
-          "price": 1520,
+          "price": 1900,
           "enabled": true,
           "tab": "gear",
           "setId": "iron",
@@ -2914,7 +2980,7 @@
         },
         {
           "itemId": "item_iron_feet",
-          "price": 1520,
+          "price": 1700,
           "enabled": true,
           "tab": "gear",
           "setId": "iron",
@@ -2923,7 +2989,7 @@
         },
         {
           "itemId": "item_iron_weapon",
-          "price": 2200,
+          "price": 2800,
           "enabled": true,
           "tab": "gear",
           "setId": "iron",
@@ -2932,7 +2998,7 @@
         },
         {
           "itemId": "item_forest_stick",
-          "price": 22,
+          "price": 75,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2941,7 +3007,7 @@
         },
         {
           "itemId": "item_iron_scrap",
-          "price": 48,
+          "price": 170,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2950,7 +3016,7 @@
         },
         {
           "itemId": "item_cloth_strip",
-          "price": 36,
+          "price": 125,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2959,7 +3025,7 @@
         },
         {
           "itemId": "item_forest_root",
-          "price": 20,
+          "price": 70,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2968,7 +3034,7 @@
         },
         {
           "itemId": "item_tree_sap",
-          "price": 28,
+          "price": 100,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2977,7 +3043,7 @@
         },
         {
           "itemId": "item_forest_herb",
-          "price": 24,
+          "price": 85,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2986,7 +3052,7 @@
         },
         {
           "itemId": "item_forest_mushroom",
-          "price": 26,
+          "price": 90,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -2995,7 +3061,7 @@
         },
         {
           "itemId": "item_charcoal",
-          "price": 40,
+          "price": 140,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -3004,7 +3070,7 @@
         },
         {
           "itemId": "item_forest_berry",
-          "price": 18,
+          "price": 65,
           "enabled": true,
           "tab": "material",
           "setId": "",
@@ -3013,7 +3079,7 @@
         },
         {
           "itemId": "item_wolf_pelt",
-          "price": 1440,
+          "price": 1500,
           "enabled": true,
           "tab": "loot",
           "setId": "",
@@ -3022,7 +3088,7 @@
         },
         {
           "itemId": "item_robber_knife",
-          "price": 1280,
+          "price": 1300,
           "enabled": true,
           "tab": "loot",
           "setId": "",
@@ -3031,7 +3097,7 @@
         },
         {
           "itemId": "item_stick_club",
-          "price": 640,
+          "price": 600,
           "enabled": true,
           "tab": "loot",
           "setId": "",
@@ -3040,7 +3106,7 @@
         },
         {
           "itemId": "item_rusty_fang",
-          "price": 40,
+          "price": 300,
           "enabled": true,
           "tab": "trophy",
           "setId": "",
@@ -3049,7 +3115,7 @@
         },
         {
           "itemId": "item_wolf_claw",
-          "price": 50,
+          "price": 600,
           "enabled": true,
           "tab": "trophy",
           "setId": "",
@@ -3058,7 +3124,7 @@
         },
         {
           "itemId": "item_rat_tail",
-          "price": 28,
+          "price": 300,
           "enabled": true,
           "tab": "trophy",
           "setId": "",
@@ -3067,7 +3133,7 @@
         },
         {
           "itemId": "item_robber_sign",
-          "price": 70,
+          "price": 1000,
           "enabled": true,
           "tab": "trophy",
           "setId": "",
@@ -3135,7 +3201,13 @@
       "forgotten_forest": "location_forgotten_forest"
     },
     "event": {
-      "forest_cache": "event_forest_cache"
+      "forest_cache": "event_forest_cache",
+      "event__new": "event_staryy_rudnik",
+      "event__new_2": "event_lesnaya_feya",
+      "event__new_3": "event_otdyh_u_kostra",
+      "event__new_4": "event_chute_na_slaboe_mesto",
+      "event__new_5": "event_trenirovka",
+      "event__new_6": "event_sunduk_v_zaroslyah"
     },
     "loot": {},
     "shop": {
@@ -3405,6 +3477,123 @@
       "path": "asset/library/event_forest_cache.jpg",
       "originalName": "13be95147b920e7c4ee958ff30db7a11.jpg",
       "rev": "1788657935300",
+      "views": {}
+    },
+    {
+      "id": "art_event_forest_cache_2",
+      "name": "81196cbe-c599-46e6-a77b-86834352ef21",
+      "kind": "image",
+      "path": "asset/library/event_forest_cache.png",
+      "originalName": "81196cbe-c599-46e6-a77b-86834352ef21.png",
+      "rev": "1788714618242",
+      "views": {}
+    },
+    {
+      "id": "art_event_staryy_rudnik",
+      "name": "17e77c0d-8f2d-4d04-b1cc-9e11e52d1ece",
+      "kind": "image",
+      "path": "asset/library/event_staryy_rudnik.png",
+      "originalName": "17e77c0d-8f2d-4d04-b1cc-9e11e52d1ece.png",
+      "rev": "1788715331713",
+      "views": {}
+    },
+    {
+      "id": "art_event_otdyh_u_kostra",
+      "name": "cf95d8af-4262-4337-9412-d7a09dfe88a2",
+      "kind": "image",
+      "path": "asset/library/event_otdyh_u_kostra.png",
+      "originalName": "cf95d8af-4262-4337-9412-d7a09dfe88a2.png",
+      "rev": "1788715721375",
+      "views": {}
+    },
+    {
+      "id": "art_event_lesnaya_feya",
+      "name": "fary",
+      "kind": "image",
+      "path": "asset/library/event_lesnaya_feya.png",
+      "originalName": "fary.png",
+      "rev": "1788716140985",
+      "views": {}
+    },
+    {
+      "id": "art_event_chute_na_slaboe_mesto",
+      "name": "81196cbe-c599-46e6-a77b-86834352ef21",
+      "kind": "image",
+      "path": "asset/library/event_chute_na_slaboe_mesto.png",
+      "originalName": "81196cbe-c599-46e6-a77b-86834352ef21.png",
+      "rev": "1788716975290",
+      "views": {}
+    },
+    {
+      "id": "art_event_chute_na_slaboe_mesto_2",
+      "name": "825f847c-a00f-4774-8b0c-e466a78b9571",
+      "kind": "image",
+      "path": "asset/library/event_chute_na_slaboe_mesto.png",
+      "originalName": "825f847c-a00f-4774-8b0c-e466a78b9571.png",
+      "rev": "1788716980337",
+      "views": {}
+    },
+    {
+      "id": "art_event_trenirovka",
+      "name": "6a622f9b-cde5-477c-9059-95ad26b1b6d6",
+      "kind": "image",
+      "path": "asset/library/event_trenirovka.png",
+      "originalName": "6a622f9b-cde5-477c-9059-95ad26b1b6d6.png",
+      "rev": "1788717373029",
+      "views": {}
+    },
+    {
+      "id": "art_event_sunduk_v_zaroslyah",
+      "name": "111a6184-40d1-432c-99f7-550ead02e1d8",
+      "kind": "image",
+      "path": "asset/library/event_sunduk_v_zaroslyah.png",
+      "originalName": "111a6184-40d1-432c-99f7-550ead02e1d8.png",
+      "rev": "1788717473033",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_forest_rat",
+      "name": "rat",
+      "kind": "image",
+      "path": "asset/library/enemy_forest_rat.png",
+      "originalName": "rat.png",
+      "rev": "1788726832021",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_wild_wolf_2",
+      "name": "Wolf",
+      "kind": "image",
+      "path": "asset/library/enemy_wild_wolf.png",
+      "originalName": "Wolf.png",
+      "rev": "1788726839554",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_forest_robber",
+      "name": "forest_robber",
+      "kind": "image",
+      "path": "asset/library/enemy_forest_robber.png",
+      "originalName": "forest_robber.png",
+      "rev": "1788726845190",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_bandit",
+      "name": "forest_robber1",
+      "kind": "image",
+      "path": "asset/library/enemy_bandit.png",
+      "originalName": "forest_robber1.png",
+      "rev": "1788726849931",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_forest_thug",
+      "name": "thug",
+      "kind": "image",
+      "path": "asset/library/enemy_forest_thug.png",
+      "originalName": "thug.png",
+      "rev": "1788726853503",
       "views": {}
     }
   ],
