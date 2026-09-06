@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788734471863",
+  "assetRev": "1788735101313",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
@@ -2198,25 +2198,25 @@
       },
       "statGainByClass": {
         "Маг": {
-          "maxHealth": 1,
+          "maxHealth": 0,
           "attack": 2,
           "defense": 1,
           "critChance": 0,
-          "critDamage": 5
+          "critDamage": 2
         },
         "Воин": {
-          "maxHealth": 4,
+          "maxHealth": 5,
           "attack": 0,
           "defense": 5,
           "critChance": 0,
           "critDamage": 0
         },
         "Лучник": {
-          "maxHealth": 1,
-          "attack": 1,
-          "defense": 1,
+          "maxHealth": 2,
+          "attack": 2,
+          "defense": 0,
           "critChance": 1,
-          "critDamage": 2
+          "critDamage": 0
         }
       },
       "choiceEnabled": false,
