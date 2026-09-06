@@ -814,6 +814,11 @@
           img.src = layer.src;
           img.alt = "";
           img.draggable = false;
+          const raw = String(layer.src).split("?")[0].toLowerCase();
+          if (/\.(png|webp|svg)$/.test(raw) || raw.indexOf("data:image/png") === 0 || raw.indexOf("data:image/webp") === 0) {
+            node.classList.add("is-alpha");
+            img.classList.add("is-alpha");
+          }
           node.appendChild(img);
         } else {
           node.textContent = "картинка";

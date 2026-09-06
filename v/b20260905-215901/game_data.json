@@ -1,19 +1,45 @@
 {
-  "assetRev": "1788640791877",
+  "assetRev": "1788664416446",
   "economy": {
-    "startingGold": 5,
+    "startingGold": 0,
     "craftFailMs": 5000,
     "craftRevealMs": 5000,
     "craftSuccessMs": 5000,
     "goldPerEnemyLevel": 0.07,
     "lootChancePerLevel": 0.2,
     "lootChanceCap": 24,
-    "gearChancePerLevel": 0.02,
-    "gearChanceCap": 2.5,
+    "gearChancePerLevel": 0.1,
+    "gearChanceCap": 8,
     "encounterNearPct": 50,
-    "encounterBelowPct": 22,
+    "encounterBelowPct": 16,
     "encounterAbovePct": 18,
-    "encounterSpikePct": 8
+    "encounterSpikePct": 12,
+    "fleeLossPct": 15,
+    "deathEquippedLossPct": 15,
+    "deathBagLossPct": 15,
+    "deathBagGoldValue": 500
+  },
+  "progression": {
+    "maxHeroLevel": 50,
+    "maxEnemyLevel": 50,
+    "scaledLevelGains": false,
+    "scaledLevelMin": 0.5,
+    "scaledLevelMax": 2,
+    "skillGain": {
+      "health": 1,
+      "attack": 1,
+      "defense": 1,
+      "critChance": 2,
+      "critDamage": 10
+    },
+    "levelGain": {
+      "maxHealth": 3,
+      "attack": 1,
+      "defense": 1,
+      "skillPoints": 1,
+      "critChance": 0,
+      "critDamage": 0
+    }
   },
   "items": [
     {
@@ -2224,7 +2250,23 @@
           "min": 2,
           "max": 10
         }
-      ]
+      ],
+      "clickerEnabled": true,
+      "clickerReward": "gold",
+      "clickerAmount": 4,
+      "clickerClicks": 8,
+      "hideTitle": false,
+      "artLayout": "cover",
+      "art": {
+        "card": {
+          "assetId": "art_event_forest_cache"
+        },
+        "portrait": {
+          "assetId": "art_event_forest_cache"
+        }
+      },
+      "image": "asset/library/event_forest_cache.jpg",
+      "imageRev": "1788657935300"
     }
   ],
   "strings": {
@@ -2246,14 +2288,14 @@
       "name": "Воин",
       "icon": "🗡️",
       "description": "Крепкий боец ближнего боя с хорошей защитой",
-      "maxHealth": 10,
-      "attack": 2,
-      "defense": 4,
+      "maxHealth": 32,
+      "attack": 5,
+      "defense": 10,
       "image": "asset/character/warrior.png",
       "hideDescription": true,
       "imageRev": "1788376223485",
-      "critChance": 0,
-      "critDamage": 0,
+      "critChance": 5,
+      "critDamage": 60,
       "art": {
         "portrait": {
           "assetId": "art_warrior"
@@ -2266,13 +2308,13 @@
       "name": "Лучник",
       "icon": "🏹",
       "description": "Боец дальнего боя с высоким уроном.",
-      "maxHealth": 7,
-      "attack": 3,
-      "defense": 2,
+      "maxHealth": 24,
+      "attack": 7,
+      "defense": 6,
       "image": "asset/character/archer.png",
       "hideDescription": true,
-      "critChance": 0,
-      "critDamage": 0,
+      "critChance": 20,
+      "critDamage": 30,
       "art": {
         "portrait": {
           "assetId": "art_archer"
@@ -2286,13 +2328,13 @@
       "name": "Маг",
       "icon": "🔮",
       "description": "Наносит разрушительный урон заклинаниями, но практически беззащитен.",
-      "maxHealth": 5,
-      "attack": 4,
-      "defense": 1,
+      "maxHealth": 18,
+      "attack": 9,
+      "defense": 3,
       "image": "asset/character/mage.png",
       "hideDescription": true,
-      "critChance": 0,
-      "critDamage": 0,
+      "critChance": 4,
+      "critDamage": 200,
       "art": {
         "portrait": {
           "assetId": "art_mage"
@@ -2309,9 +2351,9 @@
       "female": true,
       "tier": 1,
       "unlockLevel": 1,
-      "defenseShare": 0.12,
+      "defenseShare": 0.11,
       "hitsToKill": 2,
-      "hitsYouSurvive": 20,
+      "hitsYouSurvive": 10,
       "goldMin": 1,
       "goldMax": 2,
       "loot": [
@@ -2325,7 +2367,7 @@
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 11
+          "chance": 10
         },
         {
           "itemId": "item_forest_mushroom",
@@ -2333,11 +2375,11 @@
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 12
+          "chance": 8
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1
+          "chance": 1.7
         }
       ],
       "image": "",
@@ -2355,7 +2397,7 @@
       "unlockLevel": 2,
       "defenseShare": 0.22,
       "hitsToKill": 3,
-      "hitsYouSurvive": 20,
+      "hitsYouSurvive": 8,
       "goldMin": 2,
       "goldMax": 4,
       "loot": [
@@ -2381,18 +2423,24 @@
         },
         {
           "itemId": "item_wolf_pelt",
-          "chance": 0.7
+          "chance": 0.75
         },
         {
           "itemId": "item_traveler_head",
-          "chance": 0.18
+          "chance": 1
         }
       ],
-      "image": "",
-      "hideDescription": false,
+      "image": "asset/library/enemy_wild_wolf.png",
+      "hideDescription": true,
       "critChance": 2,
       "critDamage": 40,
-      "lootTableId": "loot_wild_wolf"
+      "lootTableId": "loot_wild_wolf",
+      "art": {
+        "portrait": {
+          "assetId": "art_enemy_wild_wolf"
+        }
+      },
+      "imageRev": "1788641552257"
     },
     {
       "id": "enemy_forest_robber",
@@ -2403,7 +2451,7 @@
       "unlockLevel": 5,
       "defenseShare": 0.32,
       "hitsToKill": 4,
-      "hitsYouSurvive": 22,
+      "hitsYouSurvive": 6,
       "goldMin": 4,
       "goldMax": 7,
       "loot": [
@@ -2421,23 +2469,23 @@
         },
         {
           "itemId": "item_forest_root",
-          "chance": 5
+          "chance": 6
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 7
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.55
+          "chance": 0.5
         },
         {
           "itemId": "item_traveler_chest",
-          "chance": 0.16
+          "chance": 1
         },
         {
           "itemId": "item_traveler_weapon",
-          "chance": 0.14
+          "chance": 1
         }
       ],
       "image": "",
@@ -2454,8 +2502,8 @@
       "tier": 4,
       "unlockLevel": 10,
       "defenseShare": 0.28,
-      "hitsToKill": 3,
-      "hitsYouSurvive": 16,
+      "hitsToKill": 4,
+      "hitsYouSurvive": 4,
       "goldMin": 5,
       "goldMax": 9,
       "loot": [
@@ -2481,15 +2529,15 @@
         },
         {
           "itemId": "item_traveler_legs",
-          "chance": 0.18
+          "chance": 1
         },
         {
           "itemId": "item_traveler_feet",
-          "chance": 0.18
+          "chance": 1
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.08
+          "chance": 1
         }
       ],
       "image": "",
@@ -2506,8 +2554,8 @@
       "tier": 5,
       "unlockLevel": 25,
       "defenseShare": 0.42,
-      "hitsToKill": 5,
-      "hitsYouSurvive": 24,
+      "hitsToKill": 6,
+      "hitsYouSurvive": 3,
       "goldMin": 8,
       "goldMax": 13,
       "loot": [
@@ -2517,35 +2565,35 @@
         },
         {
           "itemId": "item_charcoal",
-          "chance": 9
+          "chance": 8
         },
         {
           "itemId": "item_forest_root",
-          "chance": 5
+          "chance": 7
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 4
+          "chance": 7
         },
         {
           "itemId": "item_iron_head",
-          "chance": 0.12
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_chest",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_legs",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_feet",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.12
+          "chance": 0.5
         }
       ],
       "image": "",
@@ -2616,7 +2664,7 @@
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 11
+          "chance": 10
         },
         {
           "itemId": "item_forest_mushroom",
@@ -2624,11 +2672,11 @@
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 12
+          "chance": 8
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1
+          "chance": 1.7
         }
       ]
     },
@@ -2658,11 +2706,11 @@
         },
         {
           "itemId": "item_wolf_pelt",
-          "chance": 0.7
+          "chance": 0.75
         },
         {
           "itemId": "item_traveler_head",
-          "chance": 0.18
+          "chance": 1
         }
       ]
     },
@@ -2684,23 +2732,23 @@
         },
         {
           "itemId": "item_forest_root",
-          "chance": 5
+          "chance": 6
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 7
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.55
+          "chance": 0.5
         },
         {
           "itemId": "item_traveler_chest",
-          "chance": 0.16
+          "chance": 1
         },
         {
           "itemId": "item_traveler_weapon",
-          "chance": 0.14
+          "chance": 1
         }
       ]
     },
@@ -2730,15 +2778,15 @@
         },
         {
           "itemId": "item_traveler_legs",
-          "chance": 0.18
+          "chance": 1
         },
         {
           "itemId": "item_traveler_feet",
-          "chance": 0.18
+          "chance": 1
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.08
+          "chance": 1
         }
       ]
     },
@@ -2752,35 +2800,35 @@
         },
         {
           "itemId": "item_charcoal",
-          "chance": 9
+          "chance": 8
         },
         {
           "itemId": "item_forest_root",
-          "chance": 5
+          "chance": 7
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 4
+          "chance": 7
         },
         {
           "itemId": "item_iron_head",
-          "chance": 0.12
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_chest",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_legs",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_feet",
-          "chance": 0.1
+          "chance": 0.5
         },
         {
           "itemId": "item_iron_weapon",
-          "chance": 0.12
+          "chance": 0.5
         }
       ]
     }
@@ -3339,6 +3387,24 @@
       "path": "asset/character/mage.png",
       "originalName": "mage.png",
       "rev": "1788549521558",
+      "views": {}
+    },
+    {
+      "id": "art_enemy_wild_wolf",
+      "name": "b2bc8f90-5802-4fa6-a281-34be2029b4c0",
+      "kind": "image",
+      "path": "asset/library/enemy_wild_wolf.png",
+      "originalName": "b2bc8f90-5802-4fa6-a281-34be2029b4c0.png",
+      "rev": "1788641552257",
+      "views": {}
+    },
+    {
+      "id": "art_event_forest_cache",
+      "name": "13be95147b920e7c4ee958ff30db7a11",
+      "kind": "image",
+      "path": "asset/library/event_forest_cache.jpg",
+      "originalName": "13be95147b920e7c4ee958ff30db7a11.jpg",
+      "rev": "1788657935300",
       "views": {}
     }
   ],

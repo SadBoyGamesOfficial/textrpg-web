@@ -434,6 +434,9 @@
           rows.push({ kind: "event", id: event.id, name: event.name || event.id, role: "награда" });
         }
       });
+      if (event.clickerEnabled && event.clickerReward === "item" && resolve(data, "item", event.clickerItemId) === id) {
+        rows.push({ kind: "event", id: event.id, name: event.name || event.id, role: "клик" });
+      }
     });
     return rows;
   }

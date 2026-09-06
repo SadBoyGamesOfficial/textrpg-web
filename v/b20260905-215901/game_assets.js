@@ -509,6 +509,16 @@
     return d.cropX > 0 || d.cropY > 0 || d.cropW < 100 || d.cropH < 100;
   }
 
+  function isAlphaSrc(src) {
+    const raw = String(src || "").split("?")[0].toLowerCase();
+    return (
+      /\.(png|webp|svg)$/.test(raw) ||
+      raw.indexOf("data:image/png") === 0 ||
+      raw.indexOf("data:image/webp") === 0 ||
+      raw.indexOf("data:image/svg") === 0
+    );
+  }
+
   function cssMap(style) {
     return Object.keys(style).filter((key) => style[key] !== "" && style[key] != null).map((key) => {
       const prop = key.replace(/[A-Z]/g, (ch) => "-" + ch.toLowerCase());
@@ -570,9 +580,10 @@
       img.height = "auto";
       img.maxHeight = "100%";
     }
+    const alpha = isAlphaSrc(src) ? " is-alpha" : "";
     return (
-      '<div class="ga-frame ' + (className || "") + '" style="' + cssMap(frame) + '">' +
-      '<img class="ga-img" src="' + escapeHtml(src) + '" alt="" style="' + cssMap(img) + '">' +
+      '<div class="ga-frame ' + (className || "") + alpha + '" style="' + cssMap(frame) + '">' +
+      '<img class="ga-img' + alpha + '" src="' + escapeHtml(src) + '" alt="" style="' + cssMap(img) + '">' +
       "</div>"
     );
   }
@@ -594,10 +605,11 @@
       img.maxWidth = "100%";
       img.maxHeight = compact ? "min(28vh, 220px)" : "min(58vh, calc(100dvh - 280px))";
     }
-    const cls = "stage-art ga-frame" + (compact ? " compact" : "");
+    const alpha = isAlphaSrc(resolved.src) ? " is-alpha" : "";
+    const cls = "stage-art ga-frame" + (compact ? " compact" : "") + alpha;
     return (
       '<div class="' + cls + '" data-vx="stage-panel" style="' + cssMap(frame) + '">' +
-      '<img class="portrait ga-img" src="' + escapeHtml(resolved.src) + '" alt="" style="' + cssMap(img) + '">' +
+      '<img class="portrait ga-img' + alpha + '" src="' + escapeHtml(resolved.src) + '" alt="" style="' + cssMap(img) + '">' +
       "</div>"
     );
   }

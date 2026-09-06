@@ -316,6 +316,15 @@ body.vx-on.vx-edit #log > .entry > * {
   flex-direction: column;
   align-items: center;
   gap: 2px;
+  width: auto;
+  min-width: 44px;
+  margin: 0;
+  padding: 4px 6px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .victory-drop-name {
@@ -356,6 +365,12 @@ body.bp-mobile .victory-drop-name {
 html.bp-mobile .victory-stats,
 body.bp-mobile .victory-stats {
   padding-top: 8px;
+}
+
+html.bp-mobile .victory-stat-grid .stat,
+body.bp-mobile .victory-stat-grid .stat {
+  font-size: 14px;
+  gap: 4px;
 }
 
 html.bp-mobile .victory-screen .stats,
@@ -456,6 +471,16 @@ body.bp-mobile .victory-screen .stats {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.stat b,
+.stat .stat-text {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .ico {
@@ -701,6 +726,18 @@ body.vx-fluid .actions.menu-spread {
 
 body.vx-fluid .actions.menu-spread button {
   max-width: 100%;
+}
+
+.actions.menu-spread.menu-home,
+body.vx-fluid .actions.menu-spread.menu-home,
+body.bp-mobile .actions.menu-spread.menu-home {
+  --home-btn-h: 61px;
+  justify-content: center;
+  gap: var(--home-btn-h);
+}
+
+.actions.menu-spread.menu-home button {
+  min-height: var(--home-btn-h);
 }
 
 body.vx-fluid .topbar {
@@ -1079,21 +1116,31 @@ body:has(.craft-screen) .actions.menu-foot {
   min-height: 0;
   flex: 1;
   overflow: hidden;
-  text-align: left;
+  text-align: center;
 }
 
 .stats-overlay-top {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 2px;
   margin-bottom: 8px;
+}
+
+.skill-points-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .skill-points-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
+  color: var(--muted);
 }
 
 .stats-overlay .entry-title {
@@ -1108,14 +1155,17 @@ body:has(.craft-screen) .actions.menu-foot {
   flex: 1;
   min-height: 0;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .stats-row {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) 72px minmax(64px, 0.75fr);
-  gap: 6px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  min-height: 36px;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
 }
 
 .stats-main {
@@ -1128,6 +1178,7 @@ body:has(.craft-screen) .actions.menu-foot {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: clamp(12px, 3.3vw, 16px);
 }
 
 .stats-main b,
@@ -1137,17 +1188,19 @@ body:has(.craft-screen) .actions.menu-foot {
 
 .stat-plus-row {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   margin: 0;
-  justify-content: flex-end;
+  justify-content: center;
+  flex: 0 0 auto;
 }
 
 .stat-plus {
-  width: 32px;
-  min-width: 32px;
+  width: 40px;
+  min-width: 40px;
+  min-height: 40px;
   margin: 0;
-  padding: 4px 0;
-  font-size: 18px;
+  padding: 0;
+  font-size: 22px;
   line-height: 1;
 }
 
@@ -1164,10 +1217,88 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .stats-gear {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.25;
-  text-align: left;
+  display: none;
+}
+
+.confirm-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.game-overlay .achieve-popup.is-confirm {
+  width: min(360px, calc(100vw - 32px));
+  max-height: none;
+}
+
+.game-overlay .achieve-popup.is-confirm .confirm-actions button {
+  width: 100%;
+  margin-top: 0;
+}
+
+.death-loss {
+  text-align: center;
+  margin: 8px 0 2px;
+}
+
+.death-loss-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.death-loss-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 6px 10px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.death-loss-chip.is-static {
+  cursor: default;
+}
+
+.death-loss-note {
+  margin-top: 8px;
+}
+
+.death-loss-gold {
+  margin: 10px 0 4px;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.loss-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0 auto 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .game-overlay .achieve-popup .entry-title {
@@ -1206,10 +1337,11 @@ body:has(.craft-screen) .actions.menu-foot {
 }
 
 .game-overlay .achieve-popup .stat-plus {
-  width: 32px;
-  min-width: 32px;
+  width: 40px;
+  min-width: 40px;
+  min-height: 40px;
   margin: 0;
-  padding: 4px 0;
+  padding: 0;
 }
 
 .game-overlay .achieve-popup .skill-reset {
@@ -1641,6 +1773,263 @@ body:has(.craft-screen) .actions.menu-foot {
   border: 1px solid var(--line);
 }
 
+img.portrait[src*=".png"],
+img.portrait[src*=".webp"],
+img.portrait[src*=".svg"],
+img.portrait[src^="data:image/png"],
+img.portrait[src^="data:image/webp"],
+img.ga-img[src*=".png"],
+img.ga-img[src*=".webp"],
+img.ga-img[src*=".svg"],
+img.ga-img[src^="data:image/png"],
+img.ga-img[src^="data:image/webp"],
+img.portrait.is-alpha,
+img.ga-img.is-alpha,
+.vx-layer.vx-kind-image:has(img[src*=".png"]) img,
+.vx-layer.vx-kind-image:has(img[src*=".webp"]) img,
+.vx-layer.vx-kind-image:has(img[src*=".svg"]) img {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.stage-art.is-alpha,
+.ga-frame.is-alpha,
+.stage-art:has(> img[src*=".png"]),
+.stage-art:has(> img[src*=".webp"]),
+.stage-art:has(> img[src*=".svg"]),
+.stage-art:has(> img[src^="data:image/png"]),
+.stage-art:has(> img[src^="data:image/webp"]),
+.ga-frame:has(> img[src*=".png"]),
+.ga-frame:has(> img[src*=".webp"]),
+.ga-frame:has(> img[src*=".svg"]),
+.ga-frame:has(> img[src^="data:image/png"]),
+.ga-frame:has(> img[src^="data:image/webp"]),
+.vx-layer.vx-kind-image:has(img[src*=".png"]),
+.vx-layer.vx-kind-image:has(img[src*=".webp"]),
+.vx-layer.vx-kind-image:has(img[src*=".svg"]) {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.event-click-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 8px 0 12px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.event-click-stage .stage-art,
+.event-click-stage .portrait,
+.event-click-stage img {
+  pointer-events: none;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+.event-click-fallback {
+  width: 100%;
+  min-height: 180px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  color: var(--muted, #9aa3b5);
+  background: var(--bg);
+}
+
+.event-click-pop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  animation: event-click-fly 800ms ease-out forwards;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.event-click-pop .event-click-ico {
+  font-size: 28px;
+  line-height: 1;
+}
+
+@keyframes event-click-fly {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.72); }
+  100% { opacity: 0; transform: translate(-50%, calc(-50% - 52px)) scale(1.08); }
+}
+
+#log:has(.event-screen),
+#log:has(.event-screen) .entry {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.event-screen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.event-screen[data-event-click],
+.event-art-wrap[data-event-click] {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.event-art-wrap,
+.event-art-frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.event-art-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-art-frame.is-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 1px dashed var(--line);
+  color: var(--muted, #9aa3b5);
+  background: var(--bg);
+}
+
+.event-screen.is-cover {
+  min-height: 360px;
+}
+
+.event-screen.is-cover .event-art-frame {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.event-shade {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 100%;
+  padding: 16px 14px 18px;
+  background: linear-gradient(180deg, rgba(6, 8, 12, 0.62) 0%, rgba(6, 8, 12, 0.08) 34%, rgba(6, 8, 12, 0.12) 58%, rgba(6, 8, 12, 0.7) 100%);
+}
+
+.event-screen.is-cover .event-shade {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(6, 8, 12, 0.58) 0%, transparent 26%, transparent 66%, rgba(6, 8, 12, 0.7) 100%);
+}
+
+.event-screen.is-cover .event-copy-top {
+  flex: 0 0 auto;
+}
+
+.event-screen.is-cover .event-copy-bottom {
+  margin-top: auto;
+  flex: 0 0 auto;
+}
+
+.event-screen.is-cover .event-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.event-shade.is-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 0;
+  justify-content: flex-end;
+  background: linear-gradient(180deg, transparent, rgba(6, 8, 12, 0.78));
+}
+
+.event-title {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.event-desc,
+.event-extra {
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.event-screen.is-cover .event-title,
+.event-screen.is-cover .event-desc,
+.event-screen.is-cover .event-extra,
+.event-shade .event-title,
+.event-shade .event-desc,
+.event-shade .event-extra {
+  color: #f4f7ff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.event-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-copy.is-below {
+  flex: 0 0 auto;
+  padding: 10px 4px 0;
+}
+
+.event-screen.is-titleout > .event-title {
+  flex: 0 0 auto;
+  padding: 4px 4px 10px;
+}
+
+body.is-event-click .actions {
+  display: none !important;
+}
+
 .ga-frame {
   position: relative;
   overflow: hidden;
@@ -1741,7 +2130,7 @@ body:has(.craft-screen) .actions.menu-foot {
   align-items: center;
   justify-content: center;
   overflow: visible;
-  background: var(--panel-2);
+  background: transparent;
   border-radius: 12px;
 }
 
@@ -2036,23 +2425,34 @@ body:has(.craft-screen) .actions.menu-foot {
   text-align: center;
 }
 
-.craft-progress {
+.craft-progress,
+.craft-fail,
+.craft-reveal {
+  background: var(--bg);
 }
 
 .craft-ready {
-  width: 100%;
-  min-height: 200px;
-  margin: 0;
-  padding: 16px 14px 18px;
-  border: 1px solid #315694;
+  border-color: #315694;
   background: #315694;
   color: #f4f7ff;
+}
+
+.craft-ready-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-transform: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .craft-ready-text {
@@ -2091,14 +2491,15 @@ body:has(.craft-screen) .actions.menu-foot {
 
 .craft-success-icon,
 .craft-success .equip-ico {
-  font-size: 42px;
+  font-size: 56px;
   line-height: 1;
 }
 
 .craft-success-name {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1.25;
+  text-align: center;
 }
 
 .craft-slot,
@@ -3368,10 +3769,17 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
     font-size: 22px;
   }
   .craft-panel,
-  .craft-hint {
-    min-height: 0;
-    padding: 12px 10px;
+  .craft-hint,
+  .craft-ready,
+  .craft-success,
+  .craft-reveal,
+  .craft-fail,
+  .craft-progress {
+    min-height: 200px;
+    padding: 18px 16px 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
   }
   .stat-line-full { display: none !important; }
   .stat-line-mobile {
@@ -3394,6 +3802,18 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
     font-size: 13px;
     line-height: 1.35;
     overflow-wrap: anywhere;
+  }
+  .game-overlay .achieve-popup.is-stats {
+    width: min(390px, calc(100vw - 16px));
+    padding: 16px 12px 12px;
+  }
+  .stats-row {
+    gap: 6px;
+  }
+  .stat-plus {
+    width: 42px;
+    min-width: 42px;
+    min-height: 42px;
   }
 }
 
@@ -3475,11 +3895,117 @@ body.vx-on.vx-edit.vx-bp-mobile main.card {
   </div>
 </div>
 <script src="game_ids.js"></script>
-<script src="game_assets.js?v=stage-panel-1"></script>
+<script src="game_assets.js?v=alpha-png-1"></script>
 <script>
 // Do not change this key: player saves on the public site are tied to it.
 const STORAGE_KEY = "textrpg-save-b20260905-215901";
 const MAX_LEVEL = 50;
+
+function numOr(value, fallback) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function defaultProgression() {
+  return {
+    maxHeroLevel: MAX_LEVEL,
+    maxEnemyLevel: MAX_LEVEL,
+    scaledLevelGains: false,
+    scaledLevelMin: 0.5,
+    scaledLevelMax: 2,
+    skillGain: { health: 1, attack: 1, defense: 1, critChance: 2, critDamage: 12 },
+    levelGain: { maxHealth: 3, attack: 1, defense: 1, skillPoints: 1, critChance: 0, critDamage: 0 },
+  };
+}
+
+function normalizeProgression(raw) {
+  const base = defaultProgression();
+  const next = Object.assign({}, base, raw || {});
+  next.maxHeroLevel = Math.max(1, Math.round(numOr(next.maxHeroLevel, base.maxHeroLevel)));
+  next.maxEnemyLevel = Math.max(1, Math.round(numOr(next.maxEnemyLevel, next.maxHeroLevel)));
+  next.scaledLevelGains = !!next.scaledLevelGains;
+  next.scaledLevelMin = Math.max(0, numOr(next.scaledLevelMin, base.scaledLevelMin));
+  next.scaledLevelMax = Math.max(next.scaledLevelMin, numOr(next.scaledLevelMax, base.scaledLevelMax));
+  next.skillGain = Object.assign({}, base.skillGain, (raw && raw.skillGain) || {});
+  next.levelGain = Object.assign({}, base.levelGain, (raw && raw.levelGain) || {});
+  Object.keys(base.skillGain).forEach((key) => {
+    next.skillGain[key] = numOr(next.skillGain[key], base.skillGain[key]);
+  });
+  Object.keys(base.levelGain).forEach((key) => {
+    next.levelGain[key] = Math.round(numOr(next.levelGain[key], base.levelGain[key]));
+  });
+  return next;
+}
+
+function progressionOf() {
+  return normalizeProgression(GAME_DATA && GAME_DATA.progression);
+}
+
+function maxHeroLevel() {
+  return progressionOf().maxHeroLevel;
+}
+
+function maxEnemyLevel() {
+  return progressionOf().maxEnemyLevel;
+}
+
+function skillGainOf() {
+  return progressionOf().skillGain;
+}
+
+function classStatAverage(stat) {
+  const rows = (GAME_DATA && GAME_DATA.classes) || [];
+  if (!rows.length) return 0;
+  const sum = rows.reduce((total, row) => total + (Number(row[stat]) || 0), 0);
+  return sum / rows.length;
+}
+
+function scaledStatGain(fixed, classValue, mean, minMult, maxMult) {
+  const seed = Number(fixed) || 0;
+  if (mean <= 0) return Math.max(0, Math.round(seed));
+  const mult = Math.max(minMult, Math.min(maxMult, (Number(classValue) || 0) / mean));
+  if (seed > 0) return Math.max(0, Math.round(seed * mult));
+  return (Number(classValue) || 0) > mean ? Math.max(0, Math.round(mult)) : 0;
+}
+
+function levelGainOf(hero) {
+  const prog = progressionOf();
+  const fixed = prog.levelGain;
+  if (!prog.scaledLevelGains) return Object.assign({}, fixed);
+  const info = CLASS_INFO[(hero && hero.classKey) || ""] || {};
+  const scale = (stat, classKey) => scaledStatGain(fixed[stat], info[classKey], classStatAverage(classKey), prog.scaledLevelMin, prog.scaledLevelMax);
+  return {
+    maxHealth: scale("maxHealth", "maxHealth"),
+    attack: scale("attack", "attack"),
+    defense: scale("defense", "defense"),
+    skillPoints: Math.max(0, Math.round(Number(fixed.skillPoints) || 0)),
+    critChance: scale("critChance", "critChance"),
+    critDamage: scale("critDamage", "critDamage"),
+  };
+}
+
+function applyHeroLevelUp(hero) {
+  const gain = levelGainOf(hero);
+  hero.skillPoints = (Number(hero.skillPoints) || 0) + gain.skillPoints;
+  hero.maxHealth = Math.max(1, (Number(hero.maxHealth) || 1) + gain.maxHealth);
+  hero.health = (Number(hero.health) || 0) + gain.maxHealth;
+  hero.health = Math.min(Math.max(1, hero.health), liveMaxHealth(hero));
+  hero.attack = Math.max(0, (Number(hero.attack) || 0) + gain.attack);
+  let armor = 0;
+  if (gain.defense > 0 && clampArmor(hero.defense) < MAX_ARMOR) {
+    const before = clampArmor(hero.defense);
+    hero.defense = clampArmor(before + gain.defense);
+    armor = hero.defense - before;
+    if (hero.defense >= MAX_ARMOR) hero.armorCapSeen = true;
+  }
+  if (gain.critChance) {
+    hero.critChance = Math.max(0, Math.min(100, (Number(hero.critChance) || 0) + gain.critChance));
+  }
+  if (gain.critDamage) {
+    hero.critDamage = Math.max(0, (Number(hero.critDamage) || 0) + gain.critDamage);
+  }
+  return { armor, gain };
+}
 const ARMOR_PERCENT_PER_POINT = 0.5;
 const MAX_ARMOR_PERCENT = 65;
 const MAX_ARMOR = Math.round(MAX_ARMOR_PERCENT / ARMOR_PERCENT_PER_POINT);
@@ -3769,6 +4295,7 @@ function normalizeGameData(data) {
   if (next.economy.encounterBelowPct == null) next.economy.encounterBelowPct = 22;
   if (next.economy.encounterAbovePct == null) next.economy.encounterAbovePct = 18;
   if (next.economy.encounterSpikePct == null) next.economy.encounterSpikePct = 8;
+  next.progression = normalizeProgression(next.progression);
   if (!Array.isArray(next.items)) next.items = [];
   next.items.forEach((item) => {
     item.slot = normalizeItemSlot(item.slot);
@@ -3848,9 +4375,12 @@ function normalizeGameData(data) {
     event.id = event.id || "event_" + index;
     event.icon = event.icon || "📌";
     event.chance = Math.max(0, Math.min(100, Number(event.chance) || 0));
+    if (!Number.isFinite(Number(event.chance))) event.chance = 0;
     event.locationId = event.locationId || primary.id;
     if (!Array.isArray(event.effects)) event.effects = [];
     if (event.enabled == null) event.enabled = true;
+    event.hideTitle = !!event.hideTitle;
+    event.artLayout = event.artLayout === "cover" || event.artLayout === "titleOut" ? event.artLayout : "frame";
   });
   if (!Array.isArray(next.phrases)) next.phrases = [];
   if (!next.phrases.length && next.strings) {
@@ -3959,6 +4489,16 @@ function liveCritChance(data) {
 
 function liveCritDamage(data) {
   return Math.max(0, (Number(data.critDamage) || 0) + gearBonus(data).critDamage);
+}
+
+function liveExpMult(data) {
+  const equipped = normalizeEquipped(data && data.equipped);
+  let total = 0;
+  GEAR_SLOTS.forEach((slot) => {
+    const item = findItem(equipped[slot]);
+    if (item) total += Number(item.expMult) || 0;
+  });
+  return total;
 }
 
 function resolveStrike(attack, armor, critChance, critDamage) {
@@ -4097,6 +4637,7 @@ function itemStatsHtml(item) {
   if (Number(item.maxHealth)) lines.push("❤️ Здоровье +" + Number(item.maxHealth));
   if (Number(item.critChance)) lines.push("🎯 Крит-шанс +" + Number(item.critChance) + "%");
   if (Number(item.critDamage)) lines.push("💥 Крит-урон +" + Number(item.critDamage) + "%");
+  if (Number(item.expMult)) lines.push("✨ Множитель опыта +" + Number(item.expMult) + "%");
   return lines.map((line) => `<div>${escapeHtml(line)}</div>`).join("");
 }
 
@@ -4132,7 +4673,7 @@ function applyGameData(data) {
 
 async function loadGameData() {
   try {
-    const response = await fetch("game_data.json", { cache: "no-store" });
+    const response = await fetch("game_data.json?v=" + Date.now(), { cache: "no-store" });
     if (!response.ok) return;
     const data = await response.json();
     if (data && Array.isArray(data.enemies) && Array.isArray(data.classes)) {
@@ -4196,8 +4737,99 @@ function phraseHtml(when, vars, cls) {
 
 function eventsForLocation(locationId) {
   return ((GAME_DATA && GAME_DATA.events) || []).filter((event) => {
-    return event.enabled !== false && event.locationId === locationId;
+    if (event.enabled === false) return false;
+    const where = event.locationId || "";
+    return !where || where === locationId;
   });
+}
+
+let eventClickState = null;
+
+function eventClickerOf(event) {
+  const clicks = Math.max(1, Math.round(Number(event && event.clickerClicks) || 10));
+  const amount = Math.max(0, Math.round(Number(event && event.clickerAmount) || 0));
+  return {
+    enabled: !!(event && event.clickerEnabled),
+    clicks,
+    reward: (event && event.clickerReward) === "item" ? "item" : "gold",
+    amount,
+    emoji: String((event && event.clickerEmoji) || "").trim(),
+    itemId: (event && event.clickerItemId) || "",
+  };
+}
+
+function eventLayoutOf(event) {
+  const raw = event && event.artLayout;
+  if (raw === "cover" || raw === "titleOut") return raw;
+  return "frame";
+}
+
+function eventShowTitle(event) {
+  if (!event || event.hideTitle) return false;
+  return !!String(event.name || "").trim();
+}
+
+function eventFillArt(event, clickable) {
+  let src = "";
+  if (window.GameAssets && GAME_DATA && event) {
+    const resolved = window.GameAssets.resolve(GAME_DATA, event, "illustration", {
+      fallback: ["card", "portrait", "background", "banner"],
+    });
+    src = (resolved && resolved.src) || "";
+  }
+  if (!src) src = entityImage(event);
+  if (!src) {
+    return clickable
+      ? `<div class="event-art-frame is-empty">Нажимайте здесь</div>`
+      : "";
+  }
+  return `<div class="event-art-frame"><img class="event-art-img" src="${escapeHtml(src)}" alt=""></div>`;
+}
+
+function eventTitleHtml(event) {
+  if (!eventShowTitle(event)) return "";
+  const icon = event.icon ? escapeHtml(event.icon) + " " : "";
+  return `<div class="event-title">${icon}${escapeHtml(event.name)}</div>`;
+}
+
+function eventTextHtml(event) {
+  const text = String((event && event.text) || "").trim();
+  return text ? `<div class="event-desc">${escapeHtml(text)}</div>` : "";
+}
+
+function eventScreenHtml(event, extras) {
+  const layout = eventLayoutOf(event);
+  const clickable = !!(extras && extras.clickable);
+  const extra = extras && extras.body ? `<div class="event-extra">${extras.body}</div>` : "";
+  const title = eventTitleHtml(event);
+  const text = eventTextHtml(event);
+  const art = eventFillArt(event, clickable);
+  const clickAttr = clickable ? ' data-event-click="1"' : "";
+  if (layout === "cover") {
+    return `<div class="event-screen is-cover"${clickAttr}>${art}<div class="event-shade"><div class="event-copy event-copy-top">${title}</div><div class="event-copy event-copy-bottom">${text}${extra}</div></div></div>`;
+  }
+  if (layout === "titleOut") {
+    return `<div class="event-screen is-titleout">${title}<div class="event-art-wrap"${clickAttr}>${art}<div class="event-shade is-bottom">${text}${extra}</div></div></div>`;
+  }
+  return `<div class="event-screen is-frame">${title}<div class="event-art-wrap"${clickAttr}>${art}</div><div class="event-copy is-below">${text}${extra}</div></div>`;
+}
+
+function grantEventClickReward(event) {
+  const cfg = eventClickerOf(event);
+  const amount = cfg.amount;
+  if (cfg.reward === "item" && cfg.itemId) {
+    const item = findItem(cfg.itemId);
+    if (!item || amount < 1) {
+      return { icon: cfg.emoji || "✨", text: "0" };
+    }
+    giveItem(hero, item, amount);
+    return { icon: cfg.emoji || item.icon || "📦", text: "+" + amount };
+  }
+  if (amount > 0) {
+    hero.gold = Math.max(0, (hero.gold || 0) + amount);
+    noteGoldEarned(amount);
+  }
+  return { icon: cfg.emoji || "💰", text: "+" + amount };
 }
 
 function rollWalkEvent() {
@@ -4212,7 +4844,7 @@ function rollWalkEvent() {
   }
   for (let index = 0; index < shuffled.length; index += 1) {
     const event = shuffled[index];
-    if (Math.random() * 100 < (Number(event.chance) || 0)) return event;
+    if (Math.random() * 100 < Math.max(0, Number(event.chance) || 0)) return event;
   }
   return null;
 }
@@ -4284,7 +4916,8 @@ function portraitHtml(entity, compact, roles) {
   const src = entityImage(entity);
   if (!src) return "";
   const cls = compact ? "stage-art compact" : "stage-art";
-  return `<div class="${cls}" data-vx="stage-panel"><img class="portrait" src="${escapeHtml(src)}" alt=""></div>`;
+  const alpha = /\.(png|webp|svg)(\?|$)/i.test(src) || src.indexOf("data:image/png") === 0 || src.indexOf("data:image/webp") === 0 ? " is-alpha" : "";
+  return `<div class="${cls}${alpha}" data-vx="stage-panel"><img class="portrait${alpha}" src="${escapeHtml(src)}" alt=""></div>`;
 }
 
 function entityImage(entity) {
@@ -4321,7 +4954,7 @@ function descHtml(entity) {
 function characterStage(className, data, titlePrefix) {
   const info = CLASS_INFO[className] || {};
   const levelLabel =
-    data.level >= MAX_LEVEL
+    data.level >= maxHeroLevel()
       ? `уровень ${data.level} (максимум)`
       : `уровень ${data.level}`;
   return (
@@ -4390,6 +5023,8 @@ let lastEnemy = null;
 let encounterNote = "";
 let lastVictoryExtra = "";
 let lastLevelGain = null;
+let lastDeathLoss = null;
+let lastFleeLoss = null;
 let afterSkillPointTarget = null;
 let overlayOnClose = null;
 let lastHudGold = null;
@@ -5123,15 +5758,20 @@ function showDetailOverlay(html, options) {
   overlayOnClose = options && options.onClose || null;
   card.className = "achieve-popup" +
     (options && options.book ? " is-book" : "") +
-    (options && options.stats ? " is-stats" : "");
-  card.innerHTML = `<div class="overlay-body">${html}</div><button type="button" class="primary" id="detailOverlayClose">Закрыть</button>`;
+    (options && options.stats ? " is-stats" : "") +
+    (options && options.confirm ? " is-confirm" : "");
+  const closeHtml = options && options.hideClose ? "" : `<button type="button" class="primary" id="detailOverlayClose">${escapeHtml((options && options.closeLabel) || "Закрыть")}</button>`;
+  card.innerHTML = `<div class="overlay-body">${html}</div>${closeHtml}`;
   root.hidden = false;
   const close = document.getElementById("detailOverlayClose");
   if (close) close.onclick = (event) => {
     event.stopPropagation();
     hideDetailOverlay();
   };
-  card.onclick = (event) => event.stopPropagation();
+  card.onclick = (event) => {
+    event.stopPropagation();
+    if (options && options.tapClose) hideDetailOverlay();
+  };
   if (window.VisualEditor) window.VisualEditor.afterRender();
 }
 
@@ -5212,6 +5852,7 @@ function achievementsMenu() {
 
 function ask(prompt, options, layout) {
   actionsBox.className =
+    layout === "home" ? "actions menu-spread menu-home" :
     layout === "menu" ? "actions menu-spread" :
     layout === "foot" ? "actions menu-foot" : "actions";
   actionsBox.innerHTML = "";
@@ -5221,6 +5862,9 @@ function ask(prompt, options, layout) {
     title.textContent = prompt;
     actionsBox.appendChild(title);
   }
+  const empty = !options || !options.length;
+  actionsBox.hidden = empty;
+  document.body.classList.toggle("is-event-click", !!(empty && document.querySelector(".event-screen")));
   options.forEach((option, index) => {
     const button = document.createElement("button");
     const label = document.createElement("span");
@@ -5314,7 +5958,7 @@ function mainMenu() {
   logBox.innerHTML = "";
   syncGoldHud({ hideGold: true });
   setChrome("home");
-  ask("", options, "menu");
+  ask("", options, "home");
   viewRefresh = mainMenu;
 }
 
@@ -5480,7 +6124,7 @@ function statsBlock(data, options) {
   const compact = options && options.compact;
   const needed = expNeeded(data.level);
   const levelText =
-    data.level >= MAX_LEVEL
+    data.level >= maxHeroLevel()
       ? `<span class="stat"><span class="ico">⭐</span>Уровень: <b>${data.level}</b> (максимум)</span>`
       : `<span class="stat"><span class="ico">⭐</span>Уровень: <b>${data.level}</b></span>`;
   if (compact) {
@@ -5491,20 +6135,20 @@ function statsBlock(data, options) {
       `<span class="stat"><span class="ico">🏆</span>Побед: <b>${data.wins}</b></span>` +
       `</div>` +
       `<div class="stat-line stat-pair">` +
-      `<span class="stat"><span class="ico">❤️</span>Здоровье: <b>${data.health}</b> / ${liveMaxHealth(data)}</span>` +
-      `<span class="stat"><span class="ico">⚔️</span>Атака: <b>${liveAttack(data)}</b></span>` +
+      `<span class="stat"><span class="ico">❤️</span><span class="stat-text">Здоровье: <b>${data.health} / ${liveMaxHealth(data)}</b></span></span>` +
+      `<span class="stat"><span class="ico">⚔️</span><span class="stat-text">Атака: <b>${liveAttack(data)}</b></span></span>` +
       `</div>` +
       `<div class="stat-line stat-center">` +
-      `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(liveDefense(data))}</b></span>` +
+      `<span class="stat"><span class="ico">🛡️</span><span class="stat-text">Защита: <b>${armorText(liveDefense(data))}</b></span></span>` +
       `</div>` +
       `<div class="stat-line stat-pair">` +
-      `<span class="stat"><span class="ico">🎯</span>Крит-шанс: <b>${liveCritChance(data)}%</b></span>` +
-      `<span class="stat"><span class="ico">💥</span>Крит-урон: <b>+${liveCritDamage(data)}%</b></span>` +
+      `<span class="stat"><span class="ico">🎯</span><span class="stat-text">Крит-шанс: <b>${liveCritChance(data)}%</b></span></span>` +
+      `<span class="stat"><span class="ico">💥</span><span class="stat-text">Крит-урон: <b>+${liveCritDamage(data)}%</b></span></span>` +
       `</div>` +
-      (data.level >= MAX_LEVEL ? "" : `<div class="stat-line stat-center"><span class="stat"><span class="ico">✨</span>Опыт: <b>${data.experience}</b> / ${needed}</span></div>`) +
+      (data.level >= maxHeroLevel() ? "" : `<div class="stat-line stat-center"><span class="stat"><span class="ico">✨</span><span class="stat-text">Опыт: <b>${data.experience} / ${needed}</b></span></span></div>`) +
       `</div>` +
-      bar(data.health, liveMaxHealth(data), "hp") +
-      (data.level >= MAX_LEVEL ? "" : bar(data.experience, needed, "xp"))
+      ((options && options.skipBars) ? "" : bar(data.health, liveMaxHealth(data), "hp") +
+      (data.level >= maxHeroLevel() ? "" : bar(data.experience, needed, "xp")))
     );
   }
   return (
@@ -5513,17 +6157,17 @@ function statsBlock(data, options) {
     (skipLevel ? "" : levelText) +
     `<span class="stat"><span class="ico">🏆</span>Побед: <b>${data.wins}</b></span></div>` +
     `<div class="stat-line">` +
-    `<span class="stat"><span class="ico">❤️</span>Здоровье: <b>${data.health}</b> / ${liveMaxHealth(data)}</span>` +
-    `<span class="stat"><span class="ico">⚔️</span>Атака: <b>${liveAttack(data)}</b></span>` +
-    `<span class="stat"><span class="ico">🛡️</span>Защита: <b>${armorText(liveDefense(data))}</b></span>` +
-    `<span class="stat"><span class="ico">🎯</span>Крит-шанс: <b>${liveCritChance(data)}%</b></span>` +
-    `<span class="stat"><span class="ico">💥</span>Крит-урон: <b>+${liveCritDamage(data)}%</b></span>` +
-    (data.level >= MAX_LEVEL
+    `<span class="stat"><span class="ico">❤️</span><span class="stat-text">Здоровье: <b>${data.health} / ${liveMaxHealth(data)}</b></span></span>` +
+    `<span class="stat"><span class="ico">⚔️</span><span class="stat-text">Атака: <b>${liveAttack(data)}</b></span></span>` +
+    `<span class="stat"><span class="ico">🛡️</span><span class="stat-text">Защита: <b>${armorText(liveDefense(data))}</b></span></span>` +
+    `<span class="stat"><span class="ico">🎯</span><span class="stat-text">Крит-шанс: <b>${liveCritChance(data)}%</b></span></span>` +
+    `<span class="stat"><span class="ico">💥</span><span class="stat-text">Крит-урон: <b>+${liveCritDamage(data)}%</b></span></span>` +
+    (data.level >= maxHeroLevel()
       ? ""
-      : `<span class="stat"><span class="ico">✨</span>Опыт: <b>${data.experience}</b> / ${needed}</span>`) +
+      : `<span class="stat"><span class="ico">✨</span><span class="stat-text">Опыт: <b>${data.experience} / ${needed}</b></span></span>`) +
     `</div></div>` +
-    bar(data.health, liveMaxHealth(data), "hp") +
-    (data.level >= MAX_LEVEL ? "" : bar(data.experience, needed, "xp"))
+    ((options && options.skipBars) ? "" : bar(data.health, liveMaxHealth(data), "hp") +
+    (data.level >= maxHeroLevel() ? "" : bar(data.experience, needed, "xp")))
   );
 }
 
@@ -5553,7 +6197,7 @@ function skillInvested(data) {
 }
 
 function applySkillStep(data, stat, dir) {
-  const gain = (SKILL_GAIN[stat] || 0) * dir;
+  const gain = (skillGainOf()[stat] || 0) * dir;
   if (!gain) return false;
   if (stat === "health") {
     data.maxHealth = Math.max(1, (Number(data.maxHealth) || 1) + gain);
@@ -5587,19 +6231,18 @@ function applySkillStep(data, stat, dir) {
 
 function statsOverlayRow(data, spec, canPlus, canMinus) {
   const alloc = spec.spend ? (skillAllocOf(data)[spec.spend] || 0) : 0;
-  const allocBadge = alloc > 0 ? ` <span style="color:var(--good)">(${alloc})</span>` : "";
+  const allocBadge = alloc > 0 ? ` <span style="color:var(--good)">(+${alloc})</span>` : "";
   const buttons = spec.spend
     ? `<div class="stat-plus-row">` +
       `<button type="button" class="stat-plus" data-unspend-stat="${spec.spend}"${canMinus ? "" : " disabled"}>−</button>` +
       `<button type="button" class="stat-plus" data-spend-stat="${spec.spend}"${canPlus ? "" : " disabled"}>+</button>` +
       `</div>`
-    : `<div class="stat-plus-row is-empty"></div>`;
+    : "";
   return (
     `<div class="stats-row">` +
     `<span class="ico">${spec.ico}</span>` +
     `<span class="stats-label">${spec.label}: <b>${spec.value}</b>${allocBadge}</span>` +
     buttons +
-    `<div class="stats-gear">${spec.gear || "—"}</div>` +
     `</div>`
   );
 }
@@ -5643,23 +6286,22 @@ function openHeroStatsOverlay(data, options) {
   const points = live ? (hero.skillPoints || 0) : 0;
   const invested = live ? skillInvested(hero) : skillInvested(data);
   const alloc = skillAllocOf(live ? hero : data);
-  const needed = expNeeded(data.level);
   const canPlus = (stat) => live && points > 0 && (stat !== "defense" || clampArmor(data.defense) < MAX_ARMOR);
   const canMinus = (stat) => live && (alloc[stat] || 0) > 0;
   const html =
     `<div class="stats-overlay">` +
-    `<div class="stats-overlay-top"><div class="skill-points-badge">🌟 Свободно: ${points} · Вложено: ${invested}</div></div>` +
+    `<div class="stats-overlay-top">` +
+    `<div class="skill-points-title">🌟 Очки опыта</div>` +
+    `<div class="skill-points-badge">Свободно: ${points} · Вложено: ${invested}</div>` +
+    `</div>` +
     `<div class="entry-title">Характеристики</div>` +
     `<div class="stats-grid">` +
-    statsOverlayRow(data, { ico: "❤️", label: "Здоровье", value: `${data.health} / ${liveMaxHealth(data)}`, spend: "health", gear: gearContribHtml(data, "maxHealth") }, canPlus("health"), canMinus("health")) +
-    statsOverlayRow(data, { ico: "⚔️", label: "Атака", value: String(liveAttack(data)), spend: "attack", gear: gearContribHtml(data, "attack") }, canPlus("attack"), canMinus("attack")) +
-    statsOverlayRow(data, { ico: "🛡️", label: "Защита", value: armorText(liveDefense(data)), spend: "defense", gear: gearContribHtml(data, "defense") }, canPlus("defense"), canMinus("defense")) +
-    statsOverlayRow(data, { ico: "🎯", label: "Крит-шанс", value: liveCritChance(data) + "%", spend: "critChance", gear: gearContribHtml(data, "critChance") }, canPlus("critChance"), canMinus("critChance")) +
-    statsOverlayRow(data, { ico: "💥", label: "Крит-урон", value: "+" + liveCritDamage(data) + "%", spend: "critDamage", gear: gearContribHtml(data, "critDamage") }, canPlus("critDamage"), canMinus("critDamage")) +
-    statsOverlayRow(data, { ico: "⭐", label: "Уровень", value: String(data.level), gear: "—" }, false, false) +
-    (data.level >= MAX_LEVEL
-      ? statsOverlayRow(data, { ico: "✨", label: "Опыт", value: "максимум", gear: "—" }, false, false)
-      : statsOverlayRow(data, { ico: "✨", label: "Опыт", value: `${data.experience} / ${needed}`, gear: "—" }, false, false)) +
+    statsOverlayRow(data, { ico: "❤️", label: "Здоровье", value: `${data.health} / ${liveMaxHealth(data)}`, spend: "health" }, canPlus("health"), canMinus("health")) +
+    statsOverlayRow(data, { ico: "⚔️", label: "Атака", value: String(liveAttack(data)), spend: "attack" }, canPlus("attack"), canMinus("attack")) +
+    statsOverlayRow(data, { ico: "🛡️", label: "Защита", value: armorText(liveDefense(data)), spend: "defense" }, canPlus("defense"), canMinus("defense")) +
+    statsOverlayRow(data, { ico: "🎯", label: "Крит-шанс", value: liveCritChance(data) + "%", spend: "critChance" }, canPlus("critChance"), canMinus("critChance")) +
+    statsOverlayRow(data, { ico: "💥", label: "Крит-урон", value: "+" + liveCritDamage(data) + "%", spend: "critDamage" }, canPlus("critDamage"), canMinus("critDamage")) +
+    statsOverlayRow(data, { ico: "✨", label: "Множитель опыта", value: liveExpMult(data) + "%" }, false, false) +
     `</div>` +
     (live ? `<button type="button" class="ghost skill-reset" data-skill-reset="1">↩️ Сбросить очки навыков</button>` : "") +
     `</div>`;
@@ -5826,21 +6468,49 @@ function showLevelUpChoice() {
   viewRefresh = showLevelUpChoice;
 }
 
-function enterForest() {
-  setChrome("play");
-  spawnEnemy(pickPhrase("location_enter"));
-}
-
-function goOnward() {
+function walkForward(leadIn) {
   const event = rollWalkEvent();
   if (event) {
     showWorldEvent(event);
     return;
   }
-  spawnEnemy(pickPhrase("walk"));
+  spawnEnemy(leadIn || pickPhrase("walk"));
+}
+
+function enterForest() {
+  setChrome("play");
+  walkForward(pickPhrase("location_enter"));
+}
+
+function goOnward() {
+  walkForward(pickPhrase("walk"));
 }
 
 function showWorldEvent(event, notes) {
+  const clicker = eventClickerOf(event);
+  if (clicker.enabled) {
+    if (!eventClickState || eventClickState.id !== event.id) {
+      eventClickState = { id: event.id, clicks: 0, done: false, result: notes || [] };
+    }
+    const state = eventClickState;
+    let result = state.result || [];
+    write(
+      eventScreenHtml(event, {
+        clickable: !state.done,
+        body:
+          `<div data-clicker-progress>${state.done ? "Готово." : "Нажатий: " + state.clicks + " / " + clicker.clicks}</div>` +
+          (result.length ? `<div>${result.map((line) => escapeHtml(line)).join("<br>")}</div>` : ""),
+      }),
+      "entry-info",
+      { gold: hero ? hero.gold : 0 }
+    );
+    if (!state.done) bindEventClickUi(event);
+    ask(state.done ? "Выбери действие:" : "", state.done ? [
+      { label: "🥾 Идти дальше", style: "primary", action: () => { eventClickState = null; spawnEnemy(); } },
+    ] : []);
+    viewRefresh = () => showWorldEvent(event, state.result);
+    return;
+  }
   let result = notes;
   if (!result) {
     result = applyEventEffects(event);
@@ -5849,15 +6519,52 @@ function showWorldEvent(event, notes) {
     refreshLocationTag();
   }
   write(
-    `<div class="entry-title">${escapeHtml(event.icon || "📌")} ${escapeHtml(event.name || "Событие")}</div>` +
-      `<div class="entry-desc">${escapeHtml(event.text || "")}</div>` +
-      (result.length ? `<div class="entry-desc">${result.map((line) => escapeHtml(line)).join("<br>")}</div>` : ""),
+    eventScreenHtml(event, {
+      clickable: false,
+      body: result.length ? result.map((line) => escapeHtml(line)).join("<br>") : "",
+    }),
     "entry-info"
   );
   ask("Выбери действие:", [
     { label: "🥾 Идти дальше", style: "primary", action: () => spawnEnemy() },
   ]);
   viewRefresh = () => showWorldEvent(event, result);
+}
+
+function bindEventClickUi(event) {
+  const stage = logBox.querySelector("[data-event-click]");
+  if (!stage || !eventClickState || eventClickState.done) return;
+  const onClick = (ev) => {
+    if (!eventClickState || eventClickState.done) return;
+    const rect = stage.getBoundingClientRect();
+    const x = (ev.clientX != null ? ev.clientX : (ev.touches && ev.touches[0] && ev.touches[0].clientX)) - rect.left;
+    const y = (ev.clientY != null ? ev.clientY : (ev.touches && ev.touches[0] && ev.touches[0].clientY)) - rect.top;
+    if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
+    ev.preventDefault();
+    const pop = grantEventClickReward(event);
+    eventClickState.clicks += 1;
+    const node = document.createElement("span");
+    node.className = "event-click-pop";
+    node.style.left = (x / Math.max(1, rect.width)) * 100 + "%";
+    node.style.top = (y / Math.max(1, rect.height)) * 100 + "%";
+    node.innerHTML = `<span class="event-click-ico">${escapeHtml(pop.icon)}</span><b>${escapeHtml(pop.text)}</b>`;
+    stage.appendChild(node);
+    window.setTimeout(() => { if (node.parentNode) node.parentNode.removeChild(node); }, 850);
+    const cfg = eventClickerOf(event);
+    const progress = logBox.querySelector("[data-clicker-progress]");
+    if (progress) progress.textContent = "Нажатий: " + eventClickState.clicks + " / " + cfg.clicks;
+    syncGoldHud({ gold: hero.gold });
+    storeSave();
+    if (eventClickState.clicks >= cfg.clicks) {
+      eventClickState.done = true;
+      eventClickState.result = applyEventEffects(event);
+      checkAchievements();
+      storeSave();
+      refreshLocationTag();
+      showWorldEvent(event, eventClickState.result);
+    }
+  };
+  stage.addEventListener("pointerdown", onClick);
 }
 
 function combatEconomy() {
@@ -5872,6 +6579,260 @@ function combatEconomy() {
     encounterBelowPct: Number(eco.encounterBelowPct) || 22,
     encounterAbovePct: Number(eco.encounterAbovePct) || 18,
     encounterSpikePct: Number(eco.encounterSpikePct) || 8,
+    fleeLossPct: eco.fleeLossPct == null ? 18 : Number(eco.fleeLossPct) || 0,
+    deathEquippedLossPct: eco.deathEquippedLossPct == null ? 12 : Number(eco.deathEquippedLossPct) || 0,
+    deathBagLossPct: eco.deathBagLossPct == null ? 7 : Number(eco.deathBagLossPct) || 0,
+    deathBagGoldValue: eco.deathBagGoldValue == null ? 500 : Math.max(0, Number(eco.deathBagGoldValue) || 0),
+  };
+}
+
+function rollChance(percent) {
+  return Math.random() * 100 < Math.max(0, Number(percent) || 0);
+}
+
+function itemGoldValue(item) {
+  if (!item) return 0;
+  const flat = ((GAME_DATA && GAME_DATA.shop) || []).find((row) => row && row.itemId === item.id && row.enabled !== false);
+  if (flat && Number(flat.price) > 0) return Math.round(Number(flat.price));
+  const shops = (GAME_DATA && GAME_DATA.shops) || [];
+  for (let index = 0; index < shops.length; index += 1) {
+    const line = ((shops[index] && shops[index].stock) || []).find((row) => row && row.itemId === item.id);
+    if (line && Number(line.price) > 0) return Math.round(Number(line.price));
+  }
+  return Math.max(0, Math.round(Number(item.buyPrice) || Number(item.sellPrice) || 0));
+}
+
+function itemsOfSlot(slot) {
+  return ((GAME_DATA && GAME_DATA.items) || []).filter((item) => item && normalizeItemSlot(item.slot) === slot);
+}
+
+function bagRowsOfSlot(data, slot) {
+  return ((data && data.inventory) || []).filter((row) => {
+    const item = findItem(row.id);
+    return item && normalizeItemSlot(item.slot) === slot && bagCount(data, row.id) > 0;
+  });
+}
+
+function equippedSlotIds(data) {
+  const equipped = normalizeEquipped(data && data.equipped);
+  return GEAR_SLOTS.filter((slot) => equipped[slot]);
+}
+
+function takeGoldFromHero(data, amount) {
+  const need = Math.max(0, Math.round(Number(amount) || 0));
+  const have = Math.max(0, Number(data && data.gold) || 0);
+  const taken = Math.min(have, need);
+  if (data) data.gold = have - taken;
+  return taken;
+}
+
+function stripOneEquipped(data) {
+  const slots = equippedSlotIds(data);
+  if (!slots.length) return null;
+  const slot = slots[Math.floor(Math.random() * slots.length)];
+  const id = normalizeEquipped(data.equipped)[slot];
+  const item = findItem(id);
+  if (!item) return null;
+  unequipItem(data, id);
+  takeItem(data, id, 1);
+  return { item, count: 1, kind: "gear" };
+}
+
+function stripOneBagWearable(data) {
+  const rows = [];
+  GEAR_SLOTS.forEach((slot) => {
+    bagRowsOfSlot(data, slot).forEach((row) => rows.push(row));
+  });
+  if (!rows.length) return null;
+  const row = rows[Math.floor(Math.random() * rows.length)];
+  const item = findItem(row.id);
+  if (!item || !takeItem(data, row.id, 1)) return null;
+  return { item, count: 1, kind: "gear" };
+}
+
+function stripValueFromBag(data, target, slots) {
+  const need = Math.max(0, Math.round(Number(target) || 0));
+  const taken = [];
+  let value = 0;
+  const pool = [];
+  (slots || ["material", "trophy"]).forEach((slot) => {
+    bagRowsOfSlot(data, slot).forEach((row) => {
+      const item = findItem(row.id);
+      if (!item) return;
+      const have = bagCount(data, row.id);
+      for (let i = 0; i < have; i += 1) pool.push(item);
+    });
+  });
+  while (pool.length && value < need) {
+    const index = Math.floor(Math.random() * pool.length);
+    const item = pool.splice(index, 1)[0];
+    if (!takeItem(data, item.id, 1)) continue;
+    value += itemGoldValue(item);
+    const prev = taken.find((row) => row.item.id === item.id);
+    if (prev) prev.count += 1;
+    else taken.push({ item, count: 1, kind: normalizeItemSlot(item.slot) === "material" ? "material" : "trophy" });
+  }
+  return { items: taken, value };
+}
+
+function emptyLossResult(goldBefore) {
+  return { items: [], gold: 0, goldBefore: goldBefore || 0, any: false };
+}
+
+function resolveFleeLoss() {
+  const eco = combatEconomy();
+  const goldBefore = Math.max(0, Number(hero && hero.gold) || 0);
+  const result = emptyLossResult(goldBefore);
+  if (!hero || !rollChance(eco.fleeLossPct)) return result;
+  const mats = bagRowsOfSlot(hero, "material");
+  if (mats.length) {
+    const row = mats[Math.floor(Math.random() * mats.length)];
+    const item = findItem(row.id);
+    if (item && takeItem(hero, row.id, 1)) {
+      result.items.push({ item, count: 1, kind: "material" });
+      result.any = true;
+    }
+    return result;
+  }
+  const catalog = itemsOfSlot("material").filter((item) => itemGoldValue(item) > 0);
+  if (!catalog.length || goldBefore < 1) return result;
+  const pick = catalog[Math.floor(Math.random() * catalog.length)];
+  result.gold = takeGoldFromHero(hero, itemGoldValue(pick));
+  result.any = result.gold > 0;
+  return result;
+}
+
+function resolveDeathLoss() {
+  const eco = combatEconomy();
+  const goldBefore = Math.max(0, Number(hero && hero.gold) || 0);
+  const result = emptyLossResult(goldBefore);
+  if (!hero) return result;
+  if (rollChance(eco.deathEquippedLossPct)) {
+    const lost = stripOneEquipped(hero) || stripOneBagWearable(hero);
+    if (lost) {
+      result.items.push(lost);
+      result.any = true;
+      return result;
+    }
+  }
+  if (!rollChance(eco.deathBagLossPct)) return result;
+  const bagGear = stripOneBagWearable(hero);
+  if (bagGear) {
+    result.items.push(bagGear);
+    result.any = true;
+    return result;
+  }
+  const bag = stripValueFromBag(hero, eco.deathBagGoldValue, ["material", "trophy"]);
+  result.items = bag.items;
+  const rest = Math.max(0, eco.deathBagGoldValue - bag.value);
+  if (rest > 0) result.gold = takeGoldFromHero(hero, rest);
+  result.any = result.items.length > 0 || result.gold > 0;
+  return result;
+}
+
+function lossChipHtml(row) {
+  if (!row || !row.item) return "";
+  const name = escapeHtml(row.item.name || "");
+  const icon = escapeHtml(row.item.icon || "📦");
+  const extra = row.count > 1 ? `<small>×${row.count}</small>` : "";
+  return `<button type="button" class="death-loss-chip" data-loss-item="${escapeHtml(row.item.id)}" title="${name}">${icon}${extra}</button>`;
+}
+
+function lossItemsHtml(loss) {
+  if (!loss) return "";
+  const chips = (loss.items || []).map(lossChipHtml).filter(Boolean);
+  if (loss.gold > 0) {
+    chips.push(`<span class="death-loss-chip is-static">💰 −${loss.gold}</span>`);
+  }
+  if (!chips.length) return "";
+  return (
+    `<div class="death-loss">` +
+    `<div class="entry-desc">Вы потеряли...</div>` +
+    `<div class="death-loss-items">${chips.join("")}</div>` +
+    `</div>`
+  );
+}
+
+function deathPityOnly(loss) {
+  return !!(loss && !(loss.items || []).length && loss.gold > 0 && loss.gold <= 100);
+}
+
+function deathLossHtml(loss) {
+  if (!loss) return "";
+  if (!loss.any) {
+    return `<div class="entry-desc death-loss-note">Сегодня вы отделались только смертью, уже неплохо!</div>`;
+  }
+  if (deathPityOnly(loss)) {
+    return (
+      `<div class="death-loss">` +
+      `<div class="death-loss-gold">💰 −${loss.gold}</div>` +
+      `<div class="entry-desc death-loss-note">Даже монстрам у вас почти нечего было красть</div>` +
+      `</div>`
+    );
+  }
+  return lossItemsHtml(loss);
+}
+
+function openLossItem(id, from) {
+  const item = findItem(id);
+  if (!item) return;
+  const slot = normalizeItemSlot(item.slot);
+  showDetailOverlay(
+    `<div class="equip-ico" style="font-size:32px;margin-bottom:8px">${escapeHtml(item.icon || "📦")}</div>` +
+    `<div class="entry-title">${escapeHtml(item.name)}</div>` +
+    `<div class="entry-desc">${escapeHtml(itemTypeLabel(slot))}</div>` +
+    `<div class="entry-desc">${itemStatsHtml(item)}</div>` +
+    (item.description ? `<div class="entry-desc">${escapeHtml(item.description)}</div>` : "") +
+    `<div class="entry-desc">Нажмите на карточку, чтобы закрыть</div>`,
+    {
+      hideClose: true,
+      tapClose: true,
+      onClose: from === "flee" ? showFleeLossOverlay : null,
+    }
+  );
+}
+
+function bindLossChips(root, from) {
+  (root || logBox).querySelectorAll("[data-loss-item]").forEach((node) => {
+    node.onclick = () => openLossItem(node.getAttribute("data-loss-item"), from);
+  });
+}
+
+function showFleeLossOverlay() {
+  const loss = lastFleeLoss;
+  showDetailOverlay(
+    `<div class="entry-title">🏃 Вы сбежали.</div>` +
+    `<div class="entry-desc">В спешке что-то пропало.</div>` +
+    lossItemsHtml(loss),
+    { onClose: heroHub }
+  );
+  const card = document.getElementById("detailOverlayCard");
+  if (card) bindLossChips(card, "flee");
+}
+
+function showConfirmOverlay(spec) {
+  showDetailOverlay(
+    `<div class="entry-title">${escapeHtml(spec.title || "")}</div>` +
+    `<div class="entry-desc">${escapeHtml(spec.text || "")}</div>` +
+    `<div class="confirm-actions">` +
+    `<button type="button" class="primary" data-confirm-ok="1">${escapeHtml(spec.ok || "Да")}</button>` +
+    `<button type="button" class="ghost" data-confirm-cancel="1">${escapeHtml(spec.cancel || "Нет")}</button>` +
+    `</div>`,
+    { confirm: true, hideClose: true }
+  );
+  const card = document.getElementById("detailOverlayCard");
+  if (!card) return;
+  const ok = card.querySelector("[data-confirm-ok]");
+  const cancel = card.querySelector("[data-confirm-cancel]");
+  if (ok) ok.onclick = (event) => {
+    event.stopPropagation();
+    hideDetailOverlay();
+    if (spec.onOk) spec.onOk();
+  };
+  if (cancel) cancel.onclick = (event) => {
+    event.stopPropagation();
+    hideDetailOverlay();
+    if (spec.onCancel) spec.onCancel();
   };
 }
 
@@ -5913,16 +6874,16 @@ function enemyRawDamage(kind, reference) {
 }
 
 function referenceHero(level) {
-  const steps = level - 1;
+  const steps = Math.max(0, level - 1);
   return {
-    attack: 3 + steps,
-    defense: 2 + steps,
-    maxHealth: 7 + 3.2 * steps,
+    attack: 6 + steps,
+    defense: 6 + steps,
+    maxHealth: 24 + 3 * steps,
   };
 }
 
 function clampLevel(level) {
-  return Math.min(MAX_LEVEL, Math.max(1, level));
+  return Math.min(maxEnemyLevel(), Math.max(1, level));
 }
 
 function pickEnemyLevel(heroLevel) {
@@ -6136,21 +7097,32 @@ function combatMenu() {
   const options = [
     { label: "⚔️ Атаковать", style: "primary", action: attack },
     { label: "👤 Информация о персонаже", action: () => openHeroSheet(combatMenu, "hero", { inCombat: true }) },
-    { label: "🏃 Сбежать из боя", action: flee },
+    { label: "🏃 Сбежать из боя", action: askFlee },
   ];
   ask("Выбери действие:", options);
   viewRefresh = combatMenu;
 }
 
-function flee() {
+function askFlee() {
+  showConfirmOverlay({
+    title: "Сбежать из боя",
+    text: "Бегство может спасти вам жизнь, но в спешке легко потерять что-то ценное",
+    ok: "Сбежать",
+    cancel: "Остаться",
+    onOk: doFlee,
+  });
+}
+
+function doFlee() {
+  const loss = resolveFleeLoss();
   enemy = null;
   lastHit = null;
   encounterNote = "";
   afterSkillPointTarget = heroHub;
-  const note = pickPhrase("flee");
-  if (note) {
-    write(`<div class="entry-title">🏃 Вы сбежали.</div><div class="entry-desc">${escapeHtml(note)}</div>`, "entry-info");
-    ask("Выбери действие:", [{ label: "▶️ Дальше", style: "primary", action: heroHub }]);
+  storeSave();
+  lastFleeLoss = loss;
+  if (loss && loss.any) {
+    showFleeLossOverlay();
     viewRefresh = heroHub;
     return;
   }
@@ -6240,7 +7212,7 @@ function openHeroSheet(back, tab, options) {
   buttons.push({ label: "⚒️ Крафт", action: () => openCraft(back, settings) });
   if (settings.inCombat) {
     buttons.push({ label: "▶️ Вернуться в бой", style: "primary", action: back });
-    buttons.push({ label: "🏃 Сбежать из боя", action: flee });
+    buttons.push({ label: "🏃 Сбежать из боя", action: askFlee });
   } else {
     buttons.push({ label: "↩️ Назад", style: "primary", action: back });
   }
@@ -6579,10 +7551,8 @@ function craftPanelHtml() {
     cls += " craft-progress";
     inner = `<div class="entry-desc" data-vx="craft-panel-text">Добавьте ещё один ингредиент для крафта.</div>`;
   } else if (mode === "ready") {
-    tag = "button";
     cls += " craft-ready";
-    attrs = ' type="button" data-craft-now="1"';
-    inner = `<span class="craft-ready-text" data-vx="craft-ready-text">Скрафтить</span>`;
+    inner = `<button type="button" class="craft-ready-btn" data-craft-now="1"><span class="craft-ready-text" data-vx="craft-ready-text">Скрафтить</span></button>`;
   } else if (mode === "fail") {
     cls += " craft-fail";
     inner = `<div class="entry-desc" data-vx="craft-panel-text">${escapeHtml(flash.text || "Подсказка: крафт не удался, предметы удалены.")}</div>`;
@@ -6704,7 +7674,7 @@ function openCraft(back, options) {
   const buttons = [];
   if (settings.inCombat) {
     buttons.push({ label: "▶️ Вернуться в бой", action: craftState.back });
-    buttons.push({ label: "🏃 Сбежать из боя", action: flee });
+    buttons.push({ label: "🏃 Сбежать из боя", action: askFlee });
   } else {
     buttons.push({ label: "↩️ Назад", style: "ghost", action: craftState.back });
   }
@@ -6992,7 +7962,7 @@ function openShop(back, options) {
   const buttons = [];
   if (settings.inCombat || enemy) {
     buttons.push({ label: "▶️ Вернуться в бой", style: "primary", action: shopBack || combatMenu });
-    buttons.push({ label: "🏃 Сбежать из боя", action: flee });
+    buttons.push({ label: "🏃 Сбежать из боя", action: askFlee });
   } else {
     buttons.push({ label: "↩️ Назад", style: "ghost", action: shopBack || heroHub });
   }
@@ -7073,28 +8043,26 @@ function attack() {
 function victory() {
   hero.wins += 1;
   noteKill(enemy && enemy.kindId);
-  const gainedExp = enemy.exp;
+  const gainedExp = Math.max(0, Math.round((Number(enemy.exp) || 0) * (1 + liveExpMult(hero) / 100)));
   hero.experience += gainedExp;
 
   let gained = 0;
   let armorGained = 0;
+  let hpGained = 0;
+  let atkGained = 0;
   let needed = expNeeded(hero.level);
-  while (hero.level < MAX_LEVEL && hero.experience >= needed) {
+  while (hero.level < maxHeroLevel() && hero.experience >= needed) {
     hero.experience -= needed;
     hero.level += 1;
-    hero.skillPoints += 1;
-    hero.maxHealth += 3;
-    hero.health += 3;
-    hero.attack += 1;
-    if (clampArmor(hero.defense) < MAX_ARMOR) {
-      hero.defense = clampArmor(hero.defense + 1);
-      armorGained += 1;
-    }
+    const step = applyHeroLevelUp(hero);
+    armorGained += step.armor || 0;
+    hpGained += (step.gain && step.gain.maxHealth) || 0;
+    atkGained += (step.gain && step.gain.attack) || 0;
     gained += 1;
     needed = expNeeded(hero.level);
   }
 
-  if (hero.level >= MAX_LEVEL) {
+  if (hero.level >= maxHeroLevel()) {
     hero.experience = 0;
   }
 
@@ -7111,6 +8079,7 @@ function victory() {
     if (Math.random() * 100 >= chance) return;
     const equippedNow = giveItem(hero, item);
     drops.push({
+      id: item.id,
       icon: item.icon || "📦",
       name: item.name + (equippedNow ? " (надето)" : ""),
     });
@@ -7121,16 +8090,16 @@ function victory() {
   if (drops.length) {
     extra += `<div class="victory-drops"><div>🎒 Добыча</div><div class="victory-drops-icons">`;
     extra += drops.map((row) => (
-      `<span class="victory-drop" title="${escapeHtml(row.name)}">` +
+      `<button type="button" class="victory-drop" data-loot-item="${escapeHtml(row.id)}" title="${escapeHtml(row.name)}">` +
       `<span class="equip-ico">${escapeHtml(row.icon)}</span>` +
       `<span class="victory-drop-name">${escapeHtml(row.name)}</span>` +
-      `</span>`
+      `</button>`
     )).join("");
     extra += `</div></div>`;
   }
   extra += `</div>` + phraseHtml("victory");
   lastLevelGain = gained > 0
-    ? { levels: gained, hp: gained * 3, atk: gained, def: armorGained }
+    ? { levels: gained, hp: hpGained, atk: atkGained, def: armorGained }
     : null;
 
   if (hero.level > (save.stats && save.stats.maxLevel || 1)) save.stats.maxLevel = hero.level;
@@ -7164,8 +8133,15 @@ function showVictory(extra) {
     },
   ];
   ask("Выбери действие:", options);
+  bindVictoryLoot();
   viewRefresh = () => showVictory();
   maybeStartGuide("afterCombat");
+}
+
+function bindVictoryLoot() {
+  logBox.querySelectorAll("[data-loot-item]").forEach((node) => {
+    node.onclick = () => openLossItem(node.getAttribute("data-loot-item"), "loot");
+  });
 }
 
 function victoryMenu() {
@@ -7178,6 +8154,7 @@ function victoryHeroInfo() {
 
 function death() {
   enemy = null;
+  lastDeathLoss = resolveDeathLoss();
   ensureSaveMeta();
   save.stats.deaths += 1;
   const bag = heroStats();
@@ -7226,11 +8203,16 @@ function bindDeathShortcuts() {
 }
 
 function deathMenu() {
+  const loss = lastDeathLoss;
+  const lead = loss && loss.any
+    ? '<div class="entry-desc">Не все враги уходят с пустыми руками...</div>'
+    : "";
   write(
     '<div class="entry-title">💀 Вы умерли</div>' +
-      '<div class="entry-desc">Здоровье упало до нуля.</div>' +
+      lead +
       phraseHtml("death") +
-      statsBlock(hero) +
+      statsBlock(hero, { skipBars: true }) +
+      deathLossHtml(loss) +
       deathShortcutsHtml(),
     "entry-bad"
   );
@@ -7242,7 +8224,7 @@ function deathMenu() {
       action: () => {
         hero.health = liveMaxHealth(hero);
         storeSave();
-        spawnEnemy(pickPhrase("revive"));
+        heroHub();
       },
     },
     {
@@ -7255,6 +8237,7 @@ function deathMenu() {
     },
   ]);
   bindDeathShortcuts();
+  bindLossChips(logBox, "death");
   viewRefresh = deathMenu;
 }
 
@@ -7348,7 +8331,7 @@ window.addEventListener("resize", syncPlayBreakpoint);
 
 start();
 </script>
-<script src="visual_editor.js?v=layout-flow-3"></script>
+<script src="visual_editor.js?v=alpha-png-1"></script>
 <script>
 (function () {
   const bar = document.getElementById("studioBar");
