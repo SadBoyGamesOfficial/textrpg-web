@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788731703588",
+  "assetRev": "1788734471863",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
@@ -1969,7 +1969,7 @@
       "name": "Лесная фея",
       "icon": "🧚",
       "locationId": "location_forgotten_forest",
-      "chance": 6,
+      "chance": 10,
       "text": "Во время пути перед вами неожиданно появляется маленькая лесная фея. Она касается вас ладонью, и усталость понемногу отступает",
       "enabled": true,
       "effects": [],
@@ -2186,9 +2186,9 @@
       "healEnabled": false,
       "healAmount": 0,
       "healPercent": 0,
-      "statGainEnabled": false,
+      "statGainEnabled": true,
       "statGainOnce": true,
-      "statGainMode": "all",
+      "statGainMode": "perClass",
       "statGain": {
         "maxHealth": 0,
         "attack": 0,
@@ -2196,7 +2196,29 @@
         "critChance": 0,
         "critDamage": 0
       },
-      "statGainByClass": {},
+      "statGainByClass": {
+        "Маг": {
+          "maxHealth": 1,
+          "attack": 2,
+          "defense": 1,
+          "critChance": 0,
+          "critDamage": 5
+        },
+        "Воин": {
+          "maxHealth": 4,
+          "attack": 0,
+          "defense": 5,
+          "critChance": 0,
+          "critDamage": 0
+        },
+        "Лучник": {
+          "maxHealth": 1,
+          "attack": 1,
+          "defense": 1,
+          "critChance": 1,
+          "critDamage": 2
+        }
+      },
       "choiceEnabled": false,
       "choicePickCount": 1,
       "choiceDoneText": "Вы получили выбранный ресурс",
@@ -2379,11 +2401,11 @@
       "loot": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 2
+          "chance": 3
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 2
+          "chance": 3
         },
         {
           "itemId": "item_forest_berry",
@@ -2399,7 +2421,7 @@
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1.5
+          "chance": 5
         }
       ],
       "image": "asset/library/enemy_forest_rat.png",
@@ -2439,23 +2461,23 @@
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_forest_root",
-          "chance": 1
+          "chance": 2
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_wolf_pelt",
-          "chance": 0.75
+          "chance": 1.5
         },
         {
           "itemId": "item_traveler_head",
@@ -2511,7 +2533,7 @@
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.5
+          "chance": 0.2
         },
         {
           "itemId": "item_traveler_chest",
@@ -2519,7 +2541,11 @@
         },
         {
           "itemId": "item_traveler_weapon",
-          "chance": 1
+          "chance": 4
+        },
+        {
+          "itemId": "item_robber_sign",
+          "chance": 0.3
         }
       ],
       "image": "asset/library/enemy_forest_robber.png",
@@ -2567,11 +2593,11 @@
         },
         {
           "itemId": "item_robber_sign",
-          "chance": 0.1
+          "chance": 0.6
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.6
+          "chance": 0.4
         },
         {
           "itemId": "item_traveler_legs",
@@ -2726,11 +2752,11 @@
       "drops": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 2
+          "chance": 3
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 2
+          "chance": 3
         },
         {
           "itemId": "item_forest_berry",
@@ -2746,7 +2772,7 @@
         },
         {
           "itemId": "item_stick_club",
-          "chance": 1.5
+          "chance": 5
         }
       ]
     },
@@ -2760,23 +2786,23 @@
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_forest_root",
-          "chance": 1
+          "chance": 2
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 4
+          "chance": 5
         },
         {
           "itemId": "item_wolf_pelt",
-          "chance": 0.75
+          "chance": 1.5
         },
         {
           "itemId": "item_traveler_head",
@@ -2806,7 +2832,7 @@
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.5
+          "chance": 0.2
         },
         {
           "itemId": "item_traveler_chest",
@@ -2814,7 +2840,11 @@
         },
         {
           "itemId": "item_traveler_weapon",
-          "chance": 1
+          "chance": 4
+        },
+        {
+          "itemId": "item_robber_sign",
+          "chance": 0.3
         }
       ]
     },
@@ -2836,11 +2866,11 @@
         },
         {
           "itemId": "item_robber_sign",
-          "chance": 0.1
+          "chance": 0.6
         },
         {
           "itemId": "item_robber_knife",
-          "chance": 0.6
+          "chance": 0.4
         },
         {
           "itemId": "item_traveler_legs",
