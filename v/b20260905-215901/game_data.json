@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788783198804",
+  "assetRev": "1788783606390",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
@@ -2401,23 +2401,23 @@
       "loot": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 3
+          "chance": 5
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 3
+          "chance": 5
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_stick_club",
@@ -2461,15 +2461,15 @@
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 7
+          "chance": 8
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 7
+          "chance": 8
         },
         {
           "itemId": "item_forest_root",
-          "chance": 6
+          "chance": 7
         },
         {
           "itemId": "item_forest_stick",
@@ -2517,19 +2517,19 @@
       "loot": [
         {
           "itemId": "item_cloth_strip",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_robber_knife",
@@ -2581,15 +2581,15 @@
       "loot": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_cloth_strip",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_robber_sign",
@@ -2645,19 +2645,19 @@
       "loot": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 5
+          "chance": 8
         },
         {
           "itemId": "item_iron_head",
@@ -2752,23 +2752,23 @@
       "drops": [
         {
           "itemId": "item_rusty_fang",
-          "chance": 3
+          "chance": 5
         },
         {
           "itemId": "item_rat_tail",
-          "chance": 3
+          "chance": 5
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 6
+          "chance": 8
         },
         {
           "itemId": "item_stick_club",
@@ -2786,15 +2786,15 @@
         },
         {
           "itemId": "item_forest_herb",
-          "chance": 7
+          "chance": 8
         },
         {
           "itemId": "item_tree_sap",
-          "chance": 7
+          "chance": 8
         },
         {
           "itemId": "item_forest_root",
-          "chance": 6
+          "chance": 7
         },
         {
           "itemId": "item_forest_stick",
@@ -2816,19 +2816,19 @@
       "drops": [
         {
           "itemId": "item_cloth_strip",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_robber_knife",
@@ -2854,15 +2854,15 @@
       "drops": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_cloth_strip",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_robber_sign",
@@ -2892,19 +2892,19 @@
       "drops": [
         {
           "itemId": "item_iron_scrap",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_charcoal",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 10
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 5
+          "chance": 8
         },
         {
           "itemId": "item_iron_head",
