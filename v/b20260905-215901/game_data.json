@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788782947909",
+  "assetRev": "1788783198804",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
@@ -2409,15 +2409,15 @@
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 5
+          "chance": 6
         },
         {
           "itemId": "item_stick_club",
@@ -2469,7 +2469,7 @@
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_stick",
@@ -2521,15 +2521,15 @@
         },
         {
           "itemId": "item_charcoal",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_forest_root",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_robber_knife",
@@ -2760,15 +2760,15 @@
         },
         {
           "itemId": "item_forest_berry",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_mushroom",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_stick",
-          "chance": 5
+          "chance": 6
         },
         {
           "itemId": "item_stick_club",
@@ -2794,7 +2794,7 @@
         },
         {
           "itemId": "item_forest_root",
-          "chance": 4
+          "chance": 6
         },
         {
           "itemId": "item_forest_stick",
@@ -2820,15 +2820,15 @@
         },
         {
           "itemId": "item_charcoal",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_forest_root",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_iron_scrap",
-          "chance": 3
+          "chance": 4
         },
         {
           "itemId": "item_robber_knife",
