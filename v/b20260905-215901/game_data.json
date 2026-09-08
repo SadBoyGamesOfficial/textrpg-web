@@ -1,5 +1,5 @@
 {
-  "assetRev": "1788783606390",
+  "assetRev": "1788891207939",
   "economy": {
     "startingGold": 0,
     "craftFailMs": 5000,
@@ -14,10 +14,10 @@
     "encounterBelowPct": 16,
     "encounterAbovePct": 18,
     "encounterSpikePct": 12,
-    "fleeLossPct": 8,
-    "deathEquippedLossPct": 10,
+    "fleeLossPct": 5,
+    "deathEquippedLossPct": 5,
     "deathBagLossPct": 5,
-    "deathBagGoldValue": 500
+    "deathBagGoldValue": 300
   },
   "progression": {
     "maxHeroLevel": 50,
